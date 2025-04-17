@@ -1,0 +1,112 @@
+.container {
+  padding: 2rem 1rem;
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
+.heading {
+  font-size: 2.5rem;
+  font-weight: 700;
+  margin-bottom: 2rem;
+  color: #000;
+}
+
+.grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 1.5rem;
+}
+
+.card {
+  background: white;
+  border-radius: 12px;
+  padding: 1.5rem;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.05);
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
+  cursor: pointer;
+}
+
+.card:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 6px 15px rgba(0, 0, 0, 0.1);
+}
+
+.iconContainer {
+  margin-bottom: 1rem;
+  height: 80px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.icon {
+  object-fit: contain;
+}
+
+.serviceName {
+  font-size: 1rem;
+  font-weight: 600;
+  text-align: center;
+  margin: 0;
+}
+
+.loading {
+  text-align: center;
+  padding: 2rem;
+  font-size: 1.2rem;
+  color: #666;
+}
+
+.error {
+  text-align: center;
+  padding: 2rem;
+  font-size: 1.2rem;
+  color: #d32f2f;
+  background-color: #ffebee;
+  border-radius: 8px;
+  max-width: 600px;
+  margin: 0 auto;
+}
+
+/* Responsive styles */
+@media (max-width: 768px) {
+  .grid {
+    grid-template-columns: repeat(3, 1fr); /* Keep 3 columns on tablet */
+    gap: 1rem; /* Reduce gap slightly for smaller screens */
+  }
+
+  .heading {
+    font-size: 2rem;
+  }
+
+  .card {
+    padding: 1rem; /* Reduce padding on smaller screens */
+  }
+}
+
+@media (max-width: 480px) {
+  .grid {
+    grid-template-columns: repeat(3, 1fr); /* Keep 3 columns on mobile */
+    gap: 0.75rem; /* Reduce gap further for mobile */
+  }
+
+  .heading {
+    font-size: 1.75rem;
+  }
+
+  .card {
+    padding: 0.75rem; /* Further reduce padding on mobile */
+  }
+
+  .serviceName {
+    font-size: 0.9rem; /* Slightly reduce font size for mobile */
+  }
+
+  .iconContainer {
+    height: 60px; /* Reduce icon container height for mobile */
+  }
+}

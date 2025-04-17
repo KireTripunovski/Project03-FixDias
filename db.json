@@ -1,0 +1,1152 @@
+{
+  "users": [
+    {
+      "id": "615d75a8-5a70-4303-9355-cafdc29a0616",
+      "name": "Kire Tripunovski",
+      "email": "user1@example.com",
+      "password": "123",
+      "phoneNumber": "12345",
+      "userType": "handyman"
+    },
+    {
+      "id": "5c4e0b2-1f3d-4a8b-9f5c-7a6e0d1f2a3",
+      "name": "Anna Muller",
+      "email": "annamuller@ggmail.com",
+      "password": "123",
+      "phoneNumber": "1234567890",
+      "userType": "customer"
+    },
+    {
+      "id": "2facde83-f470-4e9d-ac35-6280682ae1f2",
+      "name": "Kire Tripunovski",
+      "email": "kir4emkd@gmail.com",
+      "password": "123",
+      "phoneNumber": "21323424",
+      "userType": "handyman"
+    },
+    {
+      "id": "f0b26f76-60fe-4c60-a170-ac99f1c5d7c1",
+      "name": "Kire Tripunovski",
+      "email": "123@vwqv.com",
+      "password": "123",
+      "phoneNumber": "123",
+      "userType": "handyman"
+    }
+  ],
+  "serviceCategories": [
+    {
+      "id": "main1",
+      "name": "Construction & Masonry",
+      "subcategories": [
+        {
+          "id": "c1",
+          "name": "Masonry",
+          "description": "Brick masonry, plastering, and renovation services",
+          "imageUrl": "masonry-category.jpg"
+        },
+        {
+          "id": "c4",
+          "name": "Drywall Installation",
+          "description": "Interior fittings, ceiling and wall cladding",
+          "imageUrl": "drywall-category.jpg"
+        },
+        {
+          "id": "c6",
+          "name": "Roofing",
+          "description": "Roof repairs, waterproofing, gutters",
+          "imageUrl": "roofing-category.jpg"
+        }
+      ]
+    },
+    {
+      "id": "main2",
+      "name": "Flooring & Tiling",
+      "subcategories": [
+        {
+          "id": "c2",
+          "name": "Tile Installation",
+          "description": "Professional wall and floor tiling services",
+          "imageUrl": "tile-category.jpg"
+        }
+      ]
+    },
+    {
+      "id": "main3",
+      "name": "Painting & Finishing",
+      "subcategories": [
+        {
+          "id": "c3",
+          "name": "Painting Services",
+          "description": "Wall painting, facade painting, and varnishing",
+          "imageUrl": "painting-category.jpg"
+        }
+      ]
+    },
+    {
+      "id": "main4",
+      "name": "Carpentry & Woodwork",
+      "subcategories": [
+        {
+          "id": "c5",
+          "name": "Carpentry and Joinery",
+          "description": "Furniture, door and window manufacturing, woodworking",
+          "imageUrl": "carpentry-category.jpg"
+        },
+        {
+          "id": "c16",
+          "name": "Furniture Repair",
+          "description": "Custom items and furniture repairs",
+          "imageUrl": "furniture-category.jpg"
+        }
+      ]
+    },
+    {
+      "id": "main5",
+      "name": "Electrical & Smart Systems",
+      "subcategories": [
+        {
+          "id": "c7",
+          "name": "Electrical Services",
+          "description": "Electrical installations, connections, fuse boxes",
+          "imageUrl": "electrical-category.jpg"
+        },
+        {
+          "id": "c8",
+          "name": "Solar Energy",
+          "description": "Installation of photovoltaic and solar systems",
+          "imageUrl": "solar-category.jpg"
+        },
+        {
+          "id": "c9",
+          "name": "Smart Home Systems",
+          "description": "Automation and smart systems installation",
+          "imageUrl": "smarthome-category.jpg"
+        },
+        {
+          "id": "c26",
+          "name": "Security Systems",
+          "description": "Alarm system and video surveillance installation",
+          "imageUrl": "security-category.jpg"
+        }
+      ]
+    },
+    {
+      "id": "main6",
+      "name": "Plumbing & HVAC",
+      "subcategories": [
+        {
+          "id": "c10",
+          "name": "Plumbing Services",
+          "description": "Water pipes, water repairs, and installations",
+          "imageUrl": "plumbing-category.jpg"
+        },
+        {
+          "id": "c11",
+          "name": "Heating Systems",
+          "description": "Installation, maintenance and repair of heating systems",
+          "imageUrl": "heating-category.jpg"
+        },
+        {
+          "id": "c12",
+          "name": "Air Conditioning",
+          "description": "Installation and maintenance of air conditioning systems",
+          "imageUrl": "ac-category.jpg"
+        }
+      ]
+    },
+    {
+      "id": "main7",
+      "name": "Windows, Doors & Glass",
+      "subcategories": [
+        {
+          "id": "c13",
+          "name": "Windows and Doors",
+          "description": "Window installation and repair services",
+          "imageUrl": "windows-category.jpg"
+        },
+        {
+          "id": "c14",
+          "name": "Glass Services",
+          "description": "Glass repairs, shower enclosures, glass roofs",
+          "imageUrl": "glass-category.jpg"
+        }
+      ]
+    },
+    {
+      "id": "main8",
+      "name": "Metal & Welding",
+      "subcategories": [
+        {
+          "id": "c15",
+          "name": "Metal Work",
+          "description": "Security doors, fences, stairs installation",
+          "imageUrl": "metalwork-category.jpg"
+        },
+        {
+          "id": "c17",
+          "name": "Welding Services",
+          "description": "Metalworking and construction",
+          "imageUrl": "welding-category.jpg"
+        }
+      ]
+    },
+    {
+      "id": "main9",
+      "name": "Outdoor & Landscaping",
+      "subcategories": [
+        {
+          "id": "c19",
+          "name": "Landscaping",
+          "description": "Gardening and paving services",
+          "imageUrl": "landscaping-category.jpg"
+        },
+        {
+          "id": "c20",
+          "name": "Fence Installation",
+          "description": "Fence installation and repair",
+          "imageUrl": "fence-category.jpg"
+        },
+        {
+          "id": "c21",
+          "name": "Pool Services",
+          "description": "Pool installation and maintenance",
+          "imageUrl": "pool-category.jpg"
+        }
+      ]
+    },
+    {
+      "id": "main10",
+      "name": "Assembly & Transport",
+      "subcategories": [
+        {
+          "id": "c22",
+          "name": "Transport Services",
+          "description": "Furniture transport and assembly",
+          "imageUrl": "transport-category.jpg"
+        },
+        {
+          "id": "c23",
+          "name": "Furniture Assembly",
+          "description": "Furniture assembly and disassembly",
+          "imageUrl": "assembly-category.jpg"
+        },
+        {
+          "id": "c24",
+          "name": "Kitchen Installation",
+          "description": "Shelf and kitchen assembly",
+          "imageUrl": "kitchen-category.jpg"
+        }
+      ]
+    },
+    {
+      "id": "main11",
+      "name": "IT & Technical Services",
+      "subcategories": [
+        {
+          "id": "c25",
+          "name": "IT Services",
+          "description": "Computer network installation and assistance",
+          "imageUrl": "it-category.jpg"
+        }
+      ]
+    },
+    {
+      "id": "main12",
+      "name": "Maintenance & Repairs",
+      "subcategories": [
+        {
+          "id": "c18",
+          "name": "Maintenance Services",
+          "description": "Minor repairs and maintenance work",
+          "imageUrl": "maintenance-category.jpg"
+        }
+      ]
+    }
+  ],
+  "userPreferences": [
+    {
+      "id": "48427d61-7f42-46a6-8571-b7eb4a39a4af",
+      "userId": "615d75a8-5a70-4303-9355-cafdc29a0616",
+      "selectedCategories": [
+        {
+          "categoryId": "main5",
+          "categoryName": "Electrical & Smart Systems",
+          "subcategories": [
+            {
+              "id": "c7",
+              "name": "Electrical Services"
+            },
+            {
+              "id": "c8",
+              "name": "Solar Energy"
+            },
+            {
+              "id": "c9",
+              "name": "Smart Home Systems"
+            },
+            {
+              "id": "c26",
+              "name": "Security Systems"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "0845e7c0-7781-4ce8-8bb2-905670af5625",
+      "userId": "8ffd5882-4c2a-4151-81be-e9a93cd7a6d1",
+      "selectedCategories": [
+        {
+          "categoryId": "main6",
+          "categoryName": "Plumbing & HVAC",
+          "subcategories": [
+            {
+              "id": "c10",
+              "name": "Plumbing Services"
+            },
+            {
+              "id": "c11",
+              "name": "Heating Systems"
+            },
+            {
+              "id": "c12",
+              "name": "Air Conditioning"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "e24d767d-4533-4b8a-8942-dc2169407d9d",
+      "userId": "2facde83-f470-4e9d-ac35-6280682ae1f2",
+      "selectedCategories": [
+        {
+          "categoryId": "main12",
+          "categoryName": "Maintenance & Repairs",
+          "subcategories": [
+            {
+              "id": "c18",
+              "name": "Maintenance Services"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "02bde74f-8259-4c24-b3ab-f9550c7fbb68",
+      "userId": "f0b26f76-60fe-4c60-a170-ac99f1c5d7c1",
+      "selectedCategories": [
+        {
+          "categoryId": "main3",
+          "categoryName": "Painting & Finishing",
+          "subcategories": [
+            {
+              "id": "c3",
+              "name": "Painting Services"
+            }
+          ]
+        }
+      ]
+    }
+  ],
+  "handymanProfiles": [
+    {
+      "id": "8847dbf2-41f4-4ce3-a1b7-b3401e750642",
+      "userId": "615d75a8-5a70-4303-9355-cafdc29a0616",
+      "experience": "",
+      "certifications": [],
+      "location": {
+        "state": "Macedonia",
+        "city": "Skopje",
+        "zipCode": "1000",
+        "coordinates": {
+          "latitude": 41.9987456,
+          "longitude": 21.4106112
+        },
+        "displayString": "Skopje, Macedonia 1000"
+      },
+      "about": "about me",
+      "services": "service",
+      "completedJobs": 0,
+      "averageRating": 3,
+      "profession": ""
+    },
+    {
+      "id": "6376365a-b804-4d3e-86b4-c8b9cd56d288",
+      "userId": "8ffd5882-4c2a-4151-81be-e9a93cd7a6d1",
+      "experience": "",
+      "certifications": [],
+      "location": {
+        "state": "Berlin",
+        "city": "Berlin",
+        "zipCode": "10115",
+        "coordinates": {
+          "latitude": 52.52,
+          "longitude": 13.405
+        }
+      },
+      "about": "",
+      "services": "",
+      "completedJobs": 0,
+      "averageRating": 0
+    },
+    {
+      "id": "5589f4bc-e934-4b04-abb3-11b06059c753",
+      "userId": "2facde83-f470-4e9d-ac35-6280682ae1f2",
+      "experience": "",
+      "certifications": [],
+      "location": "",
+      "about": "",
+      "services": "",
+      "completedJobs": 0,
+      "averageRating": 0
+    },
+    {
+      "id": "4136c367-51b7-48ec-b764-c2293ef6c66e",
+      "userId": "f0b26f76-60fe-4c60-a170-ac99f1c5d7c1",
+      "experience": "",
+      "certifications": [],
+      "location": "",
+      "about": "",
+      "services": "",
+      "completedJobs": 0,
+      "averageRating": 0
+    }
+  ],
+  "services": [
+    {
+      "id": "s1",
+      "title": "Plumbing Repair",
+      "description": "Fix leaky faucets, clogged drains, and other common plumbing issues.",
+      "category": "c10",
+      "price": {
+        "hourly": 75
+      },
+      "priceRange": "€50-100/hr",
+      "providerId": "u2",
+      "availability": "available",
+      "rating": 4.8,
+      "imageUrls": [
+        "plumbing1.jpg",
+        "plumbing2.jpg"
+      ],
+      "location": {
+        "city": "Austin",
+        "state": "TX",
+        "zipCode": "78701",
+        "coordinates": {
+          "latitude": 30.2672,
+          "longitude": -97.7431
+        }
+      },
+      "createdAt": "2023-09-15T14:30:00Z",
+      "updatedAt": "2023-10-10T10:15:00Z"
+    },
+    {
+      "id": "s2",
+      "title": "Electrical Work",
+      "description": "Installation and repair of electrical fixtures, outlets, and wiring.",
+      "category": "c7",
+      "price": {
+        "hourly": 85
+      },
+      "priceRange": "€60-120/hr",
+      "providerId": "u4",
+      "availability": "busy",
+      "rating": 4.9,
+      "imageUrls": [
+        "electrical1.jpg",
+        "electrical2.jpg"
+      ],
+      "location": {
+        "city": "Austin",
+        "state": "TX",
+        "zipCode": "78704",
+        "coordinates": {
+          "latitude": 30.2429,
+          "longitude": -97.7662
+        }
+      },
+      "createdAt": "2023-08-20T09:45:00Z",
+      "updatedAt": "2023-10-12T16:30:00Z"
+    },
+    {
+      "id": "s3",
+      "title": "Furniture Assembly",
+      "description": "Professional assembly of all types of furniture including IKEA items.",
+      "category": "c23",
+      "price": {
+        "fixed": 120
+      },
+      "priceRange": "€35-70/hr",
+      "providerId": "u2",
+      "availability": "available",
+      "rating": 4.6,
+      "imageUrls": [
+        "assembly1.jpg"
+      ],
+      "location": {
+        "city": "Austin",
+        "state": "TX",
+        "zipCode": "78701",
+        "coordinates": {
+          "latitude": 30.2672,
+          "longitude": -97.7431
+        }
+      },
+      "createdAt": "2023-09-01T11:20:00Z",
+      "updatedAt": "2023-10-05T14:45:00Z"
+    },
+    {
+      "id": "s4",
+      "title": "General Home Repair",
+      "description": "Various home repairs including drywall, minor carpentry, and installations.",
+      "category": "c18",
+      "price": {
+        "hourly": 65
+      },
+      "priceRange": "€40-80/hr",
+      "providerId": "u4",
+      "availability": "available",
+      "rating": 4.7,
+      "imageUrls": [
+        "repair1.jpg",
+        "repair2.jpg",
+        "repair3.jpg"
+      ],
+      "location": {
+        "city": "Austin",
+        "state": "TX",
+        "zipCode": "78704",
+        "coordinates": {
+          "latitude": 30.2429,
+          "longitude": -97.7662
+        }
+      },
+      "createdAt": "2023-07-10T13:15:00Z",
+      "updatedAt": "2023-10-08T09:30:00Z"
+    },
+    {
+      "id": "s5",
+      "title": "Wall Painting",
+      "description": "Interior wall painting with preparation and finishing.",
+      "category": "c3",
+      "price": {
+        "hourly": 55
+      },
+      "priceRange": "€20-40/m²",
+      "providerId": "u4",
+      "availability": "available",
+      "rating": 4.7,
+      "imageUrls": [
+        "painting1.jpg",
+        "painting2.jpg"
+      ],
+      "location": {
+        "city": "Austin",
+        "state": "TX",
+        "zipCode": "78704",
+        "coordinates": {
+          "latitude": 30.2429,
+          "longitude": -97.7662
+        }
+      },
+      "createdAt": "2023-08-05T10:20:00Z",
+      "updatedAt": "2023-10-09T11:15:00Z"
+    },
+    {
+      "id": "s6",
+      "title": "Smart Home Installation",
+      "description": "Setup and configuration of smart home devices and systems.",
+      "category": "c9",
+      "price": {
+        "hourly": 90
+      },
+      "priceRange": "€80-200/device",
+      "providerId": "u2",
+      "availability": "available",
+      "rating": 4.9,
+      "imageUrls": [
+        "smarthome1.jpg",
+        "smarthome2.jpg"
+      ],
+      "location": {
+        "city": "Austin",
+        "state": "TX",
+        "zipCode": "78701",
+        "coordinates": {
+          "latitude": 30.2672,
+          "longitude": -97.7431
+        }
+      },
+      "createdAt": "2023-09-10T13:45:00Z",
+      "updatedAt": "2023-10-11T15:30:00Z"
+    },
+    {
+      "id": "s7",
+      "title": "Tile Installation",
+      "description": "Professional installation of floor and wall tiles.",
+      "category": "c2",
+      "price": {
+        "hourly": 70
+      },
+      "priceRange": "€35-80/m²",
+      "providerId": "u4",
+      "availability": "available",
+      "rating": 4.8,
+      "imageUrls": [
+        "tile1.jpg",
+        "tile2.jpg"
+      ],
+      "location": {
+        "city": "Austin",
+        "state": "TX",
+        "zipCode": "78704",
+        "coordinates": {
+          "latitude": 30.2429,
+          "longitude": -97.7662
+        }
+      },
+      "createdAt": "2023-07-20T09:30:00Z",
+      "updatedAt": "2023-10-07T14:15:00Z"
+    },
+    {
+      "id": "s8",
+      "title": "Kitchen Installation",
+      "description": "Complete kitchen cabinet and appliance installation.",
+      "category": "c24",
+      "price": {
+        "fixed": 1500
+      },
+      "priceRange": "€50-100/hr",
+      "providerId": "u2",
+      "availability": "busy",
+      "rating": 4.9,
+      "imageUrls": [
+        "kitchen1.jpg",
+        "kitchen2.jpg"
+      ],
+      "location": {
+        "city": "Austin",
+        "state": "TX",
+        "zipCode": "78701",
+        "coordinates": {
+          "latitude": 30.2672,
+          "longitude": -97.7431
+        }
+      },
+      "createdAt": "2023-08-15T11:45:00Z",
+      "updatedAt": "2023-10-10T13:20:00Z"
+    }
+  ],
+  "serviceRequests": [
+    {
+      "id": "sr1",
+      "customerId": "u1",
+      "serviceId": "s1",
+      "handymanId": "u2",
+      "status": "completed",
+      "scheduledDate": "2023-10-05T00:00:00Z",
+      "scheduledTime": "14:00-16:00",
+      "notes": "The kitchen sink is leaking and the bathroom faucet needs replacement.",
+      "price": 150,
+      "createdAt": "2023-10-01T10:30:00Z",
+      "updatedAt": "2023-10-05T16:15:00Z"
+    },
+    {
+      "id": "sr2",
+      "customerId": "u3",
+      "serviceId": "s2",
+      "handymanId": "u4",
+      "status": "accepted",
+      "scheduledDate": "2023-10-20T00:00:00Z",
+      "scheduledTime": "10:00-12:00",
+      "notes": "Need to install three new light fixtures and add two electrical outlets in the home office.",
+      "price": 255,
+      "createdAt": "2023-10-10T09:45:00Z",
+      "updatedAt": "2023-10-10T14:20:00Z"
+    },
+    {
+      "id": "sr3",
+      "customerId": "u1",
+      "serviceId": "s3",
+      "handymanId": "u2",
+      "status": "pending",
+      "notes": "Have a new IKEA desk and bookshelf that need assembly.",
+      "price": 120,
+      "createdAt": "2023-10-12T16:30:00Z",
+      "updatedAt": "2023-10-12T16:30:00Z"
+    },
+    {
+      "id": "sr4",
+      "customerId": "u3",
+      "serviceId": "s4",
+      "handymanId": "u4",
+      "status": "rejected",
+      "notes": "Need to repair a large hole in the living room drywall.",
+      "price": 195,
+      "createdAt": "2023-10-08T12:15:00Z",
+      "updatedAt": "2023-10-09T10:30:00Z"
+    }
+  ],
+  "reviews": [
+    {
+      "id": "r1",
+      "serviceId": "s1",
+      "customerId": "u1",
+      "handymanId": "u2",
+      "rating": 5,
+      "comment": "Mike was very professional and fixed my plumbing issues quickly. Highly recommend!",
+      "createdAt": "2023-10-06T09:20:00Z"
+    },
+    {
+      "id": "r2",
+      "serviceId": "s2",
+      "customerId": "u3",
+      "handymanId": "u4",
+      "rating": 4,
+      "comment": "Good work on the electrical installation. Was a bit late but called ahead to let me know.",
+      "createdAt": "2023-09-25T18:45:00Z"
+    },
+    {
+      "id": "r3",
+      "serviceId": "s3",
+      "customerId": "u3",
+      "handymanId": "u2",
+      "rating": 5,
+      "comment": "Perfect assembly of my IKEA furniture. Fast and precise work!",
+      "createdAt": "2023-09-10T14:30:00Z"
+    }
+  ],
+  "notifications": [
+    {
+      "id": "n1",
+      "userId": "u1",
+      "message": "Your service request has been completed. Please leave a review!",
+      "read": false,
+      "type": "status_update",
+      "referenceId": "sr1",
+      "createdAt": "2023-10-05T16:20:00Z"
+    },
+    {
+      "id": "n2",
+      "userId": "u2",
+      "message": "You have a new service request.",
+      "read": true,
+      "type": "new_request",
+      "referenceId": "sr3",
+      "createdAt": "2023-10-12T16:35:00Z"
+    },
+    {
+      "id": "n3",
+      "userId": "u3",
+      "message": "Dave has accepted your service request for electrical work.",
+      "read": false,
+      "type": "status_update",
+      "referenceId": "sr2",
+      "createdAt": "2023-10-10T14:25:00Z"
+    }
+  ],
+  "payments": [
+    {
+      "id": "p1",
+      "serviceRequestId": "sr1",
+      "customerId": "u1",
+      "handymanId": "u2",
+      "amount": 150,
+      "status": "completed",
+      "method": "credit_card",
+      "transactionId": "tr_12345",
+      "createdAt": "2023-10-05T16:10:00Z"
+    },
+    {
+      "id": "p2",
+      "serviceRequestId": "sr2",
+      "customerId": "u3",
+      "handymanId": "u4",
+      "amount": 255,
+      "status": "pending",
+      "method": "credit_card",
+      "transactionId": "tr_23456",
+      "createdAt": "2023-10-10T14:15:00Z"
+    }
+  ],
+  "jobs": [
+    {
+      "id": "j1",
+      "title": "Fix backyard patio",
+      "description": "Need help fixing loose bricks in my backyard patio",
+      "category": "Construction & Masonry",
+      "subcategory": "Masonry",
+      "status": "pending",
+      "clientId": "u1",
+      "handymanId": "u2",
+      "createdAt": "2025-03-25T12:00:00Z",
+      "updatedAt": "2025-03-25T12:00:00Z"
+    },
+    {
+      "id": "j2",
+      "title": "Drywall repair in bathroom",
+      "description": "Need to fix water damage in bathroom drywall",
+      "category": "Construction & Masonry",
+      "subcategory": "Drywall Installation",
+      "status": "accepted",
+      "clientId": "u1",
+      "handymanId": "u2",
+      "createdAt": "2025-03-20T09:30:00Z",
+      "updatedAt": "2025-03-21T14:15:00Z"
+    }
+  ],
+  "bookings": [
+    {
+      "id": "b1c32d3e4-f5g6-h7i8-j9k0-l1m2n3o4p5q6",
+      "service": "Plumbing service",
+      "status": "accepted",
+      "scheduledDate": "Wed, 8 Nov",
+      "scheduledTime": "Morning 9 am",
+      "customerId": "5c4e0b2-1f3d-4a8b-9f5c-7a6e0d1f2a3",
+      "customerName": "Anna Muller",
+      "handymanId": "615d75a8-5a70-4303-9355-cafdc29a0616",
+      "handymanName": "Kire Tripunovski",
+      "description": "Fix leaking kitchen sink",
+      "location": {
+        "address": "123 Main St, Berlin",
+        "lat": 52.52,
+        "lng": 13.405
+      },
+      "category": "plumbing",
+      "price": 80,
+      "createdAt": "2023-11-05T10:30:00Z",
+      "updatedAt": "2023-11-05T10:30:00Z"
+    },
+    {
+      "id": "b1c32d3e4-f5g6-h7i8-j9k0-l1m2n3o4p5q63",
+      "service": "Plumbing service",
+      "status": "completed",
+      "scheduledDate": "Wed, 8 Nov",
+      "scheduledTime": "Morning 9 am",
+      "customerId": "5c4e0b2-1f3d-4a8b-9f5c-7a6e0d1f2a3",
+      "customerName": "Anna Muller",
+      "handymanId": "615d75a8-5a70-4303-9355-cafdc29a0616",
+      "handymanName": "Kire Tripunovski",
+      "completedDate": "9 Nov",
+      "completedTime": "10:00 am - 11:10 am",
+      "description": "Fix leaking kitchen sink",
+      "location": {
+        "address": "123 Main St, Berlin",
+        "lat": 52.52,
+        "lng": 13.405
+      },
+      "category": "plumbing",
+      "price": 80,
+      "createdAt": "2023-11-05T10:30:00Z",
+      "updatedAt": "2023-11-05T10:30:00Z"
+    },
+    {
+      "id": "c2d3e4f5-g6h7-i8j9-k0l1-m2n3o4p5q6r73",
+      "service": "Plumbing service",
+      "status": "completed",
+      "scheduledDate": "Wed, 8 Nov",
+      "scheduledTime": "Morning 9 am",
+      "completedDate": "9 Nov",
+      "completedTime": "9:00 am - 11:10 am",
+      "customerId": "5c4e0b2-1f3d-4a8b-9f5c-7a6e0d1f2a3",
+      "customerName": "Anna Muller",
+      "handymanId": "615d75a8-5a70-4303-9355-cafdc29a0616",
+      "handymanName": "Kire Tripunovski",
+      "description": "Bathroom sink installation",
+      "location": {
+        "address": "123 Main St, Berlin",
+        "lat": 52.52,
+        "lng": 13.405
+      },
+      "category": "plumbing",
+      "price": 120,
+      "createdAt": "2023-11-03T14:15:00Z",
+      "updatedAt": "2023-11-03T16:20:00Z"
+    },
+    {
+      "id": "d3e4f5g6-h7i8-j9k0-l1m2-n3o4p5q6r7s84",
+      "service": "Plumbing service",
+      "status": "completed",
+      "scheduledDate": "Wed, 8 Nov",
+      "scheduledTime": "Morning 9 am",
+      "completedDate": "9 Nov",
+      "completedTime": "9:00 am - 11:10 am",
+      "customerId": "5c4e0b2-1f3d-4a8b-9f5c-7a6e0d1f2a3",
+      "customerName": "Anna Muller",
+      "handymanId": "615d75a8-5a70-4303-9355-cafdc29a0616",
+      "handymanName": "Kire Tripunovski",
+      "description": "One-time plumbing service",
+      "location": {
+        "address": "123 Main St, Berlin",
+        "lat": 52.52,
+        "lng": 13.405
+      },
+      "rating": 4,
+      "category": "plumbing",
+      "price": 95,
+      "createdAt": "2023-11-01T09:00:00Z",
+      "updatedAt": "2023-11-01T11:30:00Z"
+    },
+    {
+      "id": "e4f5g6h7-i8j9-k0l1-m2n3-o4p5q6r7s8t559",
+      "service": "Plumbing service",
+      "status": "ongoing",
+      "scheduledDate": "Wed, 8 Nov",
+      "scheduledTime": "Morning 9 am",
+      "customerId": "5c4e0b2-1f3d-4a8b-9f5c-7a6e0d1f2a3",
+      "customerName": "Anna Muller",
+      "handymanId": "615d75a8-5a70-4303-9355-cafdc29a0616",
+      "handymanName": "Kire Tripunovski",
+      "description": "One-time plumbing service",
+      "location": {
+        "address": "456 Oak St, Berlin",
+        "lat": 52.53,
+        "lng": 13.415
+      },
+      "rating": 4,
+      "category": "plumbing",
+      "price": 110,
+      "createdAt": "2023-10-25T13:45:00Z",
+      "updatedAt": "2023-10-25T16:15:00Z"
+    },
+    {
+      "id": "e4f335g6h7-i8j9-k0l1-m2n3-o4p5q6r7s8t559",
+      "service": "Plumbing service",
+      "status": "pending",
+      "scheduledDate": "Wed, 8 Nov",
+      "scheduledTime": "Morning 9 am",
+      "customerId": "5c4e0b2-1f3d-4a8b-9f5c-7a6e0d1f2a3",
+      "customerName": "Anna Muller",
+      "handymanId": "615d75a8-5a70-4303-9355-cafdc29a0616",
+      "handymanName": "Kire Tripunovski",
+      "description": "One-time plumbing service",
+      "location": {
+        "address": "456 Oak St, Berlin",
+        "lat": 52.53,
+        "lng": 13.415
+      },
+      "rating": 4,
+      "category": "plumbing",
+      "price": 110,
+      "createdAt": "2023-10-25T13:45:00Z",
+      "updatedAt": "2023-10-25T16:15:00Z"
+    }
+  ],
+  "handymanListings": [
+    {
+      "id": "0939bcca-7041-4832-9bfa-5dbee07e3893",
+      "handymanId": "615d75a8-5a70-4303-9355-cafdc29a0616",
+      "createdAt": "2025-04-12T01:53:32.587Z",
+      "isActive": true,
+      "title": "Second JOb",
+      "description": "My Second Job",
+      "location": "Serbia"
+    },
+    {
+      "id": "0d0a4b69-d720-4c68-a703-6eb4dc77e382",
+      "handymanId": "615d75a8-5a70-4303-9355-cafdc29a0616",
+      "createdAt": "2025-04-12T17:03:14.232Z",
+      "isActive": true,
+      "title": "repair a pipe",
+      "description": "i noticed that ",
+      "location": "Macedonia"
+    },
+    {
+      "id": "7c4e20d3-f8c6-4a92-91f2-b8c3234c07d7",
+      "handymanId": "615d75a8-5a70-4303-9355-cafdc29a0616",
+      "createdAt": "2025-04-12T17:09:31.920Z",
+      "isActive": true,
+      "title": "123",
+      "description": "213",
+      "location": "41.9954688, 21.46304"
+    },
+    {
+      "id": "273ed9e7-efbf-49ed-b111-1d213096c545",
+      "handymanId": "615d75a8-5a70-4303-9355-cafdc29a0616",
+      "createdAt": "2025-04-12T17:33:11.772Z",
+      "isActive": true,
+      "title": "aaaa",
+      "description": "aaaa",
+      "location": {
+        "latitude": 41.9954688,
+        "longitude": 21.46304,
+        "state": "Hesse"
+      }
+    },
+    {
+      "id": "1349e2a9-7512-4982-97b3-76dab0991c41",
+      "handymanId": "615d75a8-5a70-4303-9355-cafdc29a0616",
+      "createdAt": "2025-04-12T17:41:34.386Z",
+      "isActive": true,
+      "title": "213",
+      "description": "213",
+      "location": {
+        "latitude": 41.9954688,
+        "longitude": 21.46304,
+        "state": "Baden-Württemberg"
+      }
+    },
+    {
+      "id": "bc8e842c-b3de-418a-afce-7c373ab94078",
+      "handymanId": "615d75a8-5a70-4303-9355-cafdc29a0616",
+      "createdAt": "2025-04-12T18:04:45.630Z",
+      "isActive": true,
+      "title": "123",
+      "description": "123",
+      "location": {
+        "latitude": 53.6126505,
+        "longitude": 12.4295953,
+        "state": "Mecklenburg-Vorpommern"
+      }
+    },
+    {
+      "id": "8ceaf7e4-2f7c-4888-841d-14617c9236f4",
+      "handymanId": "615d75a8-5a70-4303-9355-cafdc29a0616",
+      "createdAt": "2025-04-12T18:14:17.725Z",
+      "isActive": true,
+      "title": "New Job",
+      "description": "Imwroking on this",
+      "location": {
+        "latitude": 48.7904472,
+        "longitude": 11.4978895,
+        "state": "Bavaria"
+      }
+    },
+    {
+      "id": "cd3d7575-bebf-46c3-829c-368293ffa969",
+      "handymanId": "615d75a8-5a70-4303-9355-cafdc29a0616",
+      "createdAt": "2025-04-17T18:30:48.117Z",
+      "isActive": true,
+      "title": "123",
+      "description": "123",
+      "location": {
+        "latitude": 48.7904472,
+        "longitude": 11.4978895,
+        "state": "Bavaria"
+      }
+    },
+    {
+      "id": "955a6279-211c-4c90-aa20-7f6771afa9c9",
+      "handymanId": "f0b26f76-60fe-4c60-a170-ac99f1c5d7c1",
+      "createdAt": "2025-04-17T18:43:41.876Z",
+      "isActive": true,
+      "title": "123",
+      "description": "123",
+      "location": {
+        "latitude": 48.6616037,
+        "longitude": 9.3501336,
+        "state": "Baden-Württemberg"
+      }
+    }
+  ],
+  "feedback": [
+    {
+      "id": "1",
+      "handymanId": "615d75a8-5a70-4303-9355-cafdc29a0616",
+      "customerId": "u1",
+      "customerName": "John Smith",
+      "rating": 4.5,
+      "comment": "Excellent work on my smart home setup. Very professional and knowledgeable.",
+      "location": "Berlin, Germany",
+      "createdAt": "2024-07-02T15:30:00Z"
+    },
+    {
+      "id": "2",
+      "handymanId": "615d75a8-5a70-4303-9355-cafdc29a0616",
+      "customerId": "u1",
+      "customerName": "Marko Smith",
+      "rating": 5,
+      "comment": "Excellent work on my smart home setup. Very professional and knowledgeable.",
+      "location": "Berlin, Germany",
+      "createdAt": "2024-07-02T15:30:00Z"
+    },
+    {
+      "id": "3",
+      "handymanId": "615d75a8-5a70-4303-9355-cafdc29a0616",
+      "customerId": "u1",
+      "customerName": "Kire Smith",
+      "rating": 3.5,
+      "comment": "Excellent work on my smart home setup. Very professional and knowledgeable.",
+      "location": "Veles, Macedonia",
+      "createdAt": "2024-07-02T15:30:00Z"
+    },
+    {
+      "id": "4",
+      "handymanId": "615d75a8-5a70-4303-9355-cafdc29a0616",
+      "customerId": "u1",
+      "customerName": "Pero Smith",
+      "rating": 4,
+      "comment": "Excellent work on my smart home setup. Very professional and knowledgeable.",
+      "location": "Skopje, Macedonia",
+      "createdAt": "2024-07-02T15:30:00Z"
+    },
+    {
+      "id": "5",
+      "handymanId": "615d75a8-5a70-4303-9355-cafdc29a0616",
+      "customerId": "u1",
+      "customerName": "David Smith",
+      "rating": 3.5,
+      "comment": "Excellent work on my smart home setup. Very professional and knowledgeable.",
+      "location": "Skopje, Macedonia",
+      "createdAt": "2024-07-02T15:30:00Z"
+    }
+  ],
+  "calendarbookings": [
+    {
+      "id": "3bb8",
+      "title": "213yes",
+      "location": "123yes",
+      "description": "yesyesyes",
+      "from": "2025-04-25T12:00:00",
+      "to": "2025-04-25T12:57:00",
+      "dateCreatedAt": "2025-04-17T00:58:10.713Z"
+    },
+    {
+      "id": "78d0",
+      "title": "225",
+      "location": "Macedonia",
+      "description": "123",
+      "from": "2025-04-23T12:00:00",
+      "to": "2025-04-23T13:00:00",
+      "dateCreatedAt": "2025-04-17T01:11:32.831Z"
+    },
+    {
+      "id": "420a",
+      "title": "213",
+      "location": "213",
+      "description": "123",
+      "from": "2025-04-20T12:00:00",
+      "to": "2025-04-20T13:00:00",
+      "dateCreatedAt": "2025-04-17T01:32:15.493Z"
+    },
+    {
+      "id": "5af5",
+      "title": "123",
+      "location": "213",
+      "description": "123",
+      "from": "2025-04-19T12:00:00",
+      "to": "2025-04-19T13:00:00",
+      "dateCreatedAt": "2025-04-17T01:33:37.127Z"
+    },
+    {
+      "id": "d61b",
+      "title": "Anna muller",
+      "location": "Macedonia",
+      "description": "123",
+      "from": "2025-04-26T12:00:00",
+      "to": "2025-04-26T13:00:00",
+      "dateCreatedAt": "2025-04-17T19:08:36.723Z"
+    },
+    {
+      "id": "c4eb",
+      "title": "Kire",
+      "location": "Macedonia",
+      "description": "12345",
+      "from": "2025-04-22T12:00:00",
+      "to": "2025-04-22T13:00:00",
+      "dateCreatedAt": "2025-04-17T19:36:10.956Z"
+    }
+  ]
+}

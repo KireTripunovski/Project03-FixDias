@@ -1,0 +1,354 @@
+@import "tailwindcss";
+
+:root {
+  /* White shades */
+  --white-50: #ffffff;
+  --white-100: #fdfdfd;
+  --white-200: #fbfbfb;
+  --white-300: #f9f9f9;
+  --white-400: #f1f1f1;
+  --white-500: #fafafa;
+  --white-600: #e4e4e4;
+  --white-700: #b2b2b2;
+  --white-800: #686868;
+  --white-900: #696969;
+
+  /* Black shades */
+  --black-50: #f7f7f7;
+  --black-100: #d9d9d9;
+  --black-200: #b2b2b2;
+  --black-300: #8c8c8c;
+  --black-400: #676767;
+  --black-500: #404040;
+  --black-600: #171717;
+  --black-700: #0d0d0d;
+  --black-800: #080808;
+  --black-900: #000000;
+
+  /* Grey shades */
+  --grey-50: #fafafa;
+  --grey-100: #f0f0f0;
+  --grey-200: #ededed;
+  --grey-300: #dcdcdc;
+  --grey-400: #d5d5d5;
+  --grey-500: #cfcfcf;
+  --grey-600: #bcbcbc;
+  --grey-700: #939393;
+  --grey-800: #727272;
+  --grey-900: #575757;
+
+  /* Blue shades */
+  --blue-50: #f4f9ff;
+  --blue-100: #dcebfe;
+  --blue-200: #93c5fd;
+  --blue-300: #6295f5;
+  --blue-400: #435bff;
+  --blue-500: #1f40ff;
+  --blue-600: #1215ea;
+  --blue-700: #0a0a54;
+  --blue-800: #0b0558;
+  --blue-900: #010b19;
+
+  /* Orange shades */
+  --orange-50: #fffee6;
+  --orange-100: #fdcbac;
+  --orange-200: #fd9b6b;
+  --orange-300: #fc6524;
+  --orange-400: #fb5123;
+  --orange-500: #fa3a00;
+  --orange-600: #ff4500;
+  --orange-700: #a25000;
+  --orange-800: #953f30;
+  --orange-900: #662310;
+}
+/* Font Family */
+body {
+  font-family: "Inter", sans-serif;
+}
+
+/* Headline Styles */
+.h0-headline {
+  font-weight: bold;
+  font-size: 48px;
+  line-height: 48px;
+  letter-spacing: 0;
+}
+
+.h1-headline {
+  font-weight: 500; /* Medium */
+  font-size: 32px;
+  line-height: 40px;
+  letter-spacing: 0;
+}
+
+.h2-headline {
+  font-weight: 400; /* Regular */
+  font-size: 24px;
+  line-height: 32px;
+  letter-spacing: 0;
+}
+
+.h3-headline {
+  font-weight: 400; /* Regular */
+  font-size: 20px;
+  line-height: 24px;
+  letter-spacing: 0;
+}
+
+/* Subheading and Title */
+.subheading {
+  font-weight: 400; /* Regular */
+  font-size: 18px;
+  line-height: 24px;
+  letter-spacing: 0;
+}
+
+.title {
+  font-weight: bold;
+  font-size: 16px;
+  line-height: 20px;
+  letter-spacing: 0;
+}
+
+/* Body Text Styles */
+.b1-body {
+  font-weight: bold;
+  font-size: 14px;
+  line-height: 16px;
+  letter-spacing: 0;
+}
+
+.b2-body {
+  font-weight: 500; /* Medium */
+  font-size: 14px;
+  line-height: 16px;
+  letter-spacing: 0;
+}
+
+.b3-body {
+  font-weight: 400; /* Regular */
+  font-size: 14px;
+  line-height: 16px;
+  letter-spacing: 0;
+}
+
+.b4-body {
+  font-weight: 400; /* Regular */
+  font-size: 12px;
+  line-height: 16px;
+  letter-spacing: 0;
+}
+
+/* Caption Styles */
+.c1-caption {
+  font-weight: bold;
+  font-size: 10px;
+  line-height: 16px;
+  letter-spacing: 0;
+}
+
+.c2-caption {
+  font-weight: 400; /* Regular */
+  font-size: 10px;
+  line-height: 12px;
+  letter-spacing: 0;
+}
+
+/* Label */
+.label {
+  font-weight: 500; /* Medium */
+  font-size: 12px;
+  line-height: 16px;
+  letter-spacing: 0;
+}
+
+/* Button Font Styles */
+.button-bold {
+  font-weight: bold;
+  font-size: 12px;
+  line-height: 16px;
+  letter-spacing: 0;
+}
+
+.button-semibold {
+  font-weight: 600; /* Semibold */
+  font-size: 12px;
+  line-height: 16px;
+  letter-spacing: 0;
+}
+
+* {
+  box-sizing: border-box;
+  margin: 0;
+}
+
+body {
+  font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+  background-color: #f5f5f5;
+  color: #333;
+  background-color: #fafafa;
+}
+
+.custom-container {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  width: 90%;
+  margin: 0 auto;
+}
+
+.custom-card {
+  background-color: white;
+  border-radius: 0.5rem;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+  overflow: hidden;
+  width: 100%;
+}
+
+.custom-card-body {
+  padding: 1.5rem;
+}
+
+.logo-container {
+  display: flex;
+  justify-content: center;
+  margin-bottom: 1.5rem;
+}
+
+.logo {
+  width: 64px;
+  height: 64px;
+}
+
+.custom-title {
+  font-size: 1.25rem;
+  font-weight: 600;
+  text-align: center;
+  color: #333;
+  margin-bottom: 0.5rem;
+}
+
+.custom-tab-container {
+  display: flex;
+  border-bottom: 1px solid #e5e5e5;
+  margin-bottom: 1.5rem;
+}
+
+.custom-tab {
+  flex: 1;
+  padding: 0.5rem;
+  text-align: center;
+  cursor: pointer;
+  color: #666;
+  transition: all 0.2s;
+}
+
+.tab.active {
+  color: #f97316;
+  border-bottom: 2px solid #f97316;
+  font-weight: 500;
+}
+
+.custom-error-message {
+  margin-bottom: 1rem;
+  padding: 0.5rem;
+  background-color: #fee2e2;
+  border: 1px solid #f87171;
+  color: #b91c1c;
+  border-radius: 0.25rem;
+}
+
+.custom-form-group {
+  margin-bottom: 1rem;
+}
+
+.custom-input-group {
+  display: flex;
+  align-items: center;
+  border: 1px solid #d1d5db;
+  border-radius: 0.375rem;
+  padding: 0.75rem;
+}
+
+.custom-input-icon {
+  color: #9ca3af;
+  margin-right: 0.5rem;
+}
+
+.custom-form-input {
+  flex: 1;
+  border: none;
+  outline: none;
+  font-size: 1rem;
+}
+
+.custom-password-toggle {
+  background: none;
+  border: none;
+  color: #9ca3af;
+  cursor: pointer;
+}
+
+.custom-btn {
+  display: block;
+  width: 100%;
+  padding: 0.75rem;
+  border: none;
+  border-radius: 0.375rem;
+  font-weight: 500;
+  cursor: pointer;
+  transition: background-color 0.2s;
+  font-size: 1rem;
+}
+
+.custom-btn-primary {
+  background-color: #f97316;
+  color: white;
+}
+
+.custom-btn-primary:hover {
+  background-color: #ea580c;
+}
+
+.custom-btn-primary:disabled {
+  background-color: #fdba74;
+  cursor: not-allowed;
+}
+
+.custom-text-center {
+  text-align: center;
+}
+
+.custom-mt-4 {
+  margin-top: 1rem;
+}
+
+.custom-mt-6 {
+  margin-top: 1.5rem;
+}
+
+.text-sm {
+  font-size: 0.875rem;
+}
+
+.text-gray {
+  color: #666;
+}
+
+.custom-link {
+  color: #f97316;
+  text-decoration: none;
+}
+
+.link:hover {
+  text-decoration: underline;
+}
+
+.space-y-4 > * + * {
+  margin-top: 1rem;
+}
+
+.width-90 {
+  width: 90%;
+  margin: 0 auto;
+}
