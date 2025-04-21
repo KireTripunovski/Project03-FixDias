@@ -1,7 +1,7 @@
 import Section1 from "../components/HomepageComponents/Section1";
 import Section2 from "../components/HomepageComponents/Section2";
 import Section3 from "../components/HomepageComponents/Section3";
-import Section4 from "../components/HomepageComponents/Section4";
+import CraftsmanCarousel from "../components/HomepageComponents/Section4";
 import Section5 from "../components/HomepageComponents/Section5";
 import Navbar from "../components/NavbarHomePage";
 
@@ -14,7 +14,7 @@ const Home = () => {
       <Section1 />
       <Section2 />
       <Section3 />
-      <Section4 />
+      <CraftsmanCarousel />
       <Section5 />
     </div>
   );

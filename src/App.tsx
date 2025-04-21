@@ -1,4 +1,3 @@
-// src/App.tsx
 import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
 import SignUp from "./pages/SignUp";
 import Home from "./pages/Home";
@@ -11,7 +10,9 @@ import EditAccountInfo from "./pages/EditAccountInfo";
 import Dashboard from "./pages/Dashboard";
 import BookingsSection from "./components/DashboardComponents/Booking";
 import Layout from "./components/Layout";
-import ProtectedRoute from "./components/ProtectedRoute"; // Import the wrapper
+import ProtectedRoute from "./components/ProtectedRoute";
+import MapPage from "./pages/MapPage";
+import HandymanHomepage from "./pages/HandymanHomepage";
 
 export default function App() {
   return (
@@ -28,7 +29,6 @@ export default function App() {
             element={<SubcategorySelection />}
           />
           <Route path="/setup-complete" element={<SetupComplete />} />
-
           {/* Protected Routes */}
           <Route
             path="/dashboard/editaccount"
@@ -53,7 +53,16 @@ export default function App() {
                 <BookingsSection />
               </ProtectedRoute>
             }
+          />{" "}
+          <Route
+            path="/handymanhomepage"
+            element={
+              <ProtectedRoute>
+                <HandymanHomepage />
+              </ProtectedRoute>
+            }
           />
+          <Route path="/map" element={<MapPage />} />
         </Route>
       </Routes>
     </Router>

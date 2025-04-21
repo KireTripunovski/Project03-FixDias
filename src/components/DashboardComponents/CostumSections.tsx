@@ -1,14 +1,15 @@
-"use client";
-
 import { useEffect, useState } from "react";
-import { Edit2, Check, X } from "lucide-react";
+import useProfileStore from "../../store/useProfileStore";
+import { Check, Edit2, X } from "lucide-react";
+import useAuthStore from "../../store/useAuthStore";
+
 interface EditableSectionProps {
   title: string;
   content: string;
   onSave: (content: string) => Promise<void>;
 }
 
-export default function EditableSection({
+function CustomEditableSection({
   title,
   content,
   onSave,
@@ -24,15 +25,11 @@ export default function EditableSection({
   const handleSave = async (
     e: React.MouseEvent<HTMLButtonElement, MouseEvent>
   ) => {
-    e.preventDefault();
-    if (editedContent === content) {
-      setIsEditing(false);
-      return;
-    }
+    if (e) e.preventDefault();
+
     setIsSaving(true);
     try {
       await onSave(editedContent);
-      setIsEditing(false);
     } catch (error) {
       console.error("Error saving content:", error);
     } finally {
@@ -46,11 +43,11 @@ export default function EditableSection({
   };
 
   return (
-    <div className=" py-2">
+    <div className="py-2">
       <div className="flex justify-between items-center mb-2">
         <h2 className="text-lg font-medium">{title}</h2>
         {!isEditing ? (
-          <button type="button" onClick={() => setIsEditing(true)}>
+          <button onClick={() => setIsEditing(true)}>
             <Edit2 size={16} className="text-blue-500" />
           </button>
         ) : (
@@ -92,5 +89,58 @@ export default function EditableSection({
         />
       )}
     </div>
+  );
+}
+
+export default function CustomSections() {
+  const { user } = useAuthStore();
+  const { profile, updateProfile } = useProfileStore();
+  const [localSections, setLocalSections] = useState<Record<string, string>>(
+    {}
+  );
+
+  useEffect(() => {
+    if (profile?.customSections) {
+      setLocalSections(profile.customSections);
+    }
+  }, [profile?.customSections]);
+
+  const handleUpdateSection = async (sectionName: string, content: string) => {
+    if (!profile?.customSections) return;
+
+    setLocalSections((prev) => ({
+      ...prev,
+      [sectionName]: content,
+    }));
+
+    try {
+      const updatedSections = {
+        ...profile.customSections,
+        [sectionName]: content,
+      };
+      await updateProfile({
+        customSections: updatedSections,
+      });
+    } catch (error) {
+      setLocalSections(profile.customSections);
+      console.error("Failed to update section:", error);
+    }
+  };
+
+  if (!profile?.customSections || !user) return null;
+
+  return (
+    <>
+      {Object.entries(localSections).map(([sectionName, content]) => (
+        <CustomEditableSection
+          key={sectionName}
+          title={sectionName}
+          content={content}
+          onSave={(updatedContent) =>
+            handleUpdateSection(sectionName, updatedContent)
+          }
+        />
+      ))}
+    </>
   );
 }

@@ -61,12 +61,10 @@
   --orange-800: #953f30;
   --orange-900: #662310;
 }
-/* Font Family */
 body {
   font-family: "Inter", sans-serif;
 }
 
-/* Headline Styles */
 .h0-headline {
   font-weight: bold;
   font-size: 48px;
@@ -75,29 +73,28 @@ body {
 }
 
 .h1-headline {
-  font-weight: 500; /* Medium */
+  font-weight: 500;
   font-size: 32px;
   line-height: 40px;
   letter-spacing: 0;
 }
 
 .h2-headline {
-  font-weight: 400; /* Regular */
+  font-weight: 400;
   font-size: 24px;
   line-height: 32px;
   letter-spacing: 0;
 }
 
 .h3-headline {
-  font-weight: 400; /* Regular */
+  font-weight: 400;
   font-size: 20px;
   line-height: 24px;
   letter-spacing: 0;
 }
 
-/* Subheading and Title */
 .subheading {
-  font-weight: 400; /* Regular */
+  font-weight: 400;
   font-size: 18px;
   line-height: 24px;
   letter-spacing: 0;
@@ -110,7 +107,6 @@ body {
   letter-spacing: 0;
 }
 
-/* Body Text Styles */
 .b1-body {
   font-weight: bold;
   font-size: 14px;
@@ -119,27 +115,26 @@ body {
 }
 
 .b2-body {
-  font-weight: 500; /* Medium */
+  font-weight: 500;
   font-size: 14px;
   line-height: 16px;
   letter-spacing: 0;
 }
 
 .b3-body {
-  font-weight: 400; /* Regular */
+  font-weight: 400;
   font-size: 14px;
   line-height: 16px;
   letter-spacing: 0;
 }
 
 .b4-body {
-  font-weight: 400; /* Regular */
+  font-weight: 400;
   font-size: 12px;
   line-height: 16px;
   letter-spacing: 0;
 }
 
-/* Caption Styles */
 .c1-caption {
   font-weight: bold;
   font-size: 10px;
@@ -148,21 +143,19 @@ body {
 }
 
 .c2-caption {
-  font-weight: 400; /* Regular */
+  font-weight: 400;
   font-size: 10px;
   line-height: 12px;
   letter-spacing: 0;
 }
 
-/* Label */
 .label {
-  font-weight: 500; /* Medium */
+  font-weight: 500;
   font-size: 12px;
   line-height: 16px;
   letter-spacing: 0;
 }
 
-/* Button Font Styles */
 .button-bold {
   font-weight: bold;
   font-size: 12px;
@@ -171,7 +164,7 @@ body {
 }
 
 .button-semibold {
-  font-weight: 600; /* Semibold */
+  font-weight: 600;
   font-size: 12px;
   line-height: 16px;
   letter-spacing: 0;
@@ -192,21 +185,14 @@ body {
 .custom-container {
   display: flex;
   flex-direction: column;
-  justify-content: center;
   width: 90%;
   margin: 0 auto;
 }
 
 .custom-card {
-  background-color: white;
   border-radius: 0.5rem;
-  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
   overflow: hidden;
   width: 100%;
-}
-
-.custom-card-body {
-  padding: 1.5rem;
 }
 
 .logo-container {

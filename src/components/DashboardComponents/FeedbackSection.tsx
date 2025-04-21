@@ -1,8 +1,8 @@
 import { useEffect } from "react";
 import { Star } from "lucide-react";
 import styles from "../DashboardComponents/Dashboard.module.css";
-import useFeedbackStore from "../../store/FeedbackStore";
-import useAuthStore from "../../store/authStore";
+import useFeedbackStore from "../../store/useFeedbackStore";
+import useAuthStore from "../../store/useAuthStore";
 import profilepiture from "../../../public/Profile/Low-Fi Avatar.png";
 
 interface FeedbackSectionProps {
@@ -107,7 +107,7 @@ const FeedbackSection = ({ handymanId }: FeedbackSectionProps) => {
               })}
             </div>
             <p
-              style={{ wordBreak: "break-all" }}
+              style={{ wordWrap: "break-word" }}
               className="text-sm text-gray-600 py-2"
             >
               {item.comment}

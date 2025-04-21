@@ -4,7 +4,7 @@ import "react-calendar/dist/Calendar.css";
 import { Plus } from "lucide-react";
 import BookingList from "./BookingList";
 import BookingForm from "./BookingForm";
-import useBookingStore from "../../store/CalendarBookings";
+import useBookingStore from "../../store/useCalendarBookings";
 import "./CalendarStyles.css";
 import { format } from "date-fns";
 

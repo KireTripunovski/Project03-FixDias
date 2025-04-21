@@ -18,7 +18,7 @@
     },
     {
       "id": "2facde83-f470-4e9d-ac35-6280682ae1f2",
-      "name": "Kire Tripunovski",
+      "name": "Martin Tripunovski",
       "email": "kir4emkd@gmail.com",
       "password": "123",
       "phoneNumber": "21323424",
@@ -26,10 +26,49 @@
     },
     {
       "id": "f0b26f76-60fe-4c60-a170-ac99f1c5d7c1",
-      "name": "Kire Tripunovski",
+      "name": "Kevin Tripunovski",
       "email": "123@vwqv.com",
       "password": "123",
       "phoneNumber": "123",
+      "userType": "handyman"
+    },
+    {
+      "id": "317bf5ec-33fa-4fdf-a010-ac31ebf02586",
+      "name": "Petar Tripunovski",
+      "email": "kire.tri@gmail.com",
+      "password": "123456",
+      "phoneNumber": "21323424",
+      "userType": "handyman"
+    },
+    {
+      "id": "098f8729-46c8-4da7-a0ce-eac9e99d0d47",
+      "name": "Goran Tripunovski",
+      "email": "user2@example.com",
+      "password": "123",
+      "phoneNumber": "21323424",
+      "userType": "handyman"
+    },
+    {
+      "id": "9f61c5bf-20f3-4e32-8591-802580ee2022",
+      "name": "Eva Tripunovski",
+      "email": "user3@example.com",
+      "password": "123",
+      "phoneNumber": "21323424",
+      "userType": "handyman"
+    },
+    {
+      "id": "c8caa6a6-d53d-4afd-8298-004f2ed3e4a4",
+      "name": "David Tripunovski",
+      "email": "user23@example.com",
+      "password": "123",
+      "phoneNumber": "21323424",
+      "userType": "handyman"
+    },
+    {
+      "id": "8ffd5882-4c2a-4151-81be-e9a93cd7a6d1",
+      "name": "Marko Tripunovski",
+      "email": "user5@example.com",
+      "phoneNumber": "12344567",
       "userType": "handyman"
     }
   ],
@@ -37,6 +76,7 @@
     {
       "id": "main1",
       "name": "Construction & Masonry",
+      "imageUrl": "../../../public/HomepageSection1/image1.png",
       "subcategories": [
         {
           "id": "c1",
@@ -61,6 +101,7 @@
     {
       "id": "main2",
       "name": "Flooring & Tiling",
+      "imageUrl": "../../../public/HomepageSection1/image2.png",
       "subcategories": [
         {
           "id": "c2",
@@ -73,6 +114,7 @@
     {
       "id": "main3",
       "name": "Painting & Finishing",
+      "imageUrl": "../../../public/HomepageSection1/image3.png",
       "subcategories": [
         {
           "id": "c3",
@@ -85,6 +127,7 @@
     {
       "id": "main4",
       "name": "Carpentry & Woodwork",
+      "imageUrl": "../../../public/HomepageSection1/image4.png",
       "subcategories": [
         {
           "id": "c5",
@@ -103,6 +146,7 @@
     {
       "id": "main5",
       "name": "Electrical & Smart Systems",
+      "imageUrl": "../../../public/HomepageSection1/image5.png",
       "subcategories": [
         {
           "id": "c7",
@@ -133,6 +177,7 @@
     {
       "id": "main6",
       "name": "Plumbing & HVAC",
+      "imageUrl": "../../../public/HomepageSection1/image6.png",
       "subcategories": [
         {
           "id": "c10",
@@ -157,6 +202,7 @@
     {
       "id": "main7",
       "name": "Windows, Doors & Glass",
+      "imageUrl": "../../../public/HomepageSection1/image7.png",
       "subcategories": [
         {
           "id": "c13",
@@ -175,6 +221,7 @@
     {
       "id": "main8",
       "name": "Metal & Welding",
+      "imageUrl": "../../../public/HomepageSection1/image8.png",
       "subcategories": [
         {
           "id": "c15",
@@ -193,6 +240,7 @@
     {
       "id": "main9",
       "name": "Outdoor & Landscaping",
+      "imageUrl": "../../../public/HomepageSection1/image9.png",
       "subcategories": [
         {
           "id": "c19",
@@ -217,6 +265,7 @@
     {
       "id": "main10",
       "name": "Assembly & Transport",
+      "imageUrl": "../../../public/HomepageSection1/image1.png",
       "subcategories": [
         {
           "id": "c22",
@@ -241,6 +290,7 @@
     {
       "id": "main11",
       "name": "IT & Technical Services",
+      "imageUrl": "../../../public/HomepageSection1/image2.png",
       "subcategories": [
         {
           "id": "c25",
@@ -253,6 +303,7 @@
     {
       "id": "main12",
       "name": "Maintenance & Repairs",
+      "imageUrl": "../../../public/HomepageSection1/image3.png",
       "subcategories": [
         {
           "id": "c18",
@@ -347,13 +398,84 @@
           ]
         }
       ]
+    },
+    {
+      "id": "9beb04dd-2eee-4b13-bfdb-ae9401a5c34e",
+      "userId": "317bf5ec-33fa-4fdf-a010-ac31ebf02586",
+      "selectedCategories": [
+        {
+          "categoryId": "main10",
+          "categoryName": "Assembly & Transport",
+          "subcategories": [
+            {
+              "id": "c22",
+              "name": "Transport Services"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "ca7cdd7f-a0b9-4698-ad96-311b95e673b0",
+      "userId": "098f8729-46c8-4da7-a0ce-eac9e99d0d47",
+      "selectedCategories": [
+        {
+          "categoryId": "main1",
+          "categoryName": "Construction & Masonry",
+          "subcategories": [
+            {
+              "id": "c1",
+              "name": "Masonry"
+            },
+            {
+              "id": "c4",
+              "name": "Drywall Installation"
+            },
+            {
+              "id": "c6",
+              "name": "Roofing"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "d6309e55-a018-43bf-b732-37e4649bc63b",
+      "userId": "9f61c5bf-20f3-4e32-8591-802580ee2022",
+      "selectedCategories": [
+        {
+          "categoryId": "main12",
+          "categoryName": "Maintenance & Repairs",
+          "subcategories": [
+            {
+              "id": "c18",
+              "name": "Maintenance Services"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "c7a11366-0b3d-405c-9154-d39821bc40d0",
+      "userId": "c8caa6a6-d53d-4afd-8298-004f2ed3e4a4",
+      "selectedCategories": [
+        {
+          "categoryId": "main1",
+          "categoryName": "Construction & Masonry",
+          "subcategories": [
+            {
+              "id": "c4",
+              "name": "Drywall Installation"
+            }
+          ]
+        }
+      ]
     }
   ],
   "handymanProfiles": [
     {
       "id": "8847dbf2-41f4-4ce3-a1b7-b3401e750642",
       "userId": "615d75a8-5a70-4303-9355-cafdc29a0616",
-      "experience": "",
       "certifications": [],
       "location": {
         "state": "Macedonia",
@@ -365,16 +487,19 @@
         },
         "displayString": "Skopje, Macedonia 1000"
       },
-      "about": "about me",
-      "services": "service",
+      "about": "Lorem Ipsum Dolor Sit Amet Consectetur. Elit Eget Donec Ipsum a Bibendum Fermentum Velit. Vitae Tincidunt Curabitur Dolor Ipsum Ipsum Accumsan Commodo. Amet Vestibulum Aliquam Quisque Mauris Amet Mauris Ultrices. Consectetur eGet at elit amet non tellus sit .",
+      "services": "Lorem Ipsum Dolor Sit Amet Consectetur. Elit Eget Donec Ipsum a Bibendum Fermentum Velit. Vitae Tincidunt Curabitur Dolor Ipsum Ipsum Accumsan Commodo. Amet Vestibulum Aliquam Quisque Mauris Amet Mauris Ultrices. Consectetur eGet at elit amet non tellus sit .",
       "completedJobs": 0,
       "averageRating": 3,
-      "profession": ""
+      "profession": "",
+      "customSections": {
+        "acb": ""
+      },
+      "income": 1000
     },
     {
       "id": "6376365a-b804-4d3e-86b4-c8b9cd56d288",
       "userId": "8ffd5882-4c2a-4151-81be-e9a93cd7a6d1",
-      "experience": "",
       "certifications": [],
       "location": {
         "state": "Berlin",
@@ -393,9 +518,16 @@
     {
       "id": "5589f4bc-e934-4b04-abb3-11b06059c753",
       "userId": "2facde83-f470-4e9d-ac35-6280682ae1f2",
-      "experience": "",
       "certifications": [],
-      "location": "",
+      "location": {
+        "state": "Berlin",
+        "city": "Berlin",
+        "zipCode": "10115",
+        "coordinates": {
+          "latitude": 52.52,
+          "longitude": 13.405
+        }
+      },
       "about": "",
       "services": "",
       "completedJobs": 0,
@@ -404,9 +536,89 @@
     {
       "id": "4136c367-51b7-48ec-b764-c2293ef6c66e",
       "userId": "f0b26f76-60fe-4c60-a170-ac99f1c5d7c1",
+      "certifications": [],
+      "location": {
+        "state": "Berlin",
+        "city": "Berlin",
+        "zipCode": "10115",
+        "coordinates": {
+          "latitude": 52.52,
+          "longitude": 13.405
+        }
+      },
+      "about": "",
+      "services": "",
+      "completedJobs": 0,
+      "averageRating": 0
+    },
+    {
+      "id": "b10b0862-ea4f-46c0-b5a4-1e189a48b455",
+      "userId": "317bf5ec-33fa-4fdf-a010-ac31ebf02586",
+      "certifications": [],
+      "location": {
+        "state": "Berlin",
+        "city": "Berlin",
+        "zipCode": "10115",
+        "coordinates": {
+          "latitude": 52.52,
+          "longitude": 13.405
+        }
+      },
+      "about": "123",
+      "services": "123",
+      "completedJobs": 0,
+      "averageRating": 0
+    },
+    {
+      "id": "ff44ecde-3299-4807-b43f-04df793dfd1e",
+      "userId": "098f8729-46c8-4da7-a0ce-eac9e99d0d47",
+      "certifications": [],
+      "location": {
+        "state": "Berlin",
+        "city": "Berlin",
+        "zipCode": "10115",
+        "coordinates": {
+          "latitude": 52.52,
+          "longitude": 13.405
+        }
+      },
+      "about": "",
+      "services": "",
+      "completedJobs": 0,
+      "averageRating": 0
+    },
+    {
+      "id": "446c01e2-8f41-49c9-b6cd-a0db43bb2e68",
+      "userId": "9f61c5bf-20f3-4e32-8591-802580ee2022",
+      "certifications": [],
+      "location": {
+        "state": "Berlin",
+        "city": "Berlin",
+        "zipCode": "10115",
+        "coordinates": {
+          "latitude": 52.52,
+          "longitude": 13.405
+        }
+      },
+      "about": "",
+      "services": "",
+      "completedJobs": 0,
+      "averageRating": 0
+    },
+    {
+      "id": "3b8558dc-7b09-4116-b406-7d5c2bbc89d0",
+      "userId": "c8caa6a6-d53d-4afd-8298-004f2ed3e4a4",
       "experience": "",
       "certifications": [],
-      "location": "",
+      "location": {
+        "state": "Berlin",
+        "city": "Berlin",
+        "zipCode": "10115",
+        "coordinates": {
+          "latitude": 52.52,
+          "longitude": 13.405
+        }
+      },
       "about": "",
       "services": "",
       "completedJobs": 0,
@@ -426,10 +638,7 @@
       "providerId": "u2",
       "availability": "available",
       "rating": 4.8,
-      "imageUrls": [
-        "plumbing1.jpg",
-        "plumbing2.jpg"
-      ],
+      "imageUrls": ["plumbing1.jpg", "plumbing2.jpg"],
       "location": {
         "city": "Austin",
         "state": "TX",
@@ -454,10 +663,7 @@
       "providerId": "u4",
       "availability": "busy",
       "rating": 4.9,
-      "imageUrls": [
-        "electrical1.jpg",
-        "electrical2.jpg"
-      ],
+      "imageUrls": ["electrical1.jpg", "electrical2.jpg"],
       "location": {
         "city": "Austin",
         "state": "TX",
@@ -482,9 +688,7 @@
       "providerId": "u2",
       "availability": "available",
       "rating": 4.6,
-      "imageUrls": [
-        "assembly1.jpg"
-      ],
+      "imageUrls": ["assembly1.jpg"],
       "location": {
         "city": "Austin",
         "state": "TX",
@@ -509,11 +713,7 @@
       "providerId": "u4",
       "availability": "available",
       "rating": 4.7,
-      "imageUrls": [
-        "repair1.jpg",
-        "repair2.jpg",
-        "repair3.jpg"
-      ],
+      "imageUrls": ["repair1.jpg", "repair2.jpg", "repair3.jpg"],
       "location": {
         "city": "Austin",
         "state": "TX",
@@ -538,10 +738,7 @@
       "providerId": "u4",
       "availability": "available",
       "rating": 4.7,
-      "imageUrls": [
-        "painting1.jpg",
-        "painting2.jpg"
-      ],
+      "imageUrls": ["painting1.jpg", "painting2.jpg"],
       "location": {
         "city": "Austin",
         "state": "TX",
@@ -566,10 +763,7 @@
       "providerId": "u2",
       "availability": "available",
       "rating": 4.9,
-      "imageUrls": [
-        "smarthome1.jpg",
-        "smarthome2.jpg"
-      ],
+      "imageUrls": ["smarthome1.jpg", "smarthome2.jpg"],
       "location": {
         "city": "Austin",
         "state": "TX",
@@ -594,10 +788,7 @@
       "providerId": "u4",
       "availability": "available",
       "rating": 4.8,
-      "imageUrls": [
-        "tile1.jpg",
-        "tile2.jpg"
-      ],
+      "imageUrls": ["tile1.jpg", "tile2.jpg"],
       "location": {
         "city": "Austin",
         "state": "TX",
@@ -622,10 +813,7 @@
       "providerId": "u2",
       "availability": "busy",
       "rating": 4.9,
-      "imageUrls": [
-        "kitchen1.jpg",
-        "kitchen2.jpg"
-      ],
+      "imageUrls": ["kitchen1.jpg", "kitchen2.jpg"],
       "location": {
         "city": "Austin",
         "state": "TX",
@@ -811,8 +999,8 @@
       "description": "Fix leaking kitchen sink",
       "location": {
         "address": "123 Main St, Berlin",
-        "lat": 52.52,
-        "lng": 13.405
+        "lat": 52.4125287,
+        "lng": 12.5316444
       },
       "category": "plumbing",
       "price": 80,
@@ -1039,6 +1227,58 @@
         "longitude": 9.3501336,
         "state": "Baden-Württemberg"
       }
+    },
+    {
+      "id": "50093f10-85ed-40b4-b8c1-fb8b89824e93",
+      "handymanId": "317bf5ec-33fa-4fdf-a010-ac31ebf02586",
+      "createdAt": "2025-04-18T03:57:35.133Z",
+      "isActive": true,
+      "title": "123",
+      "description": "123",
+      "location": {
+        "latitude": 48.6616037,
+        "longitude": 9.3501336,
+        "state": "Baden-Württemberg"
+      }
+    },
+    {
+      "id": "bf08f80c-318e-4597-bee3-e8b34020a057",
+      "handymanId": "098f8729-46c8-4da7-a0ce-eac9e99d0d47",
+      "createdAt": "2025-04-19T19:58:22.183Z",
+      "isActive": true,
+      "title": "213",
+      "description": "213",
+      "location": {
+        "latitude": 48.6616037,
+        "longitude": 9.3501336,
+        "state": "Baden-Württemberg"
+      }
+    },
+    {
+      "id": "1c2ecc34-c21c-405a-ba59-0be14804fa17",
+      "handymanId": "615d75a8-5a70-4303-9355-cafdc29a0616",
+      "createdAt": "2025-04-21T01:36:41.071Z",
+      "isActive": true,
+      "title": "123",
+      "description": "213",
+      "location": {
+        "latitude": 48.6616037,
+        "longitude": 9.3501336,
+        "state": "Baden-Württemberg"
+      }
+    },
+    {
+      "id": "ac29be7b-2fb4-46bc-9a30-c0b58cfd3a58",
+      "handymanId": "c8caa6a6-d53d-4afd-8298-004f2ed3e4a4",
+      "createdAt": "2025-04-21T01:38:38.893Z",
+      "isActive": true,
+      "title": "I would like to provide ",
+      "description": "I would like to provide ",
+      "location": {
+        "latitude": 48.6616037,
+        "longitude": 9.3501336,
+        "state": "Baden-Württemberg"
+      }
     }
   ],
   "feedback": [
@@ -1095,58 +1335,156 @@
   ],
   "calendarbookings": [
     {
-      "id": "3bb8",
-      "title": "213yes",
-      "location": "123yes",
-      "description": "yesyesyes",
-      "from": "2025-04-25T12:00:00",
-      "to": "2025-04-25T12:57:00",
-      "dateCreatedAt": "2025-04-17T00:58:10.713Z"
-    },
-    {
-      "id": "78d0",
-      "title": "225",
-      "location": "Macedonia",
+      "id": "df70",
+      "title": "Anna Muller",
+      "location": {
+        "address": "Hamburg",
+        "lat": 53.5510846,
+        "lng": 9.9936819
+      },
       "description": "123",
-      "from": "2025-04-23T12:00:00",
-      "to": "2025-04-23T13:00:00",
-      "dateCreatedAt": "2025-04-17T01:11:32.831Z"
+      "from": "2025-04-24T12:00:00",
+      "to": "2025-04-24T13:00:00",
+      "userId": "615d75a8-5a70-4303-9355-cafdc29a0616",
+      "dateCreatedAt": "2025-04-19T20:47:11.037Z"
     },
     {
-      "id": "420a",
+      "id": "3c44",
+      "title": "Kire",
+      "location": {
+        "address": "Brandenburg",
+        "lat": 52.4125287,
+        "lng": 12.5316444
+      },
+      "description": "123",
+      "from": "2025-04-21T12:00:00",
+      "to": "2025-04-21T13:00:00",
+      "userId": "615d75a8-5a70-4303-9355-cafdc29a0616",
+      "dateCreatedAt": "2025-04-19T21:06:51.788Z"
+    },
+    {
+      "id": "b4f5",
       "title": "213",
-      "location": "213",
+      "location": {
+        "address": "Hamburg",
+        "lat": 53.5510846,
+        "lng": 9.9936819
+      },
       "description": "123",
       "from": "2025-04-20T12:00:00",
       "to": "2025-04-20T13:00:00",
-      "dateCreatedAt": "2025-04-17T01:32:15.493Z"
+      "userId": "615d75a8-5a70-4303-9355-cafdc29a0616",
+      "dateCreatedAt": "2025-04-19T21:07:01.260Z"
     },
     {
-      "id": "5af5",
-      "title": "123",
-      "location": "213",
-      "description": "123",
-      "from": "2025-04-19T12:00:00",
-      "to": "2025-04-19T13:00:00",
-      "dateCreatedAt": "2025-04-17T01:33:37.127Z"
+      "id": "ceb7",
+      "title": "213",
+      "location": {
+        "address": "Baden-Württemberg",
+        "lat": 48.6616037,
+        "lng": 9.3501336
+      },
+      "description": "213",
+      "from": "2025-04-26T12:00:00",
+      "to": "2025-04-26T13:00:00",
+      "userId": "615d75a8-5a70-4303-9355-cafdc29a0616",
+      "dateCreatedAt": "2025-04-19T21:08:31.381Z"
     },
     {
-      "id": "d61b",
-      "title": "Anna muller",
-      "location": "Macedonia",
+      "id": "ba95",
+      "title": "213",
+      "location": {
+        "address": "Baden-Württemberg",
+        "lat": 48.6616037,
+        "lng": 9.3501336
+      },
       "description": "123",
       "from": "2025-04-26T12:00:00",
       "to": "2025-04-26T13:00:00",
-      "dateCreatedAt": "2025-04-17T19:08:36.723Z"
+      "userId": "615d75a8-5a70-4303-9355-cafdc29a0616",
+      "dateCreatedAt": "2025-04-19T21:08:37.873Z"
+    }
+  ],
+  "jobPostings": [
+    {
+      "id": "1a2b3c4d-5e6f-7g8h-9i0j-1k2l3m4n5o6p",
+      "clientId": "5c4e0b2-1f3d-4a8b-9f5c-7a6e0d1f2a3",
+      "clientName": "Anna Muller",
+      "title": "Fix a leaking pipe",
+      "description": "Locate the source of the leak, then shut off the water supply. Repair required as soon as possible.",
+      "location": {
+        "address": "Berlin, Germany",
+        "lat": 52.52,
+        "lng": 13.405
+      },
+      "isUrgent": true,
+      "image": "../../../public/Profile/Ellipse 148.png",
+      "postedAt": "2025-04-17T10:30:00Z",
+      "status": "open"
     },
     {
-      "id": "c4eb",
-      "title": "Kire",
-      "location": "Macedonia",
-      "description": "12345",
-      "from": "2025-04-22T12:00:00",
-      "to": "2025-04-22T13:00:00",
-      "dateCreatedAt": "2025-04-17T19:36:10.956Z"
+      "id": "2b3c4d5e-6f7g-8h9i-0j1k-2l3m4n5o6p7q",
+      "clientId": "5c4e0b2-1f3d-4a8b-9f5c-7a6e0d1f2a3",
+      "clientName": "Anna Muller",
+      "title": "Fix a leaking pipe",
+      "description": "Locate the source of the leak, then shut off the water supply. Repair required as soon as possible.",
+      "location": {
+        "address": "456 Oak St, Berlin",
+        "lat": 52.53,
+        "lng": 13.415
+      },
+      "image": "../../../public/Profile/Ellipse 148.png",
+      "isUrgent": true,
+      "postedAt": "2025-04-16T14:45:00Z",
+      "status": "open"
+    },
+    {
+      "id": "3c4d5e6f-7g8h-9i0j-1k2l-3m4n5o6p7q8r",
+      "clientId": "9a8b7c6d-5e4f-3g2h-1i0j-9k8l7m6n5o",
+      "clientName": "Michael Schmidt",
+      "title": "Install new kitchen sink",
+      "description": "Need a professional to install a new kitchen sink. The old one is already removed.",
+      "location": {
+        "address": "123 Main St, Munich",
+        "lat": 48.137,
+        "lng": 11.576
+      },
+      "image": "../../../public/Profile/francokrause.png",
+      "isUrgent": false,
+      "postedAt": "2025-04-15T09:15:00Z",
+      "status": "open"
+    },
+    {
+      "id": "4d5e6f7g-8h9i-0j1k-2l3m-4n5o6p7q8r9s",
+      "clientId": "1b2c3d4e-5f6g-7h8i-9j0k-1l2m3n4o5p",
+      "clientName": "Klaus Weber",
+      "title": "Paint living room walls",
+      "description": "Looking for someone to paint my living room. The room is approximately 25 square meters. Paint will be provided.",
+      "location": {
+        "address": "789 Elm St, Hamburg",
+        "lat": 53.551,
+        "lng": 9.993
+      },
+      "image": "../../../public/Profile/klaus.png",
+      "isUrgent": false,
+      "postedAt": "2025-04-14T16:20:00Z",
+      "status": "open"
+    },
+    {
+      "id": "5e6f7g8h-9i0j-1k2l-3m4n-5o6p7q8r9s0t",
+      "clientId": "2c3d4e5f-6g7h-8i9j-0k1l-2m3n4o5p6q",
+      "clientName": "Lucas Fischer",
+      "title": "Fix electrical outlet",
+      "description": "One electrical outlet in the kitchen is not working. Need an electrician to check and repair it urgently.",
+      "location": {
+        "address": "321 Pine St, Frankfurt",
+        "lat": 50.11,
+        "lng": 8.682
+      },
+      "image": "../../../public/Profile/lukas.png",
+      "isUrgent": true,
+      "postedAt": "2025-04-18T08:00:00Z",
+      "status": "open"
     }
   ]
 }

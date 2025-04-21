@@ -1,7 +1,7 @@
 import { useState, useEffect } from "react";
 import { useNavigate } from "react-router-dom";
-import useCategoriesStore from "../../store/CateorySelection";
-import useAuthStore from "../../store/authStore";
+import useCategoriesStore from "../../store/useCateorySelection";
+import useAuthStore from "../../store/useAuthStore";
 import styles from "./subcategory.module.css";
 
 const SubcategorySelection = () => {

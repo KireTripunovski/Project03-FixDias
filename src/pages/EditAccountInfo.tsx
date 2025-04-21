@@ -2,7 +2,7 @@ import { useState, useEffect } from "react";
 import { Bell, ChevronLeft } from "lucide-react";
 import { useNavigate, useSearchParams } from "react-router-dom";
 import { useGeolocated } from "react-geolocated";
-import useAuthStore from "../store/authStore";
+import useAuthStore from "../store/useAuthStore";
 import useUserPreferencesStore from "../store/useUserPreferences";
 import profilepicture from "../../public/Profile/Picture.png";
 import CalendarComponent from "../components/EditAccountInfoComponents/Calendar";
@@ -20,7 +20,7 @@ import { CertificatesModal } from "../components/EditAccountInfoComponents/Certi
 import useProfileStore, {
   HandymanProfile,
   Location,
-} from "../store/ProfileStore";
+} from "../store/useProfileStore";
 
 interface CustomFormData {
   firstName: string;
@@ -196,6 +196,23 @@ export default function EditAccount() {
       alert("Failed to update telephone number: " + result.message);
     }
   };
+  const handleEmailChange = async (newEmail: string) => {
+    if (!user) return;
+
+    const result = await useAuthStore.getState().updateEmail(newEmail);
+
+    if (result.success) {
+      setFormData((prev) => ({
+        ...prev,
+        email: newEmail,
+      }));
+      alert(
+        "Email updated successfully! Please use this email for future logins."
+      );
+    } else {
+      alert("Failed to update email: " + result.message);
+    }
+  };
 
   const handleCertificatesSave = async () => {
     if (!newCertificates.trim()) {
@@ -311,6 +328,7 @@ export default function EditAccount() {
             firstName={formData.firstName}
             lastName={formData.lastName}
             email={formData.email}
+            onEmailChange={handleEmailChange}
           />
 
           {/* Contact Details */}

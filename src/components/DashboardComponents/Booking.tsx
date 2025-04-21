@@ -7,9 +7,9 @@ import { IoIosCheckmarkCircleOutline } from "react-icons/io";
 import { useNavigate } from "react-router";
 import { useEffect, useState } from "react";
 import styles from "../DashboardComponents/Dashboard.module.css";
-import useBookingsStore from "../../store/BookingStore";
-import useAuthStore from "../../store/authStore";
-import useProfileStore from "../../store/ProfileStore";
+import useBookingsStore from "../../store/useBookingStore";
+import useAuthStore from "../../store/useAuthStore";
+import useProfileStore from "../../store/useProfileStore";
 
 export default function BookingsSection() {
   const navigate = useNavigate();
@@ -17,6 +17,7 @@ export default function BookingsSection() {
   const [activeTab, setActiveTab] = useState<"new" | "ongoing" | "completed">(
     "new"
   );
+  const [showAllBookings, setShowAllBookings] = useState(false);
 
   const [isLoading, setIsLoading] = useState(true);
 
@@ -58,6 +59,12 @@ export default function BookingsSection() {
       console.error("Error in handleBookingAction:", error);
     }
   };
+  const toggleShowAll = () => {
+    setShowAllBookings((prevState) => !prevState);
+  };
+  const displayedListings = showAllBookings
+    ? filteredBookings
+    : filteredBookings.slice(0, 2);
 
   if (isLoading) {
     return (
@@ -78,7 +85,7 @@ export default function BookingsSection() {
           }`}
           onClick={() => setActiveTab("new")}
         >
-          New Requests{" "}
+          New Requests
           {bookings.filter((b) => b.status === "pending").length > 0 &&
             `(${bookings.filter((b) => b.status === "pending").length})`}
         </button>
@@ -104,12 +111,12 @@ export default function BookingsSection() {
         </button>
       </div>
 
-      {filteredBookings.length === 0 ? (
+      {displayedListings.length === 0 ? (
         <div className="text-center py-4 text-gray-500">
           No {activeTab} bookings found
         </div>
       ) : (
-        filteredBookings.map((booking) => (
+        displayedListings.map((booking) => (
           <div
             style={{ marginBottom: "20px" }}
             key={booking.id}
@@ -160,28 +167,32 @@ export default function BookingsSection() {
             <div className="p-3">
               <div style={{ marginBottom: "30px" }}>
                 <div className="flex items-center text-sm mb-2">
-                  <span className="flex items-center font-medium mr-1">
-                    <FiCalendar
-                      style={{ marginRight: "5px", color: "#FA6100" }}
-                    />
-                    <span style={{ marginRight: "5px" }}>
+                  <span className="flex items-center justify-between w-full font-medium mr-1">
+                    <div className="flex items-center">
+                      <FiCalendar
+                        style={{ marginRight: "5px", color: "#FA6100" }}
+                      />
+                      <span style={{ marginRight: "5px" }}>
+                        {booking.status === "completed"
+                          ? "Completed on"
+                          : "Planned for"}
+                      </span>
                       {booking.status === "completed"
-                        ? "Completed on"
-                        : "Planned for"}
-                    </span>
-                    {booking.status === "completed"
-                      ? booking.completedDate
-                      : booking.scheduledDate}{" "}
-                    <CiClock2
-                      style={{
-                        marginLeft: "15px",
-                        marginRight: "5px",
-                        color: "#FA6100",
-                      }}
-                    />
-                    {booking.status === "completed"
-                      ? booking.completedTime
-                      : booking.scheduledTime}
+                        ? booking.completedDate
+                        : booking.scheduledDate}{" "}
+                    </div>
+                    <div className="flex items-center">
+                      <CiClock2
+                        style={{
+                          marginLeft: "15px",
+                          marginRight: "5px",
+                          color: "#FA6100",
+                        }}
+                      />
+                      {booking.status === "completed"
+                        ? booking.completedTime
+                        : booking.scheduledTime}
+                    </div>
                   </span>
                 </div>
                 <div className="mb-2">
@@ -198,11 +209,22 @@ export default function BookingsSection() {
                     <div className="flex justify-between w-full items-center">
                       {booking.customerName}
                       <span
-                        className="flex items-center text-sm font-medium"
-                        style={{ marginRight: "70px" }}
-                        onClick={() => navigate("/map")}
+                        className="flex items-center text-sm font-medium cursor-pointer hover:underline"
+                        onClick={() =>
+                          navigate(
+                            `/map?lat=${booking.location.lat}&lng=${
+                              booking.location.lng
+                            }&address=${encodeURIComponent(
+                              booking.location.address
+                            )}&description=${encodeURIComponent(
+                              booking.description
+                            )}`
+                          )
+                        }
                       >
-                        <LuMapPin style={{ color: "#FA6100" }} />
+                        <LuMapPin
+                          style={{ color: "#FA6100", marginRight: "5px" }}
+                        />
                         View location
                       </span>
                     </div>
@@ -258,6 +280,17 @@ export default function BookingsSection() {
             </div>
           </div>
         ))
+      )}
+      {filteredBookings.length > 2 && (
+        <div className="flex justify-end  ">
+          <button
+            className="bg-orange-500 text-white p-2 rounded-lg"
+            style={{ textAlign: "right", backgroundColor: "none" }}
+            onClick={toggleShowAll}
+          >
+            {showAllBookings ? "Show less" : "Show all"}
+          </button>
+        </div>
       )}
     </div>
   );

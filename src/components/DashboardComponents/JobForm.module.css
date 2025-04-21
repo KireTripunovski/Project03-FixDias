@@ -2,7 +2,6 @@
   display: flex;
   justify-content: center;
   align-items: center;
-  background-color: #fafafa;
   min-height: 100vh;
   padding: 1rem;
 }
@@ -13,11 +12,6 @@
   background-color: white;
   border-radius: 0.75rem;
   overflow: hidden;
-  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);
-}
-
-.cardContent {
-  padding: 1.5rem;
 }
 
 .mainHeaderSection {

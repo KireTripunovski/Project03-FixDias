@@ -1,137 +1,160 @@
-import { useState, useEffect } from "react";
-import { MapPin } from "lucide-react";
-import { Service, ServiceCategory, User } from "../../types/types";
+import { useEffect, useState } from "react";
+import CarouselSlider from "../DashboardComponents/Carousel";
+import { HandymanProfile } from "../../store/useProfileStore";
+import craftsmanimage from "../../../public/HomepageSection1/craftsman.png";
 
-interface Craftsman extends Omit<User, "password"> {
-  services?: Array<Pick<Service, "category">>;
-  location?: {
-    city: string;
-    state: string;
-    address?: string;
-    zipCode?: string;
-    coordinates?: {
-      latitude: number;
-      longitude: number;
-    };
-  };
+interface CraftsmanWithDetails extends HandymanProfile {
+  userName: string;
+  subcategories: {
+    id: string;
+    name: string;
+  }[];
 }
-
-const Section4 = () => {
-  const [craftsmen, setCraftsmen] = useState<Craftsman[]>([]);
-  const [serviceCategories, setServiceCategories] = useState<
-    Record<string, string>
-  >({});
+export default function CraftsmanCarousel() {
+  const [craftsmen, setCraftsmen] = useState<CraftsmanWithDetails[]>([]);
+  const [isLoading, setIsLoading] = useState(true);
 
   useEffect(() => {
-    const fetchData = async () => {
+    const fetchAllCraftsmen = async () => {
       try {
-        // Fetch handymen
-        const craftsmenResponse = await fetch(
-          "http://localhost:5001/users?userType=handyman"
+        setIsLoading(true);
+
+        // Fetch all data
+        const profilesResponse = await fetch(
+          "http://localhost:5001/handymanProfiles"
         );
-        const craftsmenData: User[] = await craftsmenResponse.json();
-
-        // Fetch their services to get location and categories
-        const craftsmenWithDetails = await Promise.all(
-          craftsmenData.map(async (craftsman) => {
-            const servicesResponse = await fetch(
-              `http://localhost:5001/services?providerId=${craftsman.id}`
-            );
-            const services: Service[] = await servicesResponse.json();
-
-            // Get the first service with location (if exists)
-            const serviceWithLocation = services.find((s) => s.location);
-
-            return {
-              ...craftsman,
-              location: serviceWithLocation?.location || undefined,
-              services: services.map((s) => ({ category: s.category })),
-            };
-          })
+        const usersResponse = await fetch("http://localhost:5001/users");
+        const preferencesResponse = await fetch(
+          "http://localhost:5001/userPreferences"
         );
 
-        // Fetch service categories for display
-        const categoriesResponse = await fetch(
-          "http://localhost:5001/serviceCategories"
-        );
-        const categoriesData: ServiceCategory[] =
-          await categoriesResponse.json();
+        if (
+          !profilesResponse.ok ||
+          !usersResponse.ok ||
+          !preferencesResponse.ok
+        ) {
+          throw new Error("Failed to fetch data");
+        }
 
-        const categoriesMap = categoriesData.reduce(
-          (acc: Record<string, string>, cat) => {
-            acc[cat.id] = cat.name;
-            return acc;
-          },
-          {}
-        );
+        const profiles = await profilesResponse.json();
+        const users = await usersResponse.json();
+        const preferences = await preferencesResponse.json();
 
-        setCraftsmen(craftsmenWithDetails);
-        setServiceCategories(categoriesMap);
+        // Combine profiles with user data and preferences
+        const profilesWithDetails = profiles.map((profile: HandymanProfile) => {
+          const user = users.find(
+            (u: { id: string }) => u.id === profile.userId
+          );
+          const userPreferences = preferences.find(
+            (pref: { userId: string }) => pref.userId === profile.userId
+          );
+
+          return {
+            ...profile,
+            userName: user ? user.name : "Unknown",
+            subcategories:
+              userPreferences?.selectedCategories.flatMap(
+                (category: { subcategories: any[] }) => category.subcategories
+              ) || [],
+          };
+        });
+
+        setCraftsmen(profilesWithDetails);
       } catch (error) {
         console.error("Error fetching data:", error);
+      } finally {
+        setIsLoading(false);
       }
     };
 
-    fetchData();
+    fetchAllCraftsmen();
   }, []);
 
-  const getTopCategories = (services: Array<{ category: string }>) => {
-    if (!services || services.length === 0) return "Various services";
-
-    // Get unique category names
-    const uniqueCategories = [
-      ...new Set(
-        services.map((s) => serviceCategories[s.category] || "Various")
-      ),
-    ].slice(0, 3);
-
-    return uniqueCategories.join(", ");
-  };
+  if (isLoading) {
+    return <div>Loading craftsmen...</div>;
+  }
 
   return (
-    <div className="bg-white rounded-lg p-6 max-w-md mx-auto">
-      <h2 className="text-2xl font-bold text-center mb-4">
-        Craftsmen grow faster with our app!
-      </h2>
+    <div className="mt-6">
+      <h2 className="text-xl font-semibold mb-4">Available Craftsmen</h2>
+      <CarouselSlider autoPlay={false} showDots peekAmount={20}>
+        {craftsmen.map((craftsman) => (
+          <div key={craftsman.id} className="px-2">
+            <div className="bg-white rounded-lg shadow-md overflow-hidden">
+              {/* Income  */}
+              <div className="bg-blue-500 text-white text-center py-1 font-medium">
+                € {craftsman.income || 1000} Additional Income
+              </div>
 
-      <div className="flex justify-around space-x-4">
-        {craftsmen.slice(0, 2).map((craftsman) => (
-          <div key={craftsman.id} className="text-center">
-            <div
-              style={{ backgroundColor: "#1461F0", margin: "15px 0" }}
-              className="bg-blue-500 text-white text-center py-2 rounded mb-4"
-            >
-              € 1000 Additional Income
-            </div>
-            <div className="w-24 h-24 mx-auto mb-2 bg-gray-200 rounded-full overflow-hidden">
-              <img
-                src="/api/placeholder/96/96"
-                alt={craftsman.name}
-                className="w-full h-full object-cover"
-              />
-            </div>
-            <h3 className="font-semibold">{craftsman.name}</h3>
-            <div className="text-sm text-gray-600 flex items-center justify-center">
-              <MapPin size={16} className="mr-1" />
-              {craftsman.location
-                ? `${craftsman.location.city}, ${craftsman.location.state}`
-                : "Location not specified"}
-            </div>
-            <div className="text-xs text-gray-500">
-              {getTopCategories(craftsman.services || [])}
+              <div className="relative">
+                {/*  Image */}
+                <img
+                  src={craftsmanimage}
+                  alt={`${craftsman.userName}`}
+                  className="w-full h-40 object-cover"
+                />
+
+                {/* Content  */}
+                <div className="p-3">
+                  <h3 className="font-bold text-lg">
+                    {craftsman.userName || "Handyman"}
+                  </h3>
+                  {craftsman.profession && (
+                    <p className="text-sm text-gray-600">
+                      {craftsman.profession}
+                    </p>
+                  )}
+                  {/*  Subcategories */}
+                  <div className="mt-2">
+                    {craftsman.subcategories &&
+                    craftsman.subcategories.length > 0 ? (
+                      <div>
+                        <p className="text-sm font-medium text-gray-700">
+                          Services:
+                        </p>
+                        <ul className="text-sm text-gray-700">
+                          {craftsman.subcategories.map((subcategory) => (
+                            <li
+                              key={subcategory.id}
+                              className="flex items-start"
+                            >
+                              <span className="mr-1">•</span>
+                              <span>{subcategory.name}</span>
+                            </li>
+                          ))}
+                        </ul>
+                      </div>
+                    ) : (
+                      <p className="text-gray-500 text-sm">
+                        No services specified
+                      </p>
+                    )}
+                  </div>
+
+                  {/* Location */}
+                  <div className="flex items-center mt-3">
+                    <svg
+                      xmlns="http://www.w3.org/2000/svg"
+                      className="h-5 w-5 text-gray-500"
+                      viewBox="0 0 20 20"
+                      fill="currentColor"
+                    >
+                      <path
+                        fillRule="evenodd"
+                        d="M5.05 4.05a7 7 0 119.9 9.9L10 18.9l-4.95-4.95a7 7 0 010-9.9zM10 11a2 2 0 100-4 2 2 0 000 4z"
+                        clipRule="evenodd"
+                      />
+                    </svg>
+                    <span className="ml-1 text-gray-700">
+                      {craftsman.location?.city || "Unknown City"}
+                    </span>
+                  </div>
+                </div>
+              </div>
             </div>
           </div>
         ))}
-      </div>
-
-      <button
-        style={{ backgroundColor: "#E5733F", marginTop: "15px" }}
-        className="w-full bg-orange-500 text-white py-3 rounded-lg mt-4 hover:bg-orange-600 transition"
-      >
-        Register now
-      </button>
+      </CarouselSlider>
     </div>
   );
-};
-
-export default Section4;
+}

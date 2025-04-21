@@ -28,6 +28,7 @@
   box-shadow: 0 4px 10px rgba(0, 0, 0, 0.05);
   transition: transform 0.2s ease, box-shadow 0.2s ease;
   cursor: pointer;
+  height: 155px;
 }
 
 .card:hover {
@@ -48,7 +49,7 @@
 }
 
 .serviceName {
-  font-size: 1rem;
+  font-size: 0.5rem;
   font-weight: 600;
   text-align: center;
   margin: 0;
@@ -72,11 +73,10 @@
   margin: 0 auto;
 }
 
-/* Responsive styles */
 @media (max-width: 768px) {
   .grid {
-    grid-template-columns: repeat(3, 1fr); /* Keep 3 columns on tablet */
-    gap: 1rem; /* Reduce gap slightly for smaller screens */
+    grid-template-columns: repeat(3, 1fr);
+    gap: 1rem;
   }
 
   .heading {
@@ -84,14 +84,14 @@
   }
 
   .card {
-    padding: 1rem; /* Reduce padding on smaller screens */
+    padding: 1rem;
   }
 }
 
 @media (max-width: 480px) {
   .grid {
-    grid-template-columns: repeat(3, 1fr); /* Keep 3 columns on mobile */
-    gap: 0.75rem; /* Reduce gap further for mobile */
+    grid-template-columns: repeat(3, 1fr);
+    gap: 0.75rem;
   }
 
   .heading {
@@ -99,14 +99,10 @@
   }
 
   .card {
-    padding: 0.75rem; /* Further reduce padding on mobile */
-  }
-
-  .serviceName {
-    font-size: 0.9rem; /* Slightly reduce font size for mobile */
+    padding: 0.75rem;
   }
 
   .iconContainer {
-    height: 60px; /* Reduce icon container height for mobile */
+    height: 60px;
   }
 }

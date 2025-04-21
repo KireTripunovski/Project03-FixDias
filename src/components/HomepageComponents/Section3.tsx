@@ -71,7 +71,13 @@ export default function Section3() {
       <div className={styles.grid}>
         {currentServices.map((service) => (
           <div key={service.id} className={styles.card}>
-            <div className={styles.iconContainer}></div>
+            <div className={styles.iconContainer}>
+              <img
+                src={service.imageUrl}
+                alt={service.name}
+                className={styles.serviceImage}
+              />
+            </div>
             <p className={styles.serviceName}>{service.name}</p>
           </div>
         ))}

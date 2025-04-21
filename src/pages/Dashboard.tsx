@@ -1,30 +1,39 @@
 import { useEffect, useState } from "react";
-import { Bell, Edit2, Eye, Star } from "lucide-react";
+import { Bell, Edit2, Eye, Plus, Star } from "lucide-react";
 import styles from "../components/DashboardComponents/Dashboard.module.css";
-import useAuthStore from "../store/authStore";
-import useProfileStore from "../store/ProfileStore";
-import useBookingsStore from "../store/BookingStore";
+import useAuthStore from "../store/useAuthStore";
+import useProfileStore from "../store/useProfileStore";
+import useBookingsStore from "../store/useBookingStore";
 import EditableSection from "../components/DashboardComponents/EditableSection";
 import useUserPreferencesStore from "../store/useUserPreferences";
 import FeedbackSection from "../components/DashboardComponents/FeedbackSection";
 import profilepicutre from "../../public/Profile/Profile picture of handyman.png";
 import verirified from "../../public/Profile/verified_24dp_E8EAED_FILL1_wght400_GRAD0_opsz24 1.png";
-import useFeedbackStore from "../store/FeedbackStore";
+import useFeedbackStore from "../store/useFeedbackStore";
 import CarouselSlider from "../components/DashboardComponents/Carousel";
 import carouselimg1 from "../../public/Profile/plumbing-repair-service 1.png";
 import carouselimg2 from "../../public/Profile/male-hands-with-wrench-turning-off-valves 1.png";
 import MyListings from "../components/DashboardComponents/Mylistings";
 import BookingsSection from "../components/DashboardComponents/Booking";
 import { useNavigate } from "react-router";
+import { FooterActions } from "../components/EditAccountInfoComponents/FooterActions";
+import CustomSections from "../components/DashboardComponents/CostumSections";
+import AddSectionModal from "../components/DashboardComponents/AddSectionModal";
 
 export default function Dashboard() {
-  const { user } = useAuthStore();
+  const { user, logout } = useAuthStore();
   const { profile, fetchProfile, updateProfile } = useProfileStore();
   const { fetchBookings } = useBookingsStore();
   const { preferences, fetchUserPreferences } = useUserPreferencesStore();
   const { averageRating, reviewCount, fetchFeedback } = useFeedbackStore();
   const [isLoading, setIsLoading] = useState(true);
   const navigate = useNavigate();
+  const [isDropdownOpen, setIsDropdownOpen] = useState(false);
+  const [isAddSectionModalOpen, setIsAddSectionModalOpen] = useState(false);
+
+  const toggleDropdown = () => {
+    setIsDropdownOpen(!isDropdownOpen);
+  };
   useEffect(() => {
     if (user) {
       fetchFeedback(user.id);
@@ -42,6 +51,7 @@ export default function Dashboard() {
 
     loadData();
   }, [user, fetchProfile, fetchBookings]);
+
   useEffect(() => {
     if (user) {
       fetchUserPreferences(user.id);
@@ -54,6 +64,18 @@ export default function Dashboard() {
 
   const handleUpdateServices = async (content: string) => {
     await updateProfile({ services: content });
+  };
+  const handleAddSection = async (sectionName: string) => {
+    const currentCustomSections = profile?.customSections || {};
+
+    const updatedCustomSections = {
+      ...currentCustomSections,
+      [sectionName]: "",
+    };
+
+    await updateProfile({
+      customSections: updatedCustomSections,
+    });
   };
 
   if (isLoading) {
@@ -91,7 +113,7 @@ export default function Dashboard() {
               style={{ paddingTop: "15px", paddingBottom: "15px" }}
               className="bg-white rounded-lg"
             >
-              <div className="flex items-center gap-15 ">
+              <div className="flex items-center justify-between ">
                 <span className="font-bold ">
                   {user?.name || "User Name"}
                   <img
@@ -104,12 +126,9 @@ export default function Dashboard() {
                   <span
                     className={`text-xs px-1.5 py-0.5 rounded-full   ${styles.bgAccentLight} ${styles.textAccentLight}`}
                   >
-                    <span
-                      className={`w-1.5 h-1.5 rounded-full mr-1 ${styles.dotAccent}`}
-                    ></span>
                     Available now
                   </span>
-                  <button className="bg-white p-1 rounded-full inline-block px-2">
+                  <button className="bg-white rounded-full inline-block ">
                     <Edit2 size={16} className={styles.textAccent} />
                   </button>
                 </div>
@@ -162,7 +181,24 @@ export default function Dashboard() {
               <div>
                 <p>
                   {preferences?.selectedCategories?.map((category, index) => (
-                    <span key={index}>{category.categoryName}</span>
+                    <span style={{}} key={index}>
+                      {category.subcategories.map((sub, subIndex) => (
+                        <span
+                          style={{
+                            color: "rgba(85, 132, 229, 1)",
+                            backgroundColor: "rgba(232, 239, 254, 1)",
+                            padding: "5px",
+                            borderRadius: "5px",
+                            fontSize: "12px",
+                            margin: "10px 5px 0px 0",
+                            display: "inline-block",
+                          }}
+                          key={subIndex}
+                        >
+                          {sub.name}
+                        </span>
+                      ))}
+                    </span>
                   )) || "No categories selected"}
                 </p>
               </div>
@@ -172,15 +208,85 @@ export default function Dashboard() {
 
         {/* Add Section Button */}
         <div className="flex py-2">
-          <button className="w-full border border-gray-300 rounded-lg py-2.5 text-center text-gray-700">
+          <button
+            style={{ border: "1px solid rgba(250, 97, 0, 1)" }}
+            className="w-full rounded-lg py-2.5 text-center bg-white text-gray-700 flex items-center justify-center"
+            onClick={() => setIsAddSectionModalOpen(true)}
+          >
+            <Plus size={16} className="mr-2" />
             Add section
           </button>
-          <button
-            onClick={() => navigate("/dashboard/editaccount")}
-            className="px-5 block"
-          >
-            ...
-          </button>
+          <div className="relative self-center">
+            <button
+              onClick={toggleDropdown}
+              className="px-5 block flex items-center gap-1 "
+            >
+              ...
+            </button>
+            {isDropdownOpen && (
+              <div className="absolute right-0 mt-2 w-48 origin-top-right bg-white divide-y divide-gray-200 rounded-md shadow-lg ring-1 ring-gray ring-opacity-5">
+                <div className="py-1 w-full">
+                  <button
+                    onClick={() => navigate("/dashboard/editaccount")}
+                    className="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100"
+                  >
+                    Edit Account
+                  </button>
+                  <button
+                    onClick={() =>
+                      navigate("/dashboard/editaccount?tab=calendar")
+                    }
+                    className="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100"
+                  >
+                    Edit Calendar
+                  </button>
+                  <button
+                    onClick={() =>
+                      console.log("Become Pro to be implemented in the future")
+                    }
+                    className="flex items-center px-4 py-2 text-sm w-full text-gray-700 hover:bg-gray-100"
+                  >
+                    Become Pro{" "}
+                    <Star
+                      size={19}
+                      style={{
+                        marginLeft: "15px",
+                        backgroundColor: "rgba(220, 253, 63, 1)",
+                        padding: "5px",
+                        borderRadius: "50%",
+                      }}
+                      fill="black"
+                    />
+                  </button>
+                  <div
+                    style={{ borderBottom: "1px solid rgba(0, 0, 0, 0.05) " }}
+                  ></div>
+                  <button
+                    onClick={() => navigate("/dashboard/saveditems")}
+                    className="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100"
+                  >
+                    Saved Items
+                  </button>
+                  <button
+                    onClick={() => console.log("Logout")}
+                    className="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100"
+                  >
+                    Activity
+                  </button>
+                  <div
+                    style={{ borderBottom: "1px solid rgba(0, 0, 0, 0.05) " }}
+                  ></div>
+                  <FooterActions
+                    onLogout={() => {
+                      logout();
+                      navigate("/login");
+                    }}
+                    className="px-4 py-2 block text-sm items-start"
+                  />
+                </div>
+              </div>
+            )}
+          </div>
         </div>
 
         {/* Pro Try Button */}
@@ -204,9 +310,10 @@ export default function Dashboard() {
           content={profile?.services || ""}
           onSave={handleUpdateServices}
         />
+        <CustomSections />
       </div>
 
-      <div className="width-90">
+      <div className="width-90 pt-15">
         <div>
           <h2 className="text-lg font-medium">My bookings</h2>
           <span
@@ -355,6 +462,11 @@ export default function Dashboard() {
         ]}
       </CarouselSlider>
       <FeedbackSection />
+      <AddSectionModal
+        isOpen={isAddSectionModalOpen}
+        onClose={() => setIsAddSectionModalOpen(false)}
+        onAdd={handleAddSection}
+      />
     </div>
   );
 }

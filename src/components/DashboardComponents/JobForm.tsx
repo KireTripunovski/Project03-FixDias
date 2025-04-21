@@ -1,7 +1,7 @@
 import { useState, useEffect, useRef } from "react";
 import { ChevronDown } from "lucide-react";
 import styles from "./JobForm.module.css";
-import useListingsStore from "../../store/ListingStore";
+import useListingsStore from "../../store/useListingStore";
 
 interface JobFormProps {
   onSuccess?: () => void;

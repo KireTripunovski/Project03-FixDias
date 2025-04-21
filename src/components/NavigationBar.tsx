@@ -8,22 +8,19 @@ export default function NavigationBar() {
   const navItems = [
     { name: "Bookings", path: "/booking", icon: Ticket },
     { name: "Search", path: "/map", icon: Search, hasNotification: true },
-    { name: "Home", path: "/", icon: Home },
+    { name: "Home", path: "/handymanhomepage", icon: Home },
     { name: "Messages", path: "/messages", icon: MessageSquare },
     { name: "Profile", path: "/dashboard", icon: User },
   ];
 
-  const activeTab =
-    navItems.find(
-      (item) =>
-        currentPath === item.path ||
-        (item.path !== "/" && currentPath.startsWith(item.path))
-    )?.name || "Bookings";
+  const activeTab = navItems.find(
+    (item) =>
+      currentPath === item.path ||
+      (item.path !== "/" && currentPath.startsWith(item.path))
+  )?.name;
 
   return (
-    <div className="w-full">
-      <div className="h-1 bg-orange-500"></div>
-
+    <div className="w-full bg-white shadow-md">
       <div className="flex justify-between items-center px-4 py-4">
         {navItems.map((item) => {
           const isActive = activeTab === item.name;
@@ -45,7 +42,7 @@ export default function NavigationBar() {
               </div>
               <span
                 className={`text-sm font-medium ${
-                  !isActive && item.name !== "Bookings" ? "invisible" : ""
+                  !isActive && item.name !== activeTab ? "invisible" : ""
                 }`}
               >
                 {item.name}
@@ -54,8 +51,7 @@ export default function NavigationBar() {
           );
         })}
       </div>
-
-      <div className="flex justify-center">
+      <div className="flex justify-center pb-1">
         <div className="h-1 w-32 bg-gray-800 rounded-full"></div>
       </div>
     </div>

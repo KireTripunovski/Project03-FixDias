@@ -147,9 +147,10 @@ export interface Location {
 export interface CalendarBooking {
   id: string;
   title: string;
-  location: string;
+  location: Location;
   description: string;
   from: string; // ISO format: "YYYY-MM-DDTHH:MM:SS"
   to: string; // ISO format: "YYYY-MM-DDTHH:MM:SS"
   dateCreatedAt: string;
+  userId: string; // New field
 }

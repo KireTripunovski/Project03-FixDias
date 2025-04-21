@@ -2,11 +2,11 @@ import { Star, Eye, MapPin, Bookmark } from "lucide-react";
 import styles from "./MyListing.module.css";
 import image from "../../../public/Profile/Picture.png";
 import checkmark from "../../../public/Profile/verified_24dp_E8EAED_FILL1_wght400_GRAD0_opsz24 1.png";
-import useFeedbackStore from "../../store/FeedbackStore";
-import useListingsStore from "../../store/ListingStore";
-import { useState } from "react";
+import useFeedbackStore from "../../store/useFeedbackStore";
+import useListingsStore from "../../store/useListingStore";
+import { useEffect, useState } from "react";
 import { formatDistanceToNow } from "date-fns";
-import useAuthStore from "../../store/authStore";
+import useAuthStore from "../../store/useAuthStore";
 import JobForm from "./JobForm";
 
 export default function MyListings() {
@@ -15,6 +15,14 @@ export default function MyListings() {
   const [showForm, setShowForm] = useState(false);
   const [showAllListings, setShowAllListings] = useState(false);
   const { user } = useAuthStore();
+
+  useEffect(() => {
+    const { fetchListings } = useListingsStore.getState();
+    console.log("Fetching listings...");
+    fetchListings()
+      .then(() => console.log("Listings fetched successfully"))
+      .catch((err) => console.error("Error fetching listings:", err));
+  }, []);
 
   const toggleForm = () => {
     setShowForm(!showForm);
@@ -27,18 +35,7 @@ export default function MyListings() {
   const displayedListings = showAllListings ? listings : listings.slice(0, 2);
 
   return (
-    <div className={`${styles.container} width-90`}>
-      {listings.length > 2 && (
-        <div className="flex justify-end ">
-          <button
-            style={{ textAlign: "right" }}
-            onClick={toggleShowAll}
-            className={styles.toggleListingsButton}
-          >
-            {showAllListings ? "Show less" : "Show all"}
-          </button>
-        </div>
-      )}
+    <div className={`${styles.container} width-90 pt-15`}>
       <div className={styles.card}>
         <div className={styles.cardContent}>
           <div className={styles.headerSection}>
@@ -176,6 +173,21 @@ export default function MyListings() {
           <span className={styles.footerText}>Pro try</span>
         </div>
       </div>
+      {listings.length > 2 && (
+        <div className="flex justify-end my-5 ">
+          <button
+            className="bg-orange-500 text-white p-2 rounded-lg"
+            style={{
+              textAlign: "right",
+              backgroundColor: "none",
+              marginTop: "10px",
+            }}
+            onClick={toggleShowAll}
+          >
+            {showAllListings ? "Show less" : "Show all"}
+          </button>
+        </div>
+      )}
     </div>
   );
 }

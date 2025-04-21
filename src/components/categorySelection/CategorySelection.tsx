@@ -1,11 +1,13 @@
 import { useState, useEffect } from "react";
 import { useNavigate } from "react-router-dom";
-import useCategoriesStore from "../../store/CateorySelection";
+import useCategoriesStore from "../../store/useCateorySelection";
+import { ChevronLeft } from "lucide-react";
 
 interface Category {
   id: string;
   name: string;
   subcategories: Subcategory[];
+  imageUrl: string;
 }
 
 interface Subcategory {
@@ -68,50 +70,54 @@ const CategorySelection = () => {
     return <div className="custom-container custom-error-message">{error}</div>;
 
   return (
-    <div className="custom-container">
-      <div className="custom-card">
-        <div className="custom-card-body">
-          <h1 className="custom-title">Select a Service Category</h1>
-
-          {error && <div className="custom-error-message mt-4">{error}</div>}
-
-          <div className="grid grid-cols-1 md:grid-cols-3 gap-4 mt-6">
-            {categories.map((category) => (
-              <div
-                key={category.id}
-                className={`custom-category-card ${
-                  selectedCategoryId === category.id ? "custom-selected" : ""
-                }`}
-                onClick={() => setSelectedCategoryId(category.id)}
-              >
-                <input
-                  type="radio"
-                  name="categorySelection"
-                  id={`category-${category.id}`}
-                  checked={selectedCategoryId === category.id}
-                  onChange={() => setSelectedCategoryId(category.id)}
-                  className="custom-radio"
-                />
-                <label
-                  htmlFor={`category-${category.id}`}
-                  className="w-full h-full cursor-pointer"
-                >
-                  <h2 className="text-lg font-semibold">{category.name}</h2>
-                  <p className="text-sm text-gray-600">
-                    {category.subcategories.length} services available
-                  </p>
-                </label>
-              </div>
-            ))}
-          </div>
-
-          <div className="flex justify-center mt-8">
-            <button
-              onClick={handleSubmit}
-              className="custom-btn custom-btn-primary"
+    <div style={{ alignContent: "center", height: "100vh" }}>
+      <div className="custom-container">
+        <div className="custom-card">
+          <div className="custom-card-body">
+            <h1 style={{ textAlign: "left" }} className="custom-title pb-5 ">
+              <ChevronLeft className="h-6 w-6 text-gray-800" />
+            </h1>
+            <h1
+              style={{ textAlign: "left", fontSize: "35px" }}
+              className="custom-title pb-5"
             >
-              Continue to Services
-            </button>
+              What’s your industry?{" "}
+            </h1>
+            <h2 style={{ textAlign: "left" }} className="custom-title pb-15">
+              Select a Service Category
+            </h2>
+
+            {error && <div className="custom-error-message mt-4">{error}</div>}
+
+            <div className="grid grid-cols-3 gap-3 mt-6">
+              {categories.map((category) => (
+                <div
+                  key={category.id}
+                  style={{ textAlign: "center", justifyItems: "center" }}
+                  className={`custom-category-card border-2 rounded-lg p-2 cursor-pointer transition-all ${
+                    selectedCategoryId === category.id
+                      ? "custom-selected border-orange-500 bg-orange-50"
+                      : "border-gray-300 hover:border-gray-400"
+                  }`}
+                  onClick={() => setSelectedCategoryId(category.id)}
+                >
+                  <img src={category.imageUrl} alt="" />
+                  <h2 className="text-sm md:text-base font-semibold text-center break-words overflow-hidden text-ellipsis">
+                    {category.name}
+                  </h2>
+                </div>
+              ))}
+            </div>
+
+            <div className="flex justify-center py-8">
+              <button
+                style={{ width: "100%" }}
+                onClick={handleSubmit}
+                className="custom-btn custom-btn-primary"
+              >
+                Continue to Services
+              </button>
+            </div>
           </div>
         </div>
       </div>

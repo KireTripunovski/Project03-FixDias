@@ -1,7 +1,7 @@
 import { useState, type FormEvent } from "react";
 import { Link, useNavigate } from "react-router-dom";
 import { FaEnvelope, FaLock, FaEye, FaEyeSlash } from "react-icons/fa";
-import useAuthStore from "../store/authStore";
+import useAuthStore from "../store/useAuthStore";
 import { LoginCredentials } from "../types/types";
 
 const Login = () => {

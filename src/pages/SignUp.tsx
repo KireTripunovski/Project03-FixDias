@@ -12,7 +12,7 @@ import {
   FaEye,
   FaEyeSlash,
 } from "react-icons/fa";
-import useAuthStore from "../store/authStore";
+import useAuthStore from "../store/useAuthStore";
 import { SignUpData } from "../types/types";
 
 const SignUp = () => {
