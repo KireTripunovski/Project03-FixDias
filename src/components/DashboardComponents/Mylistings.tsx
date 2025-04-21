@@ -8,6 +8,7 @@ import { useEffect, useState } from "react";
 import { formatDistanceToNow } from "date-fns";
 import useAuthStore from "../../store/useAuthStore";
 import JobForm from "./JobForm";
+import { Link } from "react-router";
 
 export default function MyListings() {
   const { averageRating, reviewCount } = useFeedbackStore();
@@ -55,7 +56,9 @@ export default function MyListings() {
           <p className={styles.explanatoryText}>
             {user?.name.split(" ")[0]}, this is a pro feate. <br /> Your
             listings would appear here and in
-            <span className={styles.underlinedText}>Home</span>
+            <Link to={"/"} className={styles.underlinedText}>
+              Home
+            </Link>
           </p>
 
           <div className={styles.previewSection}>

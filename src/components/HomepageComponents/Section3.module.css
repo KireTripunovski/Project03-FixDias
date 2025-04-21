@@ -17,6 +17,9 @@
   gap: 1.5rem;
 }
 
+.carouselButton:hover {
+  cursor: pointer;
+}
 .card {
   background: white;
   border-radius: 12px;

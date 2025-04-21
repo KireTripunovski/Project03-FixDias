@@ -128,9 +128,12 @@ const CarouselSlider: React.FC<CarouselSliderProps> = ({
   const slideWidth = 100 - peekAmount;
 
   return (
-    <div className="carousel-container py-17 width-90">
-      <h1 style={{ fontWeight: "700", fontSize: "24px" }} className="py-5">
-        Current Work
+    <div className="carousel-container py-17">
+      <h1
+        style={{ fontWeight: "500", fontSize: "32px" }}
+        className="py-5 text-center weight-400"
+      >
+        Craftsmen grow faster with our app!
       </h1>
       <div
         className="carousel-wrapper prevent-swipe-navigation"

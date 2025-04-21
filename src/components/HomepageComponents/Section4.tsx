@@ -76,79 +76,70 @@ export default function CraftsmanCarousel() {
 
   return (
     <div className="mt-6">
-      <h2 className="text-xl font-semibold mb-4">Available Craftsmen</h2>
       <CarouselSlider autoPlay={false} showDots peekAmount={20}>
         {craftsmen.map((craftsman) => (
           <div key={craftsman.id} className="px-2">
-            <div className="bg-white rounded-lg shadow-md overflow-hidden">
-              {/* Income  */}
-              <div className="bg-blue-500 text-white text-center py-1 font-medium">
+            <div className="bg-white rounded-lg shadow-md overflow-hidden h-[400px] flex flex-col">
+              <div className="bg-blue-500 text-white text-center py-2 font-medium">
                 € {craftsman.income || 1000} Additional Income
               </div>
 
-              <div className="relative">
-                {/*  Image */}
+              <div className="relative h-40 flex-shrink-0">
                 <img
                   src={craftsmanimage}
                   alt={`${craftsman.userName}`}
-                  className="w-full h-40 object-cover"
+                  className="w-full h-full object-cover"
                 />
+              </div>
 
-                {/* Content  */}
-                <div className="p-3">
-                  <h3 className="font-bold text-lg">
-                    {craftsman.userName || "Handyman"}
-                  </h3>
-                  {craftsman.profession && (
-                    <p className="text-sm text-gray-600">
-                      {craftsman.profession}
+              <div className="p-3 flex flex-col flex-grow bg-gray-100">
+                <h3 className="font-bold text-lg mb-1 line-clamp-1">
+                  {craftsman.userName || "Handyman"}
+                </h3>
+
+                <div className="mb-2 flex-grow overflow-hidden break-words">
+                  {craftsman.subcategories &&
+                  craftsman.subcategories.length > 0 ? (
+                    <ul className="flex flex-wrap text-sm text-gray-700">
+                      {craftsman.subcategories.map((subcategory) => (
+                        <li
+                          className="mr-2 mb-1 text-xs whitespace-normal"
+                          key={subcategory.id}
+                          style={{
+                            color: "rgba(85, 132, 229, 1)",
+                            backgroundColor: "rgba(232, 239, 254, 1)",
+                            padding: "5px",
+                            borderRadius: "5px",
+                            fontSize: "12px",
+                            margin: "10px 5px 0px 0",
+                            display: "inline-block",
+                          }}
+                        >
+                          {subcategory.name}
+                        </li>
+                      ))}
+                    </ul>
+                  ) : (
+                    <p className="text-gray-500 text-sm">
+                      No services specified
                     </p>
                   )}
-                  {/*  Subcategories */}
-                  <div className="mt-2">
-                    {craftsman.subcategories &&
-                    craftsman.subcategories.length > 0 ? (
-                      <div>
-                        <p className="text-sm font-medium text-gray-700">
-                          Services:
-                        </p>
-                        <ul className="text-sm text-gray-700">
-                          {craftsman.subcategories.map((subcategory) => (
-                            <li
-                              key={subcategory.id}
-                              className="flex items-start"
-                            >
-                              <span className="mr-1">•</span>
-                              <span>{subcategory.name}</span>
-                            </li>
-                          ))}
-                        </ul>
-                      </div>
-                    ) : (
-                      <p className="text-gray-500 text-sm">
-                        No services specified
-                      </p>
-                    )}
-                  </div>
+                </div>
 
-                  {/* Location */}
-                  <div className="flex items-center mt-3">
-                    <svg
-                      xmlns="http://www.w3.org/2000/svg"
-                      className="h-5 w-5 text-gray-500"
-                      viewBox="0 0 20 20"
-                      fill="currentColor"
-                    >
-                      <path
-                        fillRule="evenodd"
-                        d="M5.05 4.05a7 7 0 119.9 9.9L10 18.9l-4.95-4.95a7 7 0 010-9.9zM10 11a2 2 0 100-4 2 2 0 000 4z"
-                        clipRule="evenodd"
-                      />
-                    </svg>
-                    <span className="ml-1 text-gray-700">
-                      {craftsman.location?.city || "Unknown City"}
-                    </span>
-                  </div>
+                <div className="flex items-center border p-1 rounded-sm ml-1 text-gray-700 w-1/2">
+                  <svg
+                    xmlns="http://www.w3.org/2000/svg"
+                    className="h-5 w-5 text-gray-500 mr-1"
+                    viewBox="0 0 20 20"
+                    fill="currentColor"
+                  >
+                    <path
+                      fillRule="evenodd"
+                      d="M5.05 4.05a7 7 0 119.9 9.9L10 18.9l-4.95-4.95a7 7 0 010-9.9zM10 11a2 2 0 100-4 2 2 0 000 4z"
+                      clipRule="evenodd"
+                    />
+                  </svg>
+                  {craftsman.location?.city || "Unknown City"}
                 </div>
               </div>
             </div>
