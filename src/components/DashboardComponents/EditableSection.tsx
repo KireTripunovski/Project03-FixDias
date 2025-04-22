@@ -1,7 +1,7 @@
-"use client";
-
 import { useEffect, useState } from "react";
 import { Edit2, Check, X } from "lucide-react";
+import Button from "../../ui/Button";
+
 interface EditableSectionProps {
   title: string;
   content: string;
@@ -46,7 +46,7 @@ export default function EditableSection({
   };
 
   return (
-    <div className=" py-2">
+    <div className="py-2">
       <div className="flex justify-between items-center mb-2">
         <h2 className="text-lg font-medium">{title}</h2>
         {!isEditing ? (
@@ -55,24 +55,24 @@ export default function EditableSection({
           </button>
         ) : (
           <div className="flex gap-2">
-            <button
-              type="button"
-              onClick={(e: React.MouseEvent<HTMLButtonElement, MouseEvent>) =>
-                handleSave(e)
-              }
+            <Button
+              variant="ghost"
+              size="small"
+              onClick={handleSave}
               disabled={isSaving}
-              className="text-green-500"
+              className="text-green-500 p-1"
             >
               <Check size={16} />
-            </button>
-            <button
-              type="button"
+            </Button>
+            <Button
+              variant="ghost"
+              size="small"
               onClick={handleCancel}
               disabled={isSaving}
-              className="text-red-500"
+              className="text-red-500 p-1"
             >
               <X size={16} />
-            </button>
+            </Button>
           </div>
         )}
       </div>

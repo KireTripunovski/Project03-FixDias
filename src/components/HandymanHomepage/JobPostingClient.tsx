@@ -2,6 +2,8 @@ import React from "react";
 import { MapPin, ChevronDown, Star } from "lucide-react";
 import { JobPosting } from "../../store/useJobPostingStore";
 import { useNavigate } from "react-router";
+import Button from "../../ui/Button";
+
 interface JobPostingCardProps {
   posting: JobPosting;
 }
@@ -13,8 +15,8 @@ const JobPostingCard: React.FC<JobPostingCardProps> = ({ posting }) => {
   );
 
   return (
-    <div className="border border-gray-200 rounded-lg shadow-sm overflow-hidden bg-white ">
-      <div className="p-4 ">
+    <div className="border border-gray-200 rounded-lg shadow-sm overflow-hidden bg-white">
+      <div className="p-4">
         <div className="flex items-center justify-between mb-2">
           <div className="flex items-center">
             <div
@@ -24,7 +26,7 @@ const JobPostingCard: React.FC<JobPostingCardProps> = ({ posting }) => {
               <img
                 src={posting.image}
                 alt={posting.clientName}
-                className="h-full w-full object-cover "
+                className="h-full w-full object-cover"
               />
             </div>
             <div>
@@ -54,7 +56,9 @@ const JobPostingCard: React.FC<JobPostingCardProps> = ({ posting }) => {
         </div>
 
         <div className="flex justify-between items-center">
-          <button
+          <Button
+            variant="ghost"
+            size="small"
             onClick={() =>
               navigate(
                 `/map?lat=${posting.location.lat}&lng=${
@@ -64,20 +68,20 @@ const JobPostingCard: React.FC<JobPostingCardProps> = ({ posting }) => {
                 )}&description=${encodeURIComponent(posting.description)}`
               )
             }
-            className="text-blue-500 text-sm"
+            style={{ color: "#1461F0" }}
           >
             View on map
-          </button>
-          <button className="bg-orange-500 hover:bg-orange-600 text-white px-4 py-2 rounded-md text-sm">
+          </Button>
+          <Button variant="primary" size="small">
             Contact
-          </button>
+          </Button>
         </div>
       </div>
 
       <div className="flex justify-center border-t border-gray-200 width-90 p-2">
-        <button className="text-gray-500">
+        <Button variant="ghost" className="text-gray-500 p-1">
           <ChevronDown size={20} />
-        </button>
+        </Button>
       </div>
     </div>
   );

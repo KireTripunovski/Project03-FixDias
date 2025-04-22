@@ -35,7 +35,9 @@
 .starIcon {
   width: 1.25rem;
   height: 1.25rem;
-  color: black;
+  color: #f5ce47;
+  stroke: #f5ce47;
+  stroke-width: 2;
 }
 
 .featureText {
@@ -109,7 +111,7 @@
 }
 
 .profileName {
-  font-size: 14px;
+  font-size: 11px;
   font-weight: 700;
 }
 
@@ -190,7 +192,12 @@
   border: none;
   cursor: pointer;
 }
-
+.showProfileButton:hover {
+  border: #fa6100;
+}
+.showProfileButton:focus {
+  border: #fa6100;
+}
 .contactButton {
   background-color: #fa6100;
   color: white;
@@ -215,7 +222,6 @@
   height: 1.25rem;
   fill: black;
   color: black;
-  margin-right: 0.5rem;
 }
 
 .footerText {
@@ -229,7 +235,6 @@
   display: block;
   border-radius: 15px;
   font-size: 12px;
-
   padding: 5px 30px;
 }
 .mainHeaderSection {

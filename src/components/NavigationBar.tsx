@@ -1,4 +1,4 @@
-import { Home, MessageSquare, Search, Ticket, User } from "lucide-react";
+import { Home, Search, Ticket, User } from "lucide-react";
 import { Link, useLocation } from "react-router-dom";
 
 export default function NavigationBar() {
@@ -9,7 +9,7 @@ export default function NavigationBar() {
     { name: "Bookings", path: "/booking", icon: Ticket },
     { name: "Search", path: "/map", icon: Search, hasNotification: true },
     { name: "Home", path: "/handymanhomepage", icon: Home },
-    { name: "Messages", path: "/messages", icon: MessageSquare },
+    { name: "/", path: "/", icon: Home }, //added home becouse map feature is not implemented yet
     { name: "Profile", path: "/dashboard", icon: User },
   ];
 

@@ -1,4 +1,5 @@
 import { useState } from "react";
+import Button from "../../ui/Button";
 
 interface AddSectionModalProps {
   isOpen: boolean;
@@ -33,7 +34,7 @@ export default function AddSectionModal({
   };
 
   return (
-    <div className="fixed inset-0 bg-white  bg-opacity-50 flex items-center justify-center z-50">
+    <div className="fixed inset-0 bg-white bg-opacity-50 flex items-center justify-center z-50">
       <div className="bg-white rounded-lg p-6 w-full max-w-md">
         <h3 className="text-lg font-medium mb-4">Add New Section</h3>
         <form
@@ -50,21 +51,22 @@ export default function AddSectionModal({
             autoFocus
           />
           <div className="flex justify-end gap-2 py-5">
-            <button
-              type="button"
+            <Button
+              variant="outline"
               onClick={onClose}
-              className="px-4 py-2 border border-gray-300 rounded-md"
               disabled={isAdding}
+              className="border-gray-300 text-gray-700"
             >
               Cancel
-            </button>
-            <button
+            </Button>
+            <Button
               type="submit"
-              className="px-4 py-2 bg-orange-500 text-white rounded-md"
+              variant="primary"
+              loading={isAdding}
               disabled={!sectionName.trim() || isAdding}
             >
               {isAdding ? "Adding..." : "Add Section"}
-            </button>
+            </Button>
           </div>
         </form>
       </div>

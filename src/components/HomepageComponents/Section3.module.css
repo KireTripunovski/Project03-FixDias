@@ -1,5 +1,6 @@
 .container {
-  padding: 2rem 1rem;
+  margin-top: 3.75rem;
+  margin-bottom: 3.75rem;
   max-width: 1200px;
   margin: 0 auto;
 }
@@ -107,5 +108,9 @@
 
   .iconContainer {
     height: 60px;
+  }
+  .container {
+    margin-top: 3.75rem;
+    margin-bottom: 3.75rem;
   }
 }

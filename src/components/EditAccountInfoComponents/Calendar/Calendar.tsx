@@ -2,11 +2,11 @@ import { useEffect, useState } from "react";
 import Calendar from "react-calendar";
 import "react-calendar/dist/Calendar.css";
 import { Plus } from "lucide-react";
+import "./CalendarStyles.css";
+import { isToday, isSameDay, startOfDay, parseISO } from "date-fns";
+import useBookingStore from "../../../store/useCalendarBookings";
 import BookingList from "./BookingList";
 import BookingForm from "./BookingForm";
-import useBookingStore from "../../store/useCalendarBookings";
-import "./CalendarStyles.css";
-import { format } from "date-fns";
 
 type ValuePiece = Date | null;
 type Value = ValuePiece | [ValuePiece, ValuePiece];
@@ -15,11 +15,18 @@ function CalendarComponent() {
   const [value, onChange] = useState<Value>(new Date());
   const [showForm, setShowForm] = useState(false);
   const [selectedDate, setSelectedDate] = useState<Date>(new Date());
+  const [showDatePicker, setShowDatePicker] = useState(false);
   const fetchBookings = useBookingStore((state) => state.fetchBookings);
   const bookings = useBookingStore((state) => state.bookings);
+  const isLoading = useBookingStore((state) => state.isLoading);
 
   useEffect(() => {
     fetchBookings();
+    const interval = setInterval(() => {
+      fetchBookings();
+    }, 60 * 60 * 1000);
+
+    return () => clearInterval(interval);
   }, [fetchBookings]);
 
   const formatShortWeekday = (date: Date) => {
@@ -33,85 +40,85 @@ function CalendarComponent() {
     })} ${date.getFullYear()}`;
   };
 
-  const getTileClassName = ({ date, view }: { date: Date; view: string }) => {
-    if (view !== "month") return null;
-
-    const dateString = format(date, "yyyy-MM-dd");
-    const today = new Date();
-    today.setHours(0, 0, 0, 0);
+  const getNextBookingDate = () => {
+    const today = startOfDay(new Date());
 
     const futureBookings = bookings.filter((booking) => {
       try {
-        if (!booking || typeof booking !== "object") return false;
-        if (!booking.from || typeof booking.from !== "string") return false;
-
-        const [bookingDate] = booking.from.split("T");
-        const bookingDateObj = new Date(bookingDate);
-        bookingDateObj.setHours(0, 0, 0, 0);
-
-        return bookingDateObj > today;
+        const bookingStartDate = parseISO(booking.from);
+        return bookingStartDate > today && !isToday(bookingStartDate);
       } catch (error) {
-        console.error("Error processing booking:", error);
         return false;
       }
     });
 
-    let closestBookingDate: string | null = null;
-    if (futureBookings.length > 0) {
-      futureBookings.sort((a, b) => {
-        const dateA = new Date(a.from.split("T")[0]);
-        const dateB = new Date(b.from.split("T")[0]);
-        return dateA.getTime() - dateB.getTime();
-      });
-      closestBookingDate = futureBookings[0].from.split("T")[0];
+    if (futureBookings.length === 0) return null;
+
+    futureBookings.sort((a, b) => {
+      return parseISO(a.from).getTime() - parseISO(b.from).getTime();
+    });
+
+    return parseISO(futureBookings[0].from);
+  };
+
+  const getTileClassName = ({ date, view }: { date: Date; view: string }) => {
+    if (view !== "month") return null;
+
+    const classes = [];
+
+    if (isToday(date)) {
+      classes.push("today-highlight");
     }
 
     const hasBooking = bookings.some((booking) => {
       try {
-        if (!booking || typeof booking !== "object") return false;
-        if (!booking.from || typeof booking.from !== "string") return false;
-
-        const [bookingDate] = booking.from.split("T");
-        return bookingDate === dateString;
+        const bookingDate = parseISO(booking.from);
+        return isSameDay(bookingDate, date);
       } catch (error) {
-        console.error("Error processing booking:", error);
         return false;
       }
     });
 
-    if (!hasBooking) return null;
-
-    if (
-      closestBookingDate &&
-      format(date, "yyyy-MM-dd") === closestBookingDate
-    ) {
-      return "red-highlight";
+    if (hasBooking) {
+      classes.push("booking-highlight");
     }
 
-    return "blue-highlight";
+    const nextBookingDate = getNextBookingDate();
+    if (nextBookingDate && isSameDay(date, nextBookingDate)) {
+      classes.push("next-booking-highlight");
+    }
+
+    return classes.length > 0 ? classes.join(" ") : null;
   };
 
   const handleDateClick = (date: Date) => {
     setSelectedDate(date);
+
+    setShowDatePicker(false);
+    setShowForm(true);
+  };
+
+  const handleAddButtonClick = () => {
+    setSelectedDate(new Date());
+    setShowDatePicker(true);
     setShowForm(true);
   };
 
   const handleFormClose = () => {
     setShowForm(false);
+    setShowDatePicker(false);
   };
 
   return (
-    <div className="min-h-screen">
+    <div className=" my-15">
       <div className="max-w-3xl mx-auto">
-        <div className="calendar-container rounded-lg shadow-lg">
+        <div className="calendar-container rounded-lg ">
           <div className="flex justify-between items-center mb-4">
             <h1 className="text-2xl font-semibold text-gray-800">Calendar</h1>
             <button
-              onClick={() => {
-                setSelectedDate(new Date());
-                setShowForm(true);
-              }}
+              onClick={handleAddButtonClick}
               className="flex items-center px-4 py-2 bg-orange-500 text-white rounded-md hover:bg-orange-600 transition-colors"
+              disabled={isLoading}
             >
               <Plus className="w-5 h-5 mr-1" />
               Add
@@ -137,6 +144,7 @@ function CalendarComponent() {
           isOpen={showForm}
           onClose={handleFormClose}
           selectedDate={selectedDate}
+          showDatePicker={showDatePicker}
         />
       </div>
     </div>

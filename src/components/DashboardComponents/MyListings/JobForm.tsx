@@ -1,7 +1,7 @@
 import { useState, useEffect, useRef } from "react";
 import { ChevronDown } from "lucide-react";
 import styles from "./JobForm.module.css";
-import useListingsStore from "../../store/useListingStore";
+import useListingsStore from "../../../store/useListingStore";
 
 interface JobFormProps {
   onSuccess?: () => void;
@@ -168,7 +168,6 @@ const JobForm: React.FC<JobFormProps> = ({ onSuccess }) => {
       document.removeEventListener("mousedown", handleClickOutside);
     };
   }, [dropdownRef]);
-  // select state
   const handleStateSelect = (state: State) => {
     setFormData((prev) => ({
       ...prev,
@@ -181,7 +180,6 @@ const JobForm: React.FC<JobFormProps> = ({ onSuccess }) => {
     setShowStateDropdown(false);
   };
 
-  //   input  change
   const handleInputChange = (
     e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>
   ) => {
@@ -189,7 +187,6 @@ const JobForm: React.FC<JobFormProps> = ({ onSuccess }) => {
     setFormData((prev) => ({ ...prev, [name]: value }));
   };
 
-  //   create post
   const handleCreatePost = async (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
 

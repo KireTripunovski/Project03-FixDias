@@ -68,6 +68,34 @@ const useBookingsStore = create<BookingsState>()(
           );
 
           if (!response.ok) throw new Error("Failed to update booking status");
+          if (status === "completed") {
+            const authUser = useAuthStore.getState().user;
+            if (authUser) {
+              // Fetch the handyman's profile
+              const profileResponse = await fetch(
+                `http://localhost:5001/handymanProfiles?userId=${authUser.id}`
+              );
+              const profiles = await profileResponse.json();
+              const profile = profiles[0];
+
+              if (profile) {
+                const updatedCompletedJobs = (profile.completedJobs || 0) + 1;
+
+                await fetch(
+                  `http://localhost:5001/handymanProfiles/${profile.id}`,
+                  {
+                    method: "PATCH",
+                    headers: {
+                      "Content-Type": "application/json",
+                    },
+                    body: JSON.stringify({
+                      completedJobs: updatedCompletedJobs,
+                    }),
+                  }
+                );
+              }
+            }
+          }
 
           set((state) => ({
             bookings: state.bookings.map((booking) =>

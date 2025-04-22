@@ -1,9 +1,9 @@
 import { useEffect } from "react";
-import { Star } from "lucide-react";
-import styles from "../DashboardComponents/Dashboard.module.css";
-import useFeedbackStore from "../../store/useFeedbackStore";
-import useAuthStore from "../../store/useAuthStore";
-import profilepiture from "../../../public/Profile/Low-Fi Avatar.png";
+import styles from "../Dashboard.module.css";
+import useFeedbackStore from "../../../store/useFeedbackStore";
+import useAuthStore from "../../../store/useAuthStore";
+import profilepiture from "../../../../public/Profile/Low-Fi Avatar.png";
+import StarRating from "../../../ui/StarRating";
 
 interface FeedbackSectionProps {
   handymanId?: string | null;
@@ -31,7 +31,7 @@ const FeedbackSection = ({ handymanId }: FeedbackSectionProps) => {
   }
 
   return (
-    <div className="py-2 width-90">
+    <div className="py-15 width-90">
       <h2
         style={{
           fontWeight: "700",
@@ -63,48 +63,12 @@ const FeedbackSection = ({ handymanId }: FeedbackSectionProps) => {
                 {item.location}
               </span>
             </div>
-            <div className="flex mb-1 py-2">
-              {[1, 2, 3, 4, 5].map((starValue) => {
-                if (starValue <= item.rating) {
-                  return (
-                    <Star
-                      key={starValue}
-                      size={16}
-                      fill="#f5ce47"
-                      className={styles.starFilled}
-                    />
-                  );
-                } else if (starValue - 0.5 <= item.rating) {
-                  return (
-                    <div key={starValue} className="relative ">
-                      <div
-                        className="absolute overflow-hidden"
-                        style={{ width: "50%" }}
-                      >
-                        <Star
-                          size={16}
-                          fill="#f5ce47"
-                          className={styles.starFilled}
-                        />
-                      </div>
-                      <Star
-                        size={16}
-                        fill="#e2e8f0"
-                        className="text-gray-300"
-                      />
-                    </div>
-                  );
-                } else {
-                  return (
-                    <Star
-                      key={starValue}
-                      size={16}
-                      fill="#e2e8f0"
-                      className="text-gray-300"
-                    />
-                  );
-                }
-              })}
+            <div className="mb-1 py-2">
+              <StarRating
+                rating={item.rating}
+                filledClassName={styles.starFilled}
+                className="flex"
+              />
             </div>
             <p
               style={{ wordWrap: "break-word" }}

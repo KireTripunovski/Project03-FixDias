@@ -1,5 +1,5 @@
 import { useEffect, useState } from "react";
-import CarouselSlider from "../DashboardComponents/Carousel";
+import CarouselSlider from "../DashboardComponents/Carousel/Carousel";
 import { HandymanProfile } from "../../store/useProfileStore";
 import craftsmanimage from "../../../public/HomepageSection1/craftsman.png";
 
@@ -75,7 +75,7 @@ export default function CraftsmanCarousel() {
   }
 
   return (
-    <div className="mt-6">
+    <div className="my-15">
       <CarouselSlider autoPlay={false} showDots peekAmount={20}>
         {craftsmen.map((craftsman) => (
           <div key={craftsman.id} className="px-2">

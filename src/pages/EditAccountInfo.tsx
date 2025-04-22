@@ -5,7 +5,6 @@ import { useGeolocated } from "react-geolocated";
 import useAuthStore from "../store/useAuthStore";
 import useUserPreferencesStore from "../store/useUserPreferences";
 import profilepicture from "../../public/Profile/Picture.png";
-import CalendarComponent from "../components/EditAccountInfoComponents/Calendar";
 import { AccountDetails } from "../components/EditAccountInfoComponents/AccountDetails";
 import { ContactDetails } from "../components/EditAccountInfoComponents/ContactDetails";
 import { CertificatesSection } from "../components/EditAccountInfoComponents/CertificatesSection";
@@ -21,6 +20,7 @@ import useProfileStore, {
   HandymanProfile,
   Location,
 } from "../store/useProfileStore";
+import CalendarComponent from "../components/EditAccountInfoComponents/Calendar/Calendar";
 
 interface CustomFormData {
   firstName: string;

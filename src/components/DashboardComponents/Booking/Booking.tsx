@@ -6,10 +6,11 @@ import { LuMapPin } from "react-icons/lu";
 import { IoIosCheckmarkCircleOutline } from "react-icons/io";
 import { useNavigate } from "react-router";
 import { useEffect, useState } from "react";
-import styles from "../DashboardComponents/Dashboard.module.css";
-import useBookingsStore from "../../store/useBookingStore";
-import useAuthStore from "../../store/useAuthStore";
-import useProfileStore from "../../store/useProfileStore";
+import styles from "../Dashboard.module.css";
+import useBookingsStore from "../../../store/useBookingStore";
+import useAuthStore from "../../../store/useAuthStore";
+import useProfileStore from "../../../store/useProfileStore";
+import Button from "../../../ui/Button";
 
 export default function BookingsSection() {
   const navigate = useNavigate();
@@ -18,7 +19,6 @@ export default function BookingsSection() {
     "new"
   );
   const [showAllBookings, setShowAllBookings] = useState(false);
-
   const [isLoading, setIsLoading] = useState(true);
 
   const { user } = useAuthStore();
@@ -50,6 +50,9 @@ export default function BookingsSection() {
     e.preventDefault();
     try {
       const success = await updateBookingStatus(bookingId, status);
+      if (success && status === "completed") {
+        await fetchProfile(); // Refresh profile to get updated completedJobs count
+      }
       if (!success) {
         console.error(
           `Failed to update booking ${bookingId} to status ${status}`
@@ -59,9 +62,11 @@ export default function BookingsSection() {
       console.error("Error in handleBookingAction:", error);
     }
   };
+
   const toggleShowAll = () => {
     setShowAllBookings((prevState) => !prevState);
   };
+
   const displayedListings = showAllBookings
     ? filteredBookings
     : filteredBookings.slice(0, 2);
@@ -69,15 +74,18 @@ export default function BookingsSection() {
   if (isLoading) {
     return (
       <div className="flex justify-center items-center min-h-screen">
-        Loading...
+        <Button variant="primary" loading={true}>
+          Loading
+        </Button>
       </div>
     );
   }
+
   return (
     <div style={{ margin: "0 auto", width: "90%" }} className="py-7">
-      <div style={{ marginBottom: "25px" }} className="flex justify-between ">
-        <button
-          style={{ paddingLeft: "0" }}
+      <div style={{ marginBottom: "25px" }} className="flex justify-between">
+        <Button
+          variant="ghost"
           className={`pb-2 px-1 text-sm font-medium ${
             activeTab === "new"
               ? `border-b-2 ${styles.borderPrimary} ${styles.textactive}`
@@ -88,8 +96,9 @@ export default function BookingsSection() {
           New Requests
           {bookings.filter((b) => b.status === "pending").length > 0 &&
             `(${bookings.filter((b) => b.status === "pending").length})`}
-        </button>
-        <button
+        </Button>
+        <Button
+          variant="ghost"
           className={`pb-2 px-1 text-sm font-medium ml-4 ${
             activeTab === "ongoing"
               ? `border-b-2 ${styles.borderPrimary} ${styles.textactive}`
@@ -98,8 +107,9 @@ export default function BookingsSection() {
           onClick={() => setActiveTab("ongoing")}
         >
           Ongoing
-        </button>
-        <button
+        </Button>
+        <Button
+          variant="ghost"
           className={`pb-2 px-1 text-sm font-medium ml-4 ${
             activeTab === "completed"
               ? `border-b-2 ${styles.borderPrimary} ${styles.textactive}`
@@ -108,7 +118,7 @@ export default function BookingsSection() {
           onClick={() => setActiveTab("completed")}
         >
           Completed
-        </button>
+        </Button>
       </div>
 
       {displayedListings.length === 0 ? (
@@ -120,7 +130,7 @@ export default function BookingsSection() {
           <div
             style={{ marginBottom: "20px" }}
             key={booking.id}
-            className={`border rounded-lg overflow-hidden  mb-2 ${
+            className={`border rounded-lg overflow-hidden mb-2 ${
               booking.status === "completed"
                 ? "border-green-500"
                 : "border-gray-200"
@@ -179,7 +189,7 @@ export default function BookingsSection() {
                       </span>
                       {booking.status === "completed"
                         ? booking.completedDate
-                        : booking.scheduledDate}{" "}
+                        : booking.scheduledDate}
                     </div>
                     <div className="flex items-center">
                       <CiClock2
@@ -208,8 +218,10 @@ export default function BookingsSection() {
                     />
                     <div className="flex justify-between w-full items-center">
                       {booking.customerName}
-                      <span
-                        className="flex items-center text-sm font-medium cursor-pointer hover:underline"
+                      <Button
+                        variant="ghost"
+                        size="small"
+                        className="flex items-center text-sm font-medium cursor-pointer hover:underline p-0"
                         onClick={() =>
                           navigate(
                             `/map?lat=${booking.location.lat}&lng=${
@@ -226,55 +238,59 @@ export default function BookingsSection() {
                           style={{ color: "#FA6100", marginRight: "5px" }}
                         />
                         View location
-                      </span>
+                      </Button>
                     </div>
                   </span>
                 </div>
               </div>
               {activeTab === "new" && (
                 <div className="flex gap-2 mt-3">
-                  <button
-                    className={`flex-1 py-2 rounded-lg ${styles.bgPrimary} ${styles.textWhite}`}
-                    type="button"
+                  <Button
+                    variant="primary"
+                    fullWidth
+                    className={`py-2  ${styles.refuse}`}
                     onClick={(e) =>
                       handleBookingAction(booking.id, "rejected", e)
                     }
                   >
                     Refuse
-                  </button>
-                  <button
-                    className="flex-1 border border-gray-300 py-2 rounded-lg"
-                    type="button"
+                  </Button>
+                  <Button
+                    variant="outline"
+                    fullWidth
+                    className="border-orange-300 bg-orange-500 text-white py-2"
                     onClick={(e) =>
                       handleBookingAction(booking.id, "accepted", e)
                     }
                   >
                     Accept
-                  </button>
+                  </Button>
                 </div>
               )}
               {activeTab === "ongoing" && (
-                <div className="flex align-center justify-center mt-3">
-                  <button
-                    type="button"
-                    className={`p-3 w-full text-center rounded-lg ${styles.bgPrimary} ${styles.refuse}`}
-                    onClick={(e: React.MouseEvent<HTMLButtonElement>) => {
+                <div className="flex align-center justify-center gap-2 mt-3">
+                  <Button
+                    variant="danger"
+                    fullWidth
+                    className={`p-3 text-center ${styles.refuse}`}
+                    onClick={(e) => {
                       e.preventDefault();
-                      handleBookingAction(booking.id, "completed", e);
+                      handleBookingAction(booking.id, "rejected", e);
                     }}
                   >
                     Refuse
-                  </button>
-                  <button
-                    type="button"
-                    className={`p-3 w-full text-center rounded-lg ${styles.bgPrimary} ${styles.textWhite}`}
-                    onClick={(e: React.MouseEvent<HTMLButtonElement>) => {
+                  </Button>
+                  <Button
+                    variant="primary"
+                    fullWidth
+                    className={`p-3 text-center ${styles.textWhite}`}
+                    onClick={(e) => {
                       e.preventDefault();
                       handleBookingAction(booking.id, "completed", e);
                     }}
                   >
                     Completed
-                  </button>
+                  </Button>
                 </div>
               )}
             </div>
@@ -282,14 +298,15 @@ export default function BookingsSection() {
         ))
       )}
       {filteredBookings.length > 2 && (
-        <div className="flex justify-end  ">
-          <button
-            className="bg-orange-500 text-white p-2 rounded-lg"
-            style={{ textAlign: "right", backgroundColor: "none" }}
+        <div className="flex justify-end">
+          <Button
+            variant="primary"
+            size="small"
+            className="p-2"
             onClick={toggleShowAll}
           >
             {showAllBookings ? "Show less" : "Show all"}
-          </button>
+          </Button>
         </div>
       )}
     </div>

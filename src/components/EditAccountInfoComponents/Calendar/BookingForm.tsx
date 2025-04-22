@@ -1,12 +1,17 @@
-import React, { useState } from "react";
-import useBookingStore from "../../store/useCalendarBookings";
+import React, { useEffect, useState } from "react";
 import { format } from "date-fns";
-import { Modal } from "../../ui/Modal";
+import useBookingStore from "../../../store/useCalendarBookings";
+import { Modal } from "../../../ui/Modal";
+import Calendar from "react-calendar";
+
+type ValuePiece = Date | null;
+type Value = ValuePiece | [ValuePiece, ValuePiece];
 
 interface BookingFormProps {
   isOpen: boolean;
   onClose: () => void;
   selectedDate: Date;
+  showDatePicker?: boolean;
 }
 
 interface State {
@@ -16,12 +21,16 @@ interface State {
   latitude: string;
   longitude: string;
 }
+
 export default function BookingForm({
   isOpen,
   onClose,
   selectedDate,
+  showDatePicker = false,
 }: BookingFormProps) {
   const addBooking = useBookingStore((state) => state.addBooking);
+  const [formDate, setFormDate] = useState<Date>(selectedDate);
+
   const [formData, setFormData] = useState({
     title: "",
     location: { address: "", lat: 0, lng: 0 },
@@ -30,6 +39,7 @@ export default function BookingForm({
     endTime: "13:00",
     userId: "",
     country: "",
+    stateId: "",
   });
 
   const handleStateChange = (e: React.ChangeEvent<HTMLSelectElement>) => {
@@ -39,6 +49,7 @@ export default function BookingForm({
     if (selectedState) {
       setFormData({
         ...formData,
+        stateId: e.target.value,
         location: {
           address: selectedState.name,
           lat: parseFloat(selectedState.latitude),
@@ -163,12 +174,13 @@ export default function BookingForm({
       longitude: "10.84534600",
     },
   ]);
+
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
-    const selectedDateString = format(selectedDate, "yyyy-MM-dd");
+    const selectedDateString = format(formDate, "yyyy-MM-dd");
     await addBooking({
       title: formData.title,
-      location: formData.location, // Now has address, lat, and lng
+      location: formData.location,
       description: formData.description,
       from: `${selectedDateString}T${formData.startTime}:00`,
       to: `${selectedDateString}T${formData.endTime}:00`,
@@ -183,13 +195,46 @@ export default function BookingForm({
       endTime: "13:00",
       userId: "",
       country: "",
+      stateId: "",
     });
     onClose();
+  };
+  useEffect(() => {
+    setFormDate(selectedDate);
+  }, [selectedDate]);
+  const handleDateChange = (value: Value) => {
+    if (value instanceof Date) {
+      setFormDate(value);
+    } else if (Array.isArray(value) && value[0] instanceof Date) {
+      setFormDate(value[0]);
+    }
   };
 
   return (
     <Modal isOpen={isOpen} onClose={onClose} title="Add Event">
-      <form onSubmit={handleSubmit} className="space-y-4">
+      <form
+        style={{ height: "100%" }}
+        onSubmit={handleSubmit}
+        className="space-y-4"
+      >
+        {showDatePicker && (
+          <div className="mb-4">
+            <label className="block text-sm font-medium text-gray-700 mb-2">
+              Select Date
+            </label>
+            <div className="calendar-picker-container">
+              <Calendar
+                value={formDate}
+                onChange={handleDateChange}
+                className="w-full"
+              />
+            </div>
+            <p className="mt-2 text-sm text-blue-600">
+              Selected date: {format(formDate, "EEEE, MMMM d, yyyy")}
+            </p>
+          </div>
+        )}
+
         <div>
           <label className="block text-sm font-medium text-gray-700">
             Name
@@ -209,11 +254,12 @@ export default function BookingForm({
             Location
           </label>
           <select
+            value={formData.stateId}
             onChange={handleStateChange}
             className="mt-1 block w-full rounded-md border border-gray-300 px-3 py-2 focus:border-blue-500 focus:outline-none focus:ring-1 focus:ring-blue-500"
             required
           >
-            <option value="" disabled selected>
+            <option value="" disabled>
               Select a state
             </option>
             {states.map((state) => (

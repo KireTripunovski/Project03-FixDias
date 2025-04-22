@@ -1,6 +1,6 @@
 export default function Section2() {
   return (
-    <div>
+    <div className="my-15">
       <h2 className="h1-headline text-center">Why people like us</h2>
       <img
         style={{ marginLeft: "185px", marginTop: "15px" }}

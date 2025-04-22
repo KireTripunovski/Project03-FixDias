@@ -3,7 +3,7 @@ import { Bell, PenSquare } from "lucide-react";
 import useAuthStore from "../store/useAuthStore";
 import useJobPostingStore from "../store/useJobPostingStore";
 import SearchBar from "../ui/SearchBar";
-import JobPostingCard from "../components/DashboardComponents/JobPostingClient";
+import JobPostingCard from "../components/HandymanHomepage/JobPostingClient";
 
 const HandymanHomepage: React.FC = () => {
   const { user } = useAuthStore();

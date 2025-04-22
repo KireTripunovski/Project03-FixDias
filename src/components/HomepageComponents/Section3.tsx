@@ -1,6 +1,7 @@
 import { useEffect, useState } from "react";
 import styles from "./Section3.module.css";
 import { ServiceCategory } from "../../types/types";
+import CarouselDots from "../../ui/CarouselDots";
 
 export default function Section3() {
   const [allServices, setAllServices] = useState<ServiceCategory[]>([]);
@@ -46,16 +47,6 @@ export default function Section3() {
     }
   }, [allServices, currentPage]);
 
-  const nextPage = () => {
-    const totalPages = Math.ceil(allServices.length / 9);
-    setCurrentPage((prev) => (prev + 1) % totalPages);
-  };
-
-  const prevPage = () => {
-    const totalPages = Math.ceil(allServices.length / 9);
-    setCurrentPage((prev) => (prev - 1 + totalPages) % totalPages);
-  };
-
   if (loading) {
     return <div className={styles.loading}>Loading services...</div>;
   }
@@ -85,21 +76,11 @@ export default function Section3() {
 
       <div className={styles.carouselControls}>
         <div style={{ textAlign: "center" }}>
-          <button
-            style={{ marginRight: "10px", marginTop: "25px" }}
-            onClick={prevPage}
-            className={styles.carouselButton}
-            aria-label="Previous services"
-          >
-            &lt;
-          </button>
-          <button
-            onClick={nextPage}
-            className={styles.carouselButton}
-            aria-label="Next services"
-          >
-            &gt;
-          </button>
+          <CarouselDots
+            totalPages={Math.ceil(allServices.length / 9)}
+            currentPage={currentPage}
+            setCurrentPage={setCurrentPage}
+          />
         </div>
         <div className={styles.carouselDots}>
           {Array.from({ length: Math.ceil(allServices.length / 9) }).map(

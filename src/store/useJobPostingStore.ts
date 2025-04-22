@@ -26,6 +26,7 @@ interface JobPostingState {
   fetchPosts: () => Promise<void>;
   setSearchQuery: (query: string) => void;
   getFilteredPosts: () => JobPosting[];
+  getLatestPost: () => JobPosting | null;
 }
 
 const useJobPostingStore = create<JobPostingState>()(
@@ -72,7 +73,18 @@ const useJobPostingStore = create<JobPostingState>()(
             post.description.toLowerCase().includes(lowerCaseQuery)
         );
       },
+      getLatestPost: () => {
+        const { posts } = get();
+        if (!posts.length) return null;
+
+        return posts.reduce((latest, current) => {
+          return new Date(latest.postedAt) > new Date(current.postedAt)
+            ? latest
+            : current;
+        });
+      },
     }),
+
     {
       name: "job-postings-storage",
     }

@@ -1,29 +1,30 @@
 import { Star, Eye, MapPin, Bookmark } from "lucide-react";
 import styles from "./MyListing.module.css";
-import image from "../../../public/Profile/Picture.png";
-import checkmark from "../../../public/Profile/verified_24dp_E8EAED_FILL1_wght400_GRAD0_opsz24 1.png";
-import useFeedbackStore from "../../store/useFeedbackStore";
-import useListingsStore from "../../store/useListingStore";
+import image from "../../../../public/Profile/Picture.png";
+import checkmark from "../../../../public/Profile/verified_24dp_E8EAED_FILL1_wght400_GRAD0_opsz24 1.png";
 import { useEffect, useState } from "react";
 import { formatDistanceToNow } from "date-fns";
-import useAuthStore from "../../store/useAuthStore";
+import { Link } from "react-router-dom";
+import useFeedbackStore from "../../../store/useFeedbackStore";
+import useAuthStore from "../../../store/useAuthStore";
+import useListingsStore, { Listing } from "../../../store/useListingStore";
+import Button from "../../../ui/Button";
 import JobForm from "./JobForm";
-import { Link } from "react-router";
+import StarRating from "../../../ui/StarRating";
 
 export default function MyListings() {
   const { averageRating, reviewCount } = useFeedbackStore();
-  const { listings } = useListingsStore();
+  const { listings, fetchListings } = useListingsStore();
   const [showForm, setShowForm] = useState(false);
   const [showAllListings, setShowAllListings] = useState(false);
   const { user } = useAuthStore();
 
   useEffect(() => {
-    const { fetchListings } = useListingsStore.getState();
     console.log("Fetching listings...");
     fetchListings()
       .then(() => console.log("Listings fetched successfully"))
       .catch((err) => console.error("Error fetching listings:", err));
-  }, []);
+  }, [fetchListings]);
 
   const toggleForm = () => {
     setShowForm(!showForm);
@@ -41,20 +42,24 @@ export default function MyListings() {
         <div className={styles.cardContent}>
           <div className={styles.headerSection}>
             <div className={styles.iconCircle}>
-              <Star className={styles.starIcon} />
+              <Star className={styles.footerStarIcon} />
             </div>
             <span className={styles.featureText}>Per feature</span>
           </div>
 
           <div className={styles.mainHeaderSection}>
             <h1 className={styles.mainHeading}>My listings</h1>
-            <button className={styles.buttonCreate} onClick={toggleForm}>
+            <Button
+              onClick={toggleForm}
+              variant={showForm ? "outline" : "primary"}
+              className={styles.buttonCreate}
+            >
               {showForm ? "Cancel" : "Create post"}
-            </button>
+            </Button>
           </div>
 
           <p className={styles.explanatoryText}>
-            {user?.name.split(" ")[0]}, this is a pro feate. <br /> Your
+            {user?.name.split(" ")[0]}, this is a pro feature. <br /> Your
             listings would appear here and in
             <Link to={"/"} className={styles.underlinedText}>
               Home
@@ -68,7 +73,7 @@ export default function MyListings() {
 
           {showForm && <JobForm onSuccess={() => setShowForm(false)} />}
 
-          {displayedListings.map((listing, index) => (
+          {displayedListings.map((listing: Listing, index: number) => (
             <div key={index} className={styles.profileCard}>
               <div className={styles.profileHeader}>
                 <img
@@ -88,50 +93,11 @@ export default function MyListings() {
                   <div className={styles.ratingSection}>
                     <div className={styles.stars}>
                       <span className={styles.ratingNumber}>
-                        <div className="flex items-center text-xs text-gray-600">
-                          {[1, 2, 3, 4, 5].map((starValue) => {
-                            if (starValue <= averageRating) {
-                              return (
-                                <Star
-                                  key={starValue}
-                                  size={16}
-                                  fill="#f5ce47"
-                                  className={styles.starFilled}
-                                />
-                              );
-                            } else if (starValue - 0.5 <= averageRating) {
-                              return (
-                                <div key={starValue} className="relative">
-                                  <div
-                                    className="absolute overflow-hidden"
-                                    style={{ width: "50%" }}
-                                  >
-                                    <Star
-                                      size={16}
-                                      fill="#f5ce47"
-                                      className={styles.starFilled}
-                                    />
-                                  </div>
-                                  <Star
-                                    size={16}
-                                    fill="#e2e8f0"
-                                    className="text-gray-300"
-                                  />
-                                </div>
-                              );
-                            } else {
-                              return (
-                                <Star
-                                  key={starValue}
-                                  size={16}
-                                  fill="#e2e8f0"
-                                  className="text-gray-300"
-                                />
-                              );
-                            }
-                          })}
-                          {reviewCount} reviews
-                        </div>
+                        <StarRating
+                          rating={averageRating}
+                          reviewCount={reviewCount}
+                          filledClassName={styles.starIcon}
+                        />
                       </span>
                     </div>
                   </div>
@@ -141,7 +107,6 @@ export default function MyListings() {
               <div className={styles.jobSection}>
                 <h3 className={styles.jobTitle}>{listing.title}</h3>
                 <span className={styles.timeAgo}>
-                  {" "}
                   {formatDistanceToNow(new Date(listing.createdAt), {
                     addSuffix: true,
                   })}
@@ -156,10 +121,15 @@ export default function MyListings() {
               </div>
 
               <div className={styles.actionsSection}>
-                <button className={styles.showProfileButton}>
+                <Button
+                  variant="outline"
+                  className={`hover:border-orange-200 ${styles.showProfileButton}`}
+                >
                   Show profile
-                </button>
-                <button className={styles.contactButton}>Contact</button>
+                </Button>
+                <Button variant="primary" className={styles.contactButton}>
+                  Contact
+                </Button>
               </div>
             </div>
           ))}
@@ -177,18 +147,10 @@ export default function MyListings() {
         </div>
       </div>
       {listings.length > 2 && (
-        <div className="flex justify-end my-5 ">
-          <button
-            className="bg-orange-500 text-white p-2 rounded-lg"
-            style={{
-              textAlign: "right",
-              backgroundColor: "none",
-              marginTop: "10px",
-            }}
-            onClick={toggleShowAll}
-          >
+        <div className="flex justify-end my-5">
+          <Button variant="primary" onClick={toggleShowAll} className="mt-2.5">
             {showAllListings ? "Show less" : "Show all"}
-          </button>
+          </Button>
         </div>
       )}
     </div>

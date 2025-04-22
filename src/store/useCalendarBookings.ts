@@ -12,13 +12,15 @@ interface BookingStore {
     booking: Omit<CalendarBooking, "id" | "dateCreatedAt">
   ) => Promise<void>;
   deleteBooking: (id: string) => Promise<void>;
+  cleanupPastBookings: () => Promise<void>;
   reset: () => void;
 }
 
-const useBookingStore = create<BookingStore>((set) => ({
+const useBookingStore = create<BookingStore>((set, get) => ({
   bookings: [],
   isLoading: false,
   error: null,
+
   fetchBookings: async () => {
     const userId = useAuthStore.getState().user?.id;
     if (!userId) {
@@ -32,10 +34,13 @@ const useBookingStore = create<BookingStore>((set) => ({
         `http://localhost:5001/calendarbookings?userId=${userId}`
       );
       set({ bookings: response.data, isLoading: false });
+
+      await get().cleanupPastBookings();
     } catch (error) {
       set({ error: "Failed to fetch bookings", isLoading: false });
     }
   },
+
   addBooking: async (booking) => {
     const userId = useAuthStore.getState().user?.id;
     if (!userId) {
@@ -64,6 +69,7 @@ const useBookingStore = create<BookingStore>((set) => ({
       set({ error: "Failed to add booking", isLoading: false });
     }
   },
+
   deleteBooking: async (id) => {
     set({ isLoading: true });
     try {
@@ -76,6 +82,27 @@ const useBookingStore = create<BookingStore>((set) => ({
       set({ error: "Failed to delete booking", isLoading: false });
     }
   },
+
+  cleanupPastBookings: async () => {
+    const today = new Date();
+    today.setHours(0, 0, 0, 0);
+
+    const pastBookings = get().bookings.filter((booking) => {
+      const bookingEndDate = new Date(booking.to);
+      return bookingEndDate < today;
+    });
+
+    if (pastBookings.length > 0) {
+      try {
+        for (const booking of pastBookings) {
+          await get().deleteBooking(booking.id);
+        }
+      } catch (error) {
+        set({ error: "Failed to clean up past bookings", isLoading: false });
+      }
+    }
+  },
+
   reset: () => set({ bookings: [], isLoading: false, error: null }),
 }));
 

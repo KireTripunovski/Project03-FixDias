@@ -1,8 +1,16 @@
-import { useState, type FormEvent } from "react";
-import { Link, useNavigate } from "react-router-dom";
-import { FaEnvelope, FaLock, FaEye, FaEyeSlash } from "react-icons/fa";
+import React, { useState, type FormEvent } from "react";
+import { useNavigate } from "react-router-dom";
+import { FaEnvelope } from "react-icons/fa";
 import useAuthStore from "../store/useAuthStore";
 import { LoginCredentials } from "../types/types";
+import {
+  Input,
+  PasswordInput,
+  AuthFormContainer,
+  ErrorMessage,
+  SubmitButton,
+  AuthFooter,
+} from "../components/auth";
 
 const Login = () => {
   const navigate = useNavigate();
@@ -28,76 +36,42 @@ const Login = () => {
     }
   };
 
+  const togglePasswordVisibility = () => {
+    setShowPassword(!showPassword);
+  };
+
   return (
-    <div className="custom-container">
-      <div className="custom-card">
-        <div className="custom-card-body">
-          <h1 className="custom-title">Login to Your Account</h1>
-
-          {error && <div className="custom-error-message">{error}</div>}
-
-          <form onSubmit={handleSubmit}>
-            <div className="space-y-4">
-              <div className="custom-form-group">
-                <div className="custom-input-group">
-                  <span className="custom-input-icon">
-                    <FaEnvelope />
-                  </span>
-                  <input
-                    type="email"
-                    name="email"
-                    placeholder="E-Mail"
-                    required
-                    className="custom-form-input"
-                    value={credentials.email}
-                    onChange={handleChange}
-                  />
-                </div>
-              </div>
-
-              <div className="custom-form-group">
-                <div className="custom-input-group">
-                  <span className="custom-input-icon">
-                    <FaLock />
-                  </span>
-                  <input
-                    type={showPassword ? "text" : "password"}
-                    name="password"
-                    placeholder="Password"
-                    required
-                    className="custom-form-input"
-                    value={credentials.password}
-                    onChange={handleChange}
-                  />
-                  <button
-                    type="button"
-                    onClick={() => setShowPassword(!showPassword)}
-                    className="custom-password-toggle"
-                  >
-                    {showPassword ? <FaEyeSlash /> : <FaEye />}
-                  </button>
-                </div>
-              </div>
-            </div>
-
-            <button
-              type="submit"
-              disabled={isLoading}
-              className="custom-btn custom-btn-primary custom-mt-6"
-            >
-              {isLoading ? "Logging in..." : "Login"}
-            </button>
-          </form>
-
-          <div className="custom-text-center custom-mt-6 text-sm text-gray">
-            Don't have an account?{" "}
-            <Link to="/signup" className="link">
-              Register
-            </Link>
-          </div>
-        </div>
-      </div>
-    </div>
+    <AuthFormContainer title="Login to Your Account">
+      {error && <ErrorMessage message={error} />}
+      <form onSubmit={handleSubmit} className="space-y-4">
+        <Input
+          type="email"
+          name="email"
+          placeholder="E-Mail"
+          value={credentials.email}
+          onChange={handleChange}
+          icon={<FaEnvelope />}
+        />
+        <PasswordInput
+          name="password"
+          placeholder="Password"
+          value={credentials.password}
+          onChange={handleChange}
+          showPassword={showPassword}
+          togglePasswordVisibility={togglePasswordVisibility}
+        />
+        <SubmitButton
+          isLoading={isLoading}
+          buttonText="Login"
+          loadingText="Logging in..."
+        />
+      </form>
+      <AuthFooter
+        text="Don't have an account?"
+        linkText="Register"
+        to="/signup"
+      />
+    </AuthFormContainer>
   );
 };
 

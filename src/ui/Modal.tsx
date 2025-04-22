@@ -11,8 +11,11 @@ export const Modal = ({ isOpen, onClose, title, children }: ModalProps) => {
   if (!isOpen) return null;
 
   return (
-    <div className="fixed inset-0 bg-white bg-opacity-50 flex items-center justify-center z-50">
-      <div className="bg-white rounded-lg w-11/12 max-w-md overflow-hidden">
+    <div
+      style={{ overflow: "auto" }}
+      className="fixed inset-0 bg-white bg-opacity-50 flex items-center justify-center z-50"
+    >
+      <div className="bg-white rounded-lg w-11/12 max-w-md ">
         <div className="flex justify-between items-center p-4 border-b">
           <h3 className="font-semibold text-lg">{title}</h3>
           <button onClick={onClose} className="text-gray-500">

@@ -3,6 +3,10 @@ import Section2 from "../components/HomepageComponents/Section2";
 import Section3 from "../components/HomepageComponents/Section3";
 import CraftsmanCarousel from "../components/HomepageComponents/Section4";
 import Section5 from "../components/HomepageComponents/Section5";
+import LatestJobPosting from "../components/HomepageComponents/Section6";
+import TestimonialsSection from "../components/HomepageComponents/Section7";
+import CustomersSection from "../components/HomepageComponents/Section8";
+import Footer from "../components/HomepageComponents/Section9";
 import Navbar from "../components/NavbarHomePage";
 
 const Home = () => {
@@ -16,6 +20,10 @@ const Home = () => {
       <Section3 />
       <CraftsmanCarousel />
       <Section5 />
+      <LatestJobPosting />
+      <TestimonialsSection />
+      <CustomersSection />
+      <Footer />
     </div>
   );
 };

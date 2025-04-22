@@ -1,9 +1,10 @@
 import { MapContainer, TileLayer, Marker, Popup } from "react-leaflet";
-import "leaflet/dist/leaflet.css";
 import { useLocation } from "react-router-dom";
 import L from "leaflet";
+// icons
 import markerIcon from "leaflet/dist/images/marker-icon.png";
 import markerShadow from "leaflet/dist/images/marker-shadow.png";
+import "leaflet/dist/leaflet.css";
 
 const DefaultIcon = L.icon({
   iconUrl: markerIcon,

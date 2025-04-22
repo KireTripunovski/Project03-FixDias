@@ -24,8 +24,8 @@ const Section5 = () => {
   ];
 
   return (
-    <div className="w-full flex justify-center">
-      <div className="w-full max-w-md px-4 py-6 bg-white">
+    <div className="w-full my-15 flex justify-center">
+      <div className="w-full ">
         <div className="mb-6 flex justify-center">
           <img
             src={phone}
@@ -36,12 +36,18 @@ const Section5 = () => {
         {steps.map((step, index) => (
           <div
             key={index}
-            className="flex items-center mb-6 last:mb-0 bg-gray-50 rounded-lg p-4 shadow-sm"
+            className="flex items-center mb-6 last:mb-0 rounded-lg p-4 flex-col"
           >
-            <div className="w-14 h-14 bg-orange-100 rounded-full flex items-center justify-center mr-4 shrink-0">
-              <step.icon className="w-7 h-7 text-orange-500" />
+            <div className="flex flex-col items-center mb-4">
+              <div className="w-20 h-20 rounded-full bg-orange-100 flex items-center justify-center">
+                <div className="w-16 h-16 rounded-full bg-orange-200 flex items-center justify-center">
+                  <div className="w-12 h-12 rounded-full bg-orange-300 flex items-center justify-center">
+                    <step.icon className="w-6 h-6 text-white" />
+                  </div>
+                </div>
+              </div>
             </div>
-            <div>
+            <div className="text-center">
               <h3 className="text-base font-semibold text-gray-800">
                 {step.title}
               </h3>

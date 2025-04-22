@@ -1,5 +1,5 @@
 import { useLocation } from "react-router-dom";
-import MapComponent from "./Map";
+import MapComponent from "../components/Map/Map";
 
 function MapPage() {
   const location = useLocation();

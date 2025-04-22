@@ -1,4 +1,4 @@
-import { useEffect, useState } from "react";
+import { useCallback, useEffect, useState } from "react";
 import { Bell, Edit2, Eye, Plus, Star } from "lucide-react";
 import styles from "../components/DashboardComponents/Dashboard.module.css";
 import useAuthStore from "../store/useAuthStore";
@@ -6,77 +6,94 @@ import useProfileStore from "../store/useProfileStore";
 import useBookingsStore from "../store/useBookingStore";
 import EditableSection from "../components/DashboardComponents/EditableSection";
 import useUserPreferencesStore from "../store/useUserPreferences";
-import FeedbackSection from "../components/DashboardComponents/FeedbackSection";
+import FeedbackSection from "../components/DashboardComponents/Feedback/FeedbackSection";
 import profilepicutre from "../../public/Profile/Profile picture of handyman.png";
 import verirified from "../../public/Profile/verified_24dp_E8EAED_FILL1_wght400_GRAD0_opsz24 1.png";
 import useFeedbackStore from "../store/useFeedbackStore";
-import CarouselSlider from "../components/DashboardComponents/Carousel";
+import CarouselSlider from "../components/DashboardComponents/Carousel/Carousel";
 import carouselimg1 from "../../public/Profile/plumbing-repair-service 1.png";
 import carouselimg2 from "../../public/Profile/male-hands-with-wrench-turning-off-valves 1.png";
-import MyListings from "../components/DashboardComponents/Mylistings";
-import BookingsSection from "../components/DashboardComponents/Booking";
+import BookingsSection from "../components/DashboardComponents/Booking/Booking";
 import { useNavigate } from "react-router";
 import { FooterActions } from "../components/EditAccountInfoComponents/FooterActions";
 import CustomSections from "../components/DashboardComponents/CostumSections";
 import AddSectionModal from "../components/DashboardComponents/AddSectionModal";
+import StarRating from "../ui/StarRating";
+import MyListings from "../components/DashboardComponents/MyListings/Mylistings";
+import { setError } from "../utils/Error";
+import { FaLocationPin } from "react-icons/fa6";
+import { BsFillBagCheckFill } from "react-icons/bs";
 
 export default function Dashboard() {
   const { user, logout } = useAuthStore();
   const { profile, fetchProfile, updateProfile } = useProfileStore();
   const { fetchBookings } = useBookingsStore();
-  const { preferences, fetchUserPreferences } = useUserPreferencesStore();
   const { averageRating, reviewCount, fetchFeedback } = useFeedbackStore();
-  const [isLoading, setIsLoading] = useState(true);
+  const { preferences, fetchUserPreferences } = useUserPreferencesStore();
   const navigate = useNavigate();
+
+  // local state
+  const [isLoading, setIsLoading] = useState(true);
   const [isDropdownOpen, setIsDropdownOpen] = useState(false);
   const [isAddSectionModalOpen, setIsAddSectionModalOpen] = useState(false);
 
   const toggleDropdown = () => {
     setIsDropdownOpen(!isDropdownOpen);
   };
-  useEffect(() => {
-    if (user) {
-      fetchFeedback(user.id);
-    }
-  }, [user, fetchFeedback]);
 
   useEffect(() => {
-    const loadData = async () => {
+    const loadData = async (): Promise<void> => {
       setIsLoading(true);
-      if (user) {
-        await Promise.all([fetchProfile(), fetchBookings()]);
+      try {
+        if (user?.id) {
+          await Promise.all([
+            fetchProfile(),
+            fetchBookings(),
+            fetchFeedback(user.id),
+            fetchUserPreferences(user.id),
+          ]);
+        }
+      } catch (err) {
+        console.error("Error loading dashboard data:", err);
+        setError(
+          err instanceof Error ? err.message : "An unknown error occurred"
+        );
+      } finally {
+        setIsLoading(false);
       }
-      setIsLoading(false);
     };
 
     loadData();
-  }, [user, fetchProfile, fetchBookings]);
+  }, [user, fetchProfile, fetchBookings, fetchFeedback, fetchUserPreferences]);
 
-  useEffect(() => {
-    if (user) {
-      fetchUserPreferences(user.id);
-    }
-  }, [user, fetchUserPreferences]);
+  // handlers
+  const handleUpdateAbout = useCallback(
+    async (content: string) => {
+      await updateProfile({ about: content });
+    },
+    [updateProfile]
+  );
 
-  const handleUpdateAbout = async (content: string) => {
-    await updateProfile({ about: content });
-  };
+  const handleUpdateServices = useCallback(
+    async (content: string) => {
+      await updateProfile({ services: content });
+    },
+    [updateProfile]
+  );
+  const handleAddSection = useCallback(
+    async (sectionName: string) => {
+      const currentCustomSections = profile?.customSections || {};
+      const updatedCustomSections = {
+        ...currentCustomSections,
+        [sectionName]: "",
+      };
 
-  const handleUpdateServices = async (content: string) => {
-    await updateProfile({ services: content });
-  };
-  const handleAddSection = async (sectionName: string) => {
-    const currentCustomSections = profile?.customSections || {};
-
-    const updatedCustomSections = {
-      ...currentCustomSections,
-      [sectionName]: "",
-    };
-
-    await updateProfile({
-      customSections: updatedCustomSections,
-    });
-  };
+      await updateProfile({
+        customSections: updatedCustomSections,
+      });
+    },
+    [profile, updateProfile]
+  );
 
   if (isLoading) {
     return (
@@ -134,49 +151,22 @@ export default function Dashboard() {
                 </div>
               </div>
 
-              <div className="flex items-center text-xs text-gray-600">
-                {[1, 2, 3, 4, 5].map((starValue) => {
-                  if (starValue <= averageRating) {
-                    return (
-                      <Star
-                        key={starValue}
-                        size={16}
-                        fill="#f5ce47"
-                        className={styles.starFilled}
-                      />
-                    );
-                  } else if (starValue - 0.5 <= averageRating) {
-                    return (
-                      <div key={starValue} className="relative">
-                        <div
-                          className="absolute overflow-hidden"
-                          style={{ width: "50%" }}
-                        >
-                          <Star
-                            size={16}
-                            fill="#f5ce47"
-                            className={styles.starFilled}
-                          />
-                        </div>
-                        <Star
-                          size={16}
-                          fill="#e2e8f0"
-                          className="text-gray-300"
-                        />
-                      </div>
-                    );
-                  } else {
-                    return (
-                      <Star
-                        key={starValue}
-                        size={16}
-                        fill="#e2e8f0"
-                        className="text-gray-300"
-                      />
-                    );
-                  }
-                })}
-                {reviewCount} reviews
+              <StarRating
+                filledClassName={styles.starFilled}
+                rating={averageRating}
+                reviewCount={reviewCount}
+              />
+              <div style={{ fontSize: "12px" }}>
+                <div className=" flex flex-col gap-2 my-5">
+                  <div className="flex items-center gap-2">
+                    <FaLocationPin className="text-orange-500" />
+                    {profile?.location?.state}
+                  </div>
+                  <div className="flex items-center gap-2">
+                    <BsFillBagCheckFill className="text-orange-500" />
+                    {profile?.completedJobs} Completed Orders
+                  </div>
+                </div>
               </div>
               <div>
                 <p>
@@ -202,6 +192,7 @@ export default function Dashboard() {
                   )) || "No categories selected"}
                 </p>
               </div>
+              <div></div>
             </div>
           </div>
         </div>
@@ -241,12 +232,18 @@ export default function Dashboard() {
                     Edit Calendar
                   </button>
                   <button
+                    onClick={() => navigate("/")}
+                    className="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100"
+                  >
+                    Homepage
+                  </button>
+                  <button
                     onClick={() =>
                       console.log("Become Pro to be implemented in the future")
                     }
                     className="flex items-center px-4 py-2 text-sm w-full text-gray-700 hover:bg-gray-100"
                   >
-                    Become Pro{" "}
+                    Become Pro
                     <Star
                       size={19}
                       style={{

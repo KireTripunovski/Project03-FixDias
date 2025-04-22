@@ -64,7 +64,12 @@
 body {
   font-family: "Inter", sans-serif;
 }
-
+button {
+  cursor: pointer;
+}
+a {
+  cursor: pointer;
+}
 .h0-headline {
   font-weight: bold;
   font-size: 48px;
@@ -172,7 +177,6 @@ body {
 
 * {
   box-sizing: border-box;
-  margin: 0;
 }
 
 body {

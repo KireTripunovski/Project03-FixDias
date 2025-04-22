@@ -186,7 +186,7 @@ const SubcategorySelection = () => {
             <button
               onClick={handleSubmit}
               disabled={isSubmitting}
-              className={`${styles.button} ${styles.buttonPrimary}`}
+              className={`${styles.button} ${styles.buttonPrimary} bg-orange-500`}
             >
               {isSubmitting ? "Saving..." : "Continue"}
             </button>

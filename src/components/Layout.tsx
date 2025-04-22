@@ -10,8 +10,8 @@ export default function Layout() {
     location.pathname === "/setup-complete";
 
   return (
-    <div className="flex flex-col min-h-screen">
-      <div className="flex-grow pb-20">
+    <div className="flex flex-col min-h-screen pb-5">
+      <div className="flex-grow ">
         <Outlet />
       </div>
       {!isHomePage && !isOnboardingPage && (

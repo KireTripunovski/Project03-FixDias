@@ -70,6 +70,22 @@
       "email": "user5@example.com",
       "phoneNumber": "12344567",
       "userType": "handyman"
+    },
+    {
+      "id": "a7324189-8987-48a8-a287-9e3fd92e22e4",
+      "name": "Kire Tripunovski",
+      "email": "user122@example.com",
+      "password": "123",
+      "phoneNumber": "21323424",
+      "userType": "handyman"
+    },
+    {
+      "id": "3a8cd257-2630-4a6b-a153-fa2ca6b75084",
+      "name": "Kire Tripunovski",
+      "email": "user144@example.com",
+      "password": "123",
+      "phoneNumber": "123",
+      "userType": "handyman"
     }
   ],
   "serviceCategories": [
@@ -470,6 +486,38 @@
           ]
         }
       ]
+    },
+    {
+      "id": "005d1ff5-f996-4684-9783-0771222c6631",
+      "userId": "a7324189-8987-48a8-a287-9e3fd92e22e4",
+      "selectedCategories": [
+        {
+          "categoryId": "main1",
+          "categoryName": "Construction & Masonry",
+          "subcategories": [
+            {
+              "id": "c4",
+              "name": "Drywall Installation"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "4f3f1357-475c-47ac-a6fa-2e0502a22956",
+      "userId": "3a8cd257-2630-4a6b-a153-fa2ca6b75084",
+      "selectedCategories": [
+        {
+          "categoryId": "main8",
+          "categoryName": "Metal & Welding",
+          "subcategories": [
+            {
+              "id": "c15",
+              "name": "Metal Work"
+            }
+          ]
+        }
+      ]
     }
   ],
   "handymanProfiles": [
@@ -487,13 +535,13 @@
         },
         "displayString": "Skopje, Macedonia 1000"
       },
-      "about": "Lorem Ipsum Dolor Sit Amet Consectetur. Elit Eget Donec Ipsum a Bibendum Fermentum Velit. Vitae Tincidunt Curabitur Dolor Ipsum Ipsum Accumsan Commodo. Amet Vestibulum Aliquam Quisque Mauris Amet Mauris Ultrices. Consectetur eGet at elit amet non tellus sit .",
+      "about": "Lorem Ipsum Dolor Sit Amet Consectetur. Elit Eget Donec Ipsum a Bibendum Fermentum Velit. Vitae Tincidunt Curabitur Dolor Ipsum Ipsum Accumsan Commodo.1 Amet Vestibulum Aliquam Quisque Mauris Amet Mauris Ultrices. Consectetur eGet at elit amet non tellus sit ",
       "services": "Lorem Ipsum Dolor Sit Amet Consectetur. Elit Eget Donec Ipsum a Bibendum Fermentum Velit. Vitae Tincidunt Curabitur Dolor Ipsum Ipsum Accumsan Commodo. Amet Vestibulum Aliquam Quisque Mauris Amet Mauris Ultrices. Consectetur eGet at elit amet non tellus sit .",
-      "completedJobs": 0,
+      "completedJobs": 11,
       "averageRating": 3,
       "profession": "",
       "customSections": {
-        "acb": ""
+        "test custom section": "123"
       },
       "income": 1000
     },
@@ -623,6 +671,28 @@
       "services": "",
       "completedJobs": 0,
       "averageRating": 0
+    },
+    {
+      "id": "e76a6b52-c005-4e92-8346-d7688d6ec0e6",
+      "userId": "a7324189-8987-48a8-a287-9e3fd92e22e4",
+      "experience": "",
+      "certifications": [],
+      "location": "",
+      "about": "",
+      "services": "",
+      "completedJobs": 0,
+      "averageRating": 0
+    },
+    {
+      "id": "155574aa-55a8-46c9-840b-e96f9f6d507b",
+      "userId": "3a8cd257-2630-4a6b-a153-fa2ca6b75084",
+      "experience": "",
+      "certifications": [],
+      "location": "",
+      "about": "",
+      "services": "",
+      "completedJobs": 0,
+      "averageRating": 0
     }
   ],
   "services": [
@@ -638,7 +708,10 @@
       "providerId": "u2",
       "availability": "available",
       "rating": 4.8,
-      "imageUrls": ["plumbing1.jpg", "plumbing2.jpg"],
+      "imageUrls": [
+        "plumbing1.jpg",
+        "plumbing2.jpg"
+      ],
       "location": {
         "city": "Austin",
         "state": "TX",
@@ -663,7 +736,10 @@
       "providerId": "u4",
       "availability": "busy",
       "rating": 4.9,
-      "imageUrls": ["electrical1.jpg", "electrical2.jpg"],
+      "imageUrls": [
+        "electrical1.jpg",
+        "electrical2.jpg"
+      ],
       "location": {
         "city": "Austin",
         "state": "TX",
@@ -688,7 +764,9 @@
       "providerId": "u2",
       "availability": "available",
       "rating": 4.6,
-      "imageUrls": ["assembly1.jpg"],
+      "imageUrls": [
+        "assembly1.jpg"
+      ],
       "location": {
         "city": "Austin",
         "state": "TX",
@@ -713,7 +791,11 @@
       "providerId": "u4",
       "availability": "available",
       "rating": 4.7,
-      "imageUrls": ["repair1.jpg", "repair2.jpg", "repair3.jpg"],
+      "imageUrls": [
+        "repair1.jpg",
+        "repair2.jpg",
+        "repair3.jpg"
+      ],
       "location": {
         "city": "Austin",
         "state": "TX",
@@ -738,7 +820,10 @@
       "providerId": "u4",
       "availability": "available",
       "rating": 4.7,
-      "imageUrls": ["painting1.jpg", "painting2.jpg"],
+      "imageUrls": [
+        "painting1.jpg",
+        "painting2.jpg"
+      ],
       "location": {
         "city": "Austin",
         "state": "TX",
@@ -763,7 +848,10 @@
       "providerId": "u2",
       "availability": "available",
       "rating": 4.9,
-      "imageUrls": ["smarthome1.jpg", "smarthome2.jpg"],
+      "imageUrls": [
+        "smarthome1.jpg",
+        "smarthome2.jpg"
+      ],
       "location": {
         "city": "Austin",
         "state": "TX",
@@ -788,7 +876,10 @@
       "providerId": "u4",
       "availability": "available",
       "rating": 4.8,
-      "imageUrls": ["tile1.jpg", "tile2.jpg"],
+      "imageUrls": [
+        "tile1.jpg",
+        "tile2.jpg"
+      ],
       "location": {
         "city": "Austin",
         "state": "TX",
@@ -813,7 +904,10 @@
       "providerId": "u2",
       "availability": "busy",
       "rating": 4.9,
-      "imageUrls": ["kitchen1.jpg", "kitchen2.jpg"],
+      "imageUrls": [
+        "kitchen1.jpg",
+        "kitchen2.jpg"
+      ],
       "location": {
         "city": "Austin",
         "state": "TX",
@@ -883,7 +977,7 @@
       "serviceId": "s1",
       "customerId": "u1",
       "handymanId": "u2",
-      "rating": 5,
+      "rating": 1,
       "comment": "Mike was very professional and fixed my plumbing issues quickly. Highly recommend!",
       "createdAt": "2023-10-06T09:20:00Z"
     },
@@ -1120,43 +1214,38 @@
       "price": 110,
       "createdAt": "2023-10-25T13:45:00Z",
       "updatedAt": "2023-10-25T16:15:00Z"
+    },
+    {
+      "id": "e4f335g6h7-i8j9-k0l1-m2n3-o4p5q6r7s8t559444",
+      "service": "Painting service",
+      "status": "pending",
+      "scheduledDate": "Wed, 8 Nov",
+      "scheduledTime": "Morning 9 am",
+      "customerId": "5c4e0b2-1f3d-4a8b-9f5c-7a6e0d1f2a3",
+      "customerName": "Anna Muller",
+      "handymanId": "615d75a8-5a70-4303-9355-cafdc29a0616",
+      "handymanName": "Kire Tripunovski",
+      "description": "Paint Service",
+      "location": {
+        "address": "456 Oak St, Berlin",
+        "lat": 52.53,
+        "lng": 13.415
+      },
+      "rating": 5,
+      "category": "plumbing",
+      "price": 1110,
+      "createdAt": "2023-10-25T13:45:00Z",
+      "updatedAt": "2023-10-25T16:15:00Z"
     }
   ],
   "handymanListings": [
-    {
-      "id": "0939bcca-7041-4832-9bfa-5dbee07e3893",
-      "handymanId": "615d75a8-5a70-4303-9355-cafdc29a0616",
-      "createdAt": "2025-04-12T01:53:32.587Z",
-      "isActive": true,
-      "title": "Second JOb",
-      "description": "My Second Job",
-      "location": "Serbia"
-    },
-    {
-      "id": "0d0a4b69-d720-4c68-a703-6eb4dc77e382",
-      "handymanId": "615d75a8-5a70-4303-9355-cafdc29a0616",
-      "createdAt": "2025-04-12T17:03:14.232Z",
-      "isActive": true,
-      "title": "repair a pipe",
-      "description": "i noticed that ",
-      "location": "Macedonia"
-    },
-    {
-      "id": "7c4e20d3-f8c6-4a92-91f2-b8c3234c07d7",
-      "handymanId": "615d75a8-5a70-4303-9355-cafdc29a0616",
-      "createdAt": "2025-04-12T17:09:31.920Z",
-      "isActive": true,
-      "title": "123",
-      "description": "213",
-      "location": "41.9954688, 21.46304"
-    },
     {
       "id": "273ed9e7-efbf-49ed-b111-1d213096c545",
       "handymanId": "615d75a8-5a70-4303-9355-cafdc29a0616",
       "createdAt": "2025-04-12T17:33:11.772Z",
       "isActive": true,
-      "title": "aaaa",
-      "description": "aaaa",
+      "title": "Im offering this service",
+      "description": "I am expenrienced in this field",
       "location": {
         "latitude": 41.9954688,
         "longitude": 21.46304,
@@ -1168,8 +1257,8 @@
       "handymanId": "615d75a8-5a70-4303-9355-cafdc29a0616",
       "createdAt": "2025-04-12T17:41:34.386Z",
       "isActive": true,
-      "title": "213",
-      "description": "213",
+      "title": "Im the best in this field ",
+      "description": "Can come quick",
       "location": {
         "latitude": 41.9954688,
         "longitude": 21.46304,
@@ -1181,8 +1270,8 @@
       "handymanId": "615d75a8-5a70-4303-9355-cafdc29a0616",
       "createdAt": "2025-04-12T18:04:45.630Z",
       "isActive": true,
-      "title": "123",
-      "description": "123",
+      "title": "Can come quick",
+      "description": "Im the best in this field",
       "location": {
         "latitude": 53.6126505,
         "longitude": 12.4295953,
@@ -1196,19 +1285,6 @@
       "isActive": true,
       "title": "New Job",
       "description": "Imwroking on this",
-      "location": {
-        "latitude": 48.7904472,
-        "longitude": 11.4978895,
-        "state": "Bavaria"
-      }
-    },
-    {
-      "id": "cd3d7575-bebf-46c3-829c-368293ffa969",
-      "handymanId": "615d75a8-5a70-4303-9355-cafdc29a0616",
-      "createdAt": "2025-04-17T18:30:48.117Z",
-      "isActive": true,
-      "title": "123",
-      "description": "123",
       "location": {
         "latitude": 48.7904472,
         "longitude": 11.4978895,
@@ -1255,19 +1331,6 @@
       }
     },
     {
-      "id": "1c2ecc34-c21c-405a-ba59-0be14804fa17",
-      "handymanId": "615d75a8-5a70-4303-9355-cafdc29a0616",
-      "createdAt": "2025-04-21T01:36:41.071Z",
-      "isActive": true,
-      "title": "123",
-      "description": "213",
-      "location": {
-        "latitude": 48.6616037,
-        "longitude": 9.3501336,
-        "state": "Baden-Württemberg"
-      }
-    },
-    {
       "id": "ac29be7b-2fb4-46bc-9a30-c0b58cfd3a58",
       "handymanId": "c8caa6a6-d53d-4afd-8298-004f2ed3e4a4",
       "createdAt": "2025-04-21T01:38:38.893Z",
@@ -1279,6 +1342,19 @@
         "longitude": 9.3501336,
         "state": "Baden-Württemberg"
       }
+    },
+    {
+      "id": "bc89f68e-d0dc-4397-aa24-fe8c6735b94e",
+      "handymanId": "615d75a8-5a70-4303-9355-cafdc29a0616",
+      "createdAt": "2025-04-22T18:58:38.146Z",
+      "isActive": true,
+      "title": "Making test job",
+      "description": "Test Job Description",
+      "location": {
+        "latitude": 48.7904472,
+        "longitude": 11.4978895,
+        "state": "Bavaria"
+      }
     }
   ],
   "feedback": [
@@ -1287,7 +1363,7 @@
       "handymanId": "615d75a8-5a70-4303-9355-cafdc29a0616",
       "customerId": "u1",
       "customerName": "John Smith",
-      "rating": 4.5,
+      "rating": 3.5,
       "comment": "Excellent work on my smart home setup. Very professional and knowledgeable.",
       "location": "Berlin, Germany",
       "createdAt": "2024-07-02T15:30:00Z"
@@ -1349,34 +1425,6 @@
       "dateCreatedAt": "2025-04-19T20:47:11.037Z"
     },
     {
-      "id": "3c44",
-      "title": "Kire",
-      "location": {
-        "address": "Brandenburg",
-        "lat": 52.4125287,
-        "lng": 12.5316444
-      },
-      "description": "123",
-      "from": "2025-04-21T12:00:00",
-      "to": "2025-04-21T13:00:00",
-      "userId": "615d75a8-5a70-4303-9355-cafdc29a0616",
-      "dateCreatedAt": "2025-04-19T21:06:51.788Z"
-    },
-    {
-      "id": "b4f5",
-      "title": "213",
-      "location": {
-        "address": "Hamburg",
-        "lat": 53.5510846,
-        "lng": 9.9936819
-      },
-      "description": "123",
-      "from": "2025-04-20T12:00:00",
-      "to": "2025-04-20T13:00:00",
-      "userId": "615d75a8-5a70-4303-9355-cafdc29a0616",
-      "dateCreatedAt": "2025-04-19T21:07:01.260Z"
-    },
-    {
       "id": "ceb7",
       "title": "213",
       "location": {
@@ -1403,6 +1451,174 @@
       "to": "2025-04-26T13:00:00",
       "userId": "615d75a8-5a70-4303-9355-cafdc29a0616",
       "dateCreatedAt": "2025-04-19T21:08:37.873Z"
+    },
+    {
+      "id": "a6b8",
+      "title": "Dte",
+      "location": {
+        "address": "Baden-Württemberg",
+        "lat": 48.6616037,
+        "lng": 9.3501336
+      },
+      "description": "123",
+      "from": "2025-04-25T12:00:00",
+      "to": "2025-04-25T13:00:00",
+      "userId": "615d75a8-5a70-4303-9355-cafdc29a0616",
+      "dateCreatedAt": "2025-04-22T04:31:14.951Z"
+    },
+    {
+      "id": "5c8f",
+      "title": "my first ",
+      "location": {
+        "address": "Hesse",
+        "lat": 50.6520515,
+        "lng": 9.1624376
+      },
+      "description": "my first job",
+      "from": "2025-04-23T12:00:00",
+      "to": "2025-04-23T13:00:00",
+      "userId": "615d75a8-5a70-4303-9355-cafdc29a0616",
+      "dateCreatedAt": "2025-04-22T06:20:39.687Z"
+    },
+    {
+      "id": "7fb0",
+      "title": "123",
+      "location": {
+        "address": "Baden-Württemberg",
+        "lat": 48.6616037,
+        "lng": 9.3501336
+      },
+      "description": "213",
+      "from": "2025-04-23T12:00:00",
+      "to": "2025-04-23T13:00:00",
+      "userId": "098f8729-46c8-4da7-a0ce-eac9e99d0d47",
+      "dateCreatedAt": "2025-04-22T17:20:19.846Z"
+    },
+    {
+      "id": "1500",
+      "title": "123",
+      "location": {
+        "address": "Bavaria",
+        "lat": 48.7904472,
+        "lng": 11.4978895
+      },
+      "description": "123",
+      "from": "2025-04-22T12:00:00",
+      "to": "2025-04-22T13:00:00",
+      "userId": "3a8cd257-2630-4a6b-a153-fa2ca6b75084",
+      "dateCreatedAt": "2025-04-22T20:23:01.877Z"
+    },
+    {
+      "id": "b148",
+      "title": "213",
+      "location": {
+        "address": "Baden-Württemberg",
+        "lat": 48.6616037,
+        "lng": 9.3501336
+      },
+      "description": "123",
+      "from": "2025-04-22T12:00:00",
+      "to": "2025-04-22T13:00:00",
+      "userId": "3a8cd257-2630-4a6b-a153-fa2ca6b75084",
+      "dateCreatedAt": "2025-04-22T20:23:07.951Z"
+    },
+    {
+      "id": "4b20",
+      "title": "123",
+      "location": {
+        "address": "Bavaria",
+        "lat": 48.7904472,
+        "lng": 11.4978895
+      },
+      "description": "123",
+      "from": "2025-04-22T14:02:00",
+      "to": "2025-04-22T18:00:00",
+      "userId": "3a8cd257-2630-4a6b-a153-fa2ca6b75084",
+      "dateCreatedAt": "2025-04-22T20:23:27.252Z"
+    },
+    {
+      "id": "121a",
+      "title": "123",
+      "location": {
+        "address": "Baden-Württemberg",
+        "lat": 48.6616037,
+        "lng": 9.3501336
+      },
+      "description": "123",
+      "from": "2025-04-24T12:00:00",
+      "to": "2025-04-24T13:00:00",
+      "userId": "3a8cd257-2630-4a6b-a153-fa2ca6b75084",
+      "dateCreatedAt": "2025-04-22T20:23:41.075Z"
+    },
+    {
+      "id": "2585",
+      "title": "333",
+      "location": {
+        "address": "Bavaria",
+        "lat": 48.7904472,
+        "lng": 11.4978895
+      },
+      "description": "333",
+      "from": "2025-04-22T14:00:00",
+      "to": "2025-04-22T16:00:00",
+      "userId": "3a8cd257-2630-4a6b-a153-fa2ca6b75084",
+      "dateCreatedAt": "2025-04-22T20:27:54.115Z"
+    },
+    {
+      "id": "f217",
+      "title": "213",
+      "location": {
+        "address": "Baden-Württemberg",
+        "lat": 48.6616037,
+        "lng": 9.3501336
+      },
+      "description": "123",
+      "from": "2025-04-22T12:00:00",
+      "to": "2025-04-22T13:00:00",
+      "userId": "3a8cd257-2630-4a6b-a153-fa2ca6b75084",
+      "dateCreatedAt": "2025-04-22T20:31:05.939Z"
+    },
+    {
+      "id": "46e6",
+      "title": "123",
+      "location": {
+        "address": "Bavaria",
+        "lat": 48.7904472,
+        "lng": 11.4978895
+      },
+      "description": "123",
+      "from": "2025-04-22T12:00:00",
+      "to": "2025-04-22T13:00:00",
+      "userId": "3a8cd257-2630-4a6b-a153-fa2ca6b75084",
+      "dateCreatedAt": "2025-04-22T20:31:12.417Z"
+    },
+    {
+      "id": "f593",
+      "title": "213",
+      "location": {
+        "address": "Baden-Württemberg",
+        "lat": 48.6616037,
+        "lng": 9.3501336
+      },
+      "description": "213",
+      "from": "2025-04-22T12:00:00",
+      "to": "2025-04-22T13:00:00",
+      "userId": "615d75a8-5a70-4303-9355-cafdc29a0616",
+      "dateCreatedAt": "2025-04-22T20:32:38.978Z"
+    },
+    {
+      "id": "4d73",
+      "title": "123",
+      "location": {
+        "address": "Bavaria",
+        "lat": 48.7904472,
+        "lng": 11.4978895
+      },
+      "description": "123",
+      "from": "2025-04-28T12:00:00",
+      "to": "2025-04-28T13:00:00",
+      "userId": "615d75a8-5a70-4303-9355-cafdc29a0616",
+      "dateCreatedAt": "2025-04-22T20:36:02.584Z"
     }
   ],
   "jobPostings": [
@@ -1485,6 +1701,32 @@
       "isUrgent": true,
       "postedAt": "2025-04-18T08:00:00Z",
       "status": "open"
+    }
+  ],
+  "realExperiences": [
+    {
+      "img": "../../../public/HomepageSection1/Maximilian.png",
+      "name": "Maximilian Schneider",
+      "rating": 5,
+      "comment": "Since I used this platform, I have doubled my orders!",
+      "jobTitle": "Electrician",
+      "location": "Dresden"
+    },
+    {
+      "img": "../../../public/HomepageSection1/John.png",
+      "name": "John Meier",
+      "rating": 5,
+      "comment": "I can use my free time perfectly to get additional jobs .",
+      "jobTitle": "Tischler",
+      "location": "Berlin"
+    },
+    {
+      "img": "../../../public/HomepageSection1/Peter.png",
+      "name": "Peter Schmidt",
+      "rating": 5,
+      "comment": "Super easy handling and direct contact with customers!",
+      "jobTitle": "Painter",
+      "location": "Munich"
     }
   ]
 }

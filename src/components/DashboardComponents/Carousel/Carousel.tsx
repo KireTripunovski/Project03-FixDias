@@ -38,7 +38,6 @@ const CarouselSlider: React.FC<CarouselSliderProps> = ({
     setLength(children.length);
   }, [children]);
 
-  // Define slide navigation functions
   const nextSlide = useCallback(() => {
     if (isTransitioning) return;
 
@@ -63,7 +62,6 @@ const CarouselSlider: React.FC<CarouselSliderProps> = ({
     setTimeout(() => setIsTransitioning(false), 500);
   }, [currentIndex, infiniteLoop, isTransitioning, length]);
 
-  // Set up autoplay
   useEffect(() => {
     if (autoPlay && length > 1 && !isSwiping) {
       intervalRef.current = setInterval(() => {
@@ -78,9 +76,7 @@ const CarouselSlider: React.FC<CarouselSliderProps> = ({
     }
   }, [autoPlay, interval, length, nextSlide, isSwiping]);
 
-  // Touch event handlers using React synthetic events
   const handleTouchStart = (e: React.TouchEvent<HTMLDivElement>) => {
-    // Pause autoplay during swipe
     if (intervalRef.current) {
       clearInterval(intervalRef.current);
     }
@@ -97,26 +93,21 @@ const CarouselSlider: React.FC<CarouselSliderProps> = ({
   const handleTouchEnd = () => {
     setIsSwiping(false);
 
-    // Process the swipe if we have valid measurements
     if (touchStartX !== null && touchCurrentX !== null) {
       const difference = touchStartX - touchCurrentX;
-      const swipeThreshold = 50; // Minimum distance required for a swipe
+      const swipeThreshold = 50;
 
       if (difference > swipeThreshold) {
-        // Swiped left -> go to next slide
         nextSlide();
       } else if (difference < -swipeThreshold) {
-        // Swiped right -> go to previous slide
         prevSlide();
       }
     }
 
-    // Reset touch positions
     setTouchStartX(null);
     setTouchCurrentX(null);
   };
 
-  // Handle dot navigation
   const goToSlide = (index: number) => {
     if (isTransitioning) return;
 
@@ -128,7 +119,7 @@ const CarouselSlider: React.FC<CarouselSliderProps> = ({
   const slideWidth = 100 - peekAmount;
 
   return (
-    <div className="carousel-container py-17">
+    <div className="carousel-container ">
       <h1
         style={{ fontWeight: "500", fontSize: "32px" }}
         className="py-5 text-center weight-400"
@@ -187,7 +178,6 @@ const CarouselSlider: React.FC<CarouselSliderProps> = ({
         )}
       </div>
 
-      {/* Dots navigation */}
       {showDots && length > 1 && (
         <div className="carousel-dots">
           {Array.from({ length }).map((_, index) => (

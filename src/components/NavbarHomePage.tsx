@@ -18,7 +18,7 @@ const Navbar: React.FC = () => {
 
   return (
     <div className="w-full">
-      <nav className="bg-white text-black p-4 w-full">
+      <nav className=" text-black p-4 w-full">
         <div className="container mx-auto flex justify-between items-center">
           <div>
             <Link to={"/"}>
@@ -45,7 +45,7 @@ const Navbar: React.FC = () => {
       <div
         className={`${
           isOpen ? "block" : "hidden"
-        } md:hidden bg-white shadow-lg transition-all duration-300 w-full`}
+        } md:hidden  shadow-lg transition-all duration-300 w-full`}
       >
         <div className="container mx-auto">
           <ul
