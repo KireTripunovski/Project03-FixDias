@@ -86,6 +86,22 @@
       "password": "123",
       "phoneNumber": "123",
       "userType": "handyman"
+    },
+    {
+      "id": "9489febb-1c01-48a8-a5e2-e1b5d0eddc57",
+      "name": "Kire Tripunovski",
+      "email": "brainster@example.com",
+      "password": "123456",
+      "phoneNumber": "12345",
+      "userType": "handyman"
+    },
+    {
+      "id": "fa39cf29-d76d-4e70-8d1a-442477e3bc01",
+      "name": "Kire Tripunovski",
+      "email": "brainster12@gmail.com",
+      "password": "12345",
+      "phoneNumber": "21323424",
+      "userType": "handyman"
     }
   ],
   "serviceCategories": [
@@ -518,6 +534,46 @@
           ]
         }
       ]
+    },
+    {
+      "id": "5b2c3df3-2ddc-46fd-b77a-5697dab686a8",
+      "userId": "9489febb-1c01-48a8-a5e2-e1b5d0eddc57",
+      "selectedCategories": [
+        {
+          "categoryId": "main5",
+          "categoryName": "Electrical & Smart Systems",
+          "subcategories": [
+            {
+              "id": "c7",
+              "name": "Electrical Services"
+            },
+            {
+              "id": "c9",
+              "name": "Smart Home Systems"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "b1adf49b-7af8-40f2-874f-a68e3f5f7ae7",
+      "userId": "fa39cf29-d76d-4e70-8d1a-442477e3bc01",
+      "selectedCategories": [
+        {
+          "categoryId": "main5",
+          "categoryName": "Electrical & Smart Systems",
+          "subcategories": [
+            {
+              "id": "c8",
+              "name": "Solar Energy"
+            },
+            {
+              "id": "c26",
+              "name": "Security Systems"
+            }
+          ]
+        }
+      ]
     }
   ],
   "handymanProfiles": [
@@ -537,11 +593,12 @@
       },
       "about": "Lorem Ipsum Dolor Sit Amet Consectetur. Elit Eget Donec Ipsum a Bibendum Fermentum Velit. Vitae Tincidunt Curabitur Dolor Ipsum Ipsum Accumsan Commodo.1 Amet Vestibulum Aliquam Quisque Mauris Amet Mauris Ultrices. Consectetur eGet at elit amet non tellus sit ",
       "services": "Lorem Ipsum Dolor Sit Amet Consectetur. Elit Eget Donec Ipsum a Bibendum Fermentum Velit. Vitae Tincidunt Curabitur Dolor Ipsum Ipsum Accumsan Commodo. Amet Vestibulum Aliquam Quisque Mauris Amet Mauris Ultrices. Consectetur eGet at elit amet non tellus sit .",
-      "completedJobs": 11,
+      "completedJobs": 12,
       "averageRating": 3,
       "profession": "",
       "customSections": {
-        "test custom section": "123"
+        "test custom section": "123",
+        "Skills": "Electrician"
       },
       "income": 1000
     },
@@ -689,6 +746,46 @@
       "experience": "",
       "certifications": [],
       "location": "",
+      "about": "",
+      "services": "",
+      "completedJobs": 0,
+      "averageRating": 0
+    },
+    {
+      "id": "52c7fa9c-a32e-4ec4-bca0-4db2293797a0",
+      "userId": "9489febb-1c01-48a8-a5e2-e1b5d0eddc57",
+      "experience": "",
+      "certifications": [],
+      "location": {
+        "state": "Gjorce Petrov",
+        "city": "Skopje",
+        "zipCode": "1000",
+        "coordinates": {
+          "latitude": 42.0124647,
+          "longitude": 21.375433
+        },
+        "displayString": "Skopje, Gjorce Petrov 1000"
+      },
+      "about": "Im kire",
+      "services": "Lorem ipsum",
+      "completedJobs": 0,
+      "averageRating": 0
+    },
+    {
+      "id": "e5d8bd76-4378-45e2-b79b-a4e45d275e38",
+      "userId": "fa39cf29-d76d-4e70-8d1a-442477e3bc01",
+      "experience": "",
+      "certifications": [],
+      "location": {
+        "state": "Gjorce Petrov",
+        "city": "Skopje",
+        "zipCode": "1000",
+        "coordinates": {
+          "latitude": 42.0124647,
+          "longitude": 21.375433
+        },
+        "displayString": "Skopje, Gjorce Petrov 1000"
+      },
       "about": "",
       "services": "",
       "completedJobs": 0,
@@ -1083,7 +1180,7 @@
     {
       "id": "b1c32d3e4-f5g6-h7i8-j9k0-l1m2n3o4p5q6",
       "service": "Plumbing service",
-      "status": "accepted",
+      "status": "completed",
       "scheduledDate": "Wed, 8 Nov",
       "scheduledTime": "Morning 9 am",
       "customerId": "5c4e0b2-1f3d-4a8b-9f5c-7a6e0d1f2a3",
@@ -1196,7 +1293,7 @@
     {
       "id": "e4f335g6h7-i8j9-k0l1-m2n3-o4p5q6r7s8t559",
       "service": "Plumbing service",
-      "status": "pending",
+      "status": "rejected",
       "scheduledDate": "Wed, 8 Nov",
       "scheduledTime": "Morning 9 am",
       "customerId": "5c4e0b2-1f3d-4a8b-9f5c-7a6e0d1f2a3",
@@ -1218,7 +1315,7 @@
     {
       "id": "e4f335g6h7-i8j9-k0l1-m2n3-o4p5q6r7s8t559444",
       "service": "Painting service",
-      "status": "pending",
+      "status": "accepted",
       "scheduledDate": "Wed, 8 Nov",
       "scheduledTime": "Morning 9 am",
       "customerId": "5c4e0b2-1f3d-4a8b-9f5c-7a6e0d1f2a3",
@@ -1355,6 +1452,45 @@
         "longitude": 11.4978895,
         "state": "Bavaria"
       }
+    },
+    {
+      "id": "4c2dcb69-d528-46e3-b8b5-67f02ca33fa9",
+      "handymanId": "9489febb-1c01-48a8-a5e2-e1b5d0eddc57",
+      "createdAt": "2025-04-28T14:25:42.865Z",
+      "isActive": true,
+      "title": "Im experienced plubmer",
+      "description": "I have worked in this field for 5 years",
+      "location": {
+        "latitude": 48.7904472,
+        "longitude": 11.4978895,
+        "state": "Bavaria"
+      }
+    },
+    {
+      "id": "d1f52749-5f65-4a50-8ff3-aaebd51e419e",
+      "handymanId": "615d75a8-5a70-4303-9355-cafdc29a0616",
+      "createdAt": "2025-04-28T15:21:54.907Z",
+      "isActive": true,
+      "title": "NewJob",
+      "description": "NewJob",
+      "location": {
+        "latitude": 48.7904472,
+        "longitude": 11.4978895,
+        "state": "Bavaria"
+      }
+    },
+    {
+      "id": "61c6308a-40de-46bc-a0f8-4af3da0fca06",
+      "handymanId": "fa39cf29-d76d-4e70-8d1a-442477e3bc01",
+      "createdAt": "2025-04-28T16:46:04.262Z",
+      "isActive": true,
+      "title": "Myfirstjob",
+      "description": "1234",
+      "location": {
+        "latitude": 53.0792962,
+        "longitude": 8.8016936,
+        "state": "Bremen"
+      }
     }
   ],
   "feedback": [
@@ -1410,76 +1546,6 @@
     }
   ],
   "calendarbookings": [
-    {
-      "id": "df70",
-      "title": "Anna Muller",
-      "location": {
-        "address": "Hamburg",
-        "lat": 53.5510846,
-        "lng": 9.9936819
-      },
-      "description": "123",
-      "from": "2025-04-24T12:00:00",
-      "to": "2025-04-24T13:00:00",
-      "userId": "615d75a8-5a70-4303-9355-cafdc29a0616",
-      "dateCreatedAt": "2025-04-19T20:47:11.037Z"
-    },
-    {
-      "id": "ceb7",
-      "title": "213",
-      "location": {
-        "address": "Baden-Württemberg",
-        "lat": 48.6616037,
-        "lng": 9.3501336
-      },
-      "description": "213",
-      "from": "2025-04-26T12:00:00",
-      "to": "2025-04-26T13:00:00",
-      "userId": "615d75a8-5a70-4303-9355-cafdc29a0616",
-      "dateCreatedAt": "2025-04-19T21:08:31.381Z"
-    },
-    {
-      "id": "ba95",
-      "title": "213",
-      "location": {
-        "address": "Baden-Württemberg",
-        "lat": 48.6616037,
-        "lng": 9.3501336
-      },
-      "description": "123",
-      "from": "2025-04-26T12:00:00",
-      "to": "2025-04-26T13:00:00",
-      "userId": "615d75a8-5a70-4303-9355-cafdc29a0616",
-      "dateCreatedAt": "2025-04-19T21:08:37.873Z"
-    },
-    {
-      "id": "a6b8",
-      "title": "Dte",
-      "location": {
-        "address": "Baden-Württemberg",
-        "lat": 48.6616037,
-        "lng": 9.3501336
-      },
-      "description": "123",
-      "from": "2025-04-25T12:00:00",
-      "to": "2025-04-25T13:00:00",
-      "userId": "615d75a8-5a70-4303-9355-cafdc29a0616",
-      "dateCreatedAt": "2025-04-22T04:31:14.951Z"
-    },
-    {
-      "id": "5c8f",
-      "title": "my first ",
-      "location": {
-        "address": "Hesse",
-        "lat": 50.6520515,
-        "lng": 9.1624376
-      },
-      "description": "my first job",
-      "from": "2025-04-23T12:00:00",
-      "to": "2025-04-23T13:00:00",
-      "userId": "615d75a8-5a70-4303-9355-cafdc29a0616",
-      "dateCreatedAt": "2025-04-22T06:20:39.687Z"
-    },
     {
       "id": "7fb0",
       "title": "123",
@@ -1593,20 +1659,6 @@
       "dateCreatedAt": "2025-04-22T20:31:12.417Z"
     },
     {
-      "id": "f593",
-      "title": "213",
-      "location": {
-        "address": "Baden-Württemberg",
-        "lat": 48.6616037,
-        "lng": 9.3501336
-      },
-      "description": "213",
-      "from": "2025-04-22T12:00:00",
-      "to": "2025-04-22T13:00:00",
-      "userId": "615d75a8-5a70-4303-9355-cafdc29a0616",
-      "dateCreatedAt": "2025-04-22T20:32:38.978Z"
-    },
-    {
       "id": "4d73",
       "title": "123",
       "location": {
@@ -1619,6 +1671,48 @@
       "to": "2025-04-28T13:00:00",
       "userId": "615d75a8-5a70-4303-9355-cafdc29a0616",
       "dateCreatedAt": "2025-04-22T20:36:02.584Z"
+    },
+    {
+      "id": "9e8a",
+      "title": "Anna Muller",
+      "location": {
+        "address": "Baden-Württemberg",
+        "lat": 48.6616037,
+        "lng": 9.3501336
+      },
+      "description": "Working pipes",
+      "from": "2025-04-30T17:00:00",
+      "to": "2025-04-30T18:01:00",
+      "userId": "9489febb-1c01-48a8-a5e2-e1b5d0eddc57",
+      "dateCreatedAt": "2025-04-28T14:28:43.313Z"
+    },
+    {
+      "id": "7748",
+      "title": "Anna Muller",
+      "location": {
+        "address": "Lower Saxony",
+        "lat": 52.6367036,
+        "lng": 9.8450766
+      },
+      "description": "lorem ipsum",
+      "from": "2025-04-29T12:00:00",
+      "to": "2025-04-29T13:00:00",
+      "userId": "9489febb-1c01-48a8-a5e2-e1b5d0eddc57",
+      "dateCreatedAt": "2025-04-28T14:29:07.226Z"
+    },
+    {
+      "id": "4385",
+      "title": "Anna Muller",
+      "location": {
+        "address": "Hamburg",
+        "lat": 53.5510846,
+        "lng": 9.9936819
+      },
+      "description": "1234",
+      "from": "2025-04-29T18:03:00",
+      "to": "2025-04-29T19:00:00",
+      "userId": "fa39cf29-d76d-4e70-8d1a-442477e3bc01",
+      "dateCreatedAt": "2025-04-28T16:47:24.330Z"
     }
   ],
   "jobPostings": [
@@ -1710,7 +1804,8 @@
       "rating": 5,
       "comment": "Since I used this platform, I have doubled my orders!",
       "jobTitle": "Electrician",
-      "location": "Dresden"
+      "location": "Dresden",
+      "id": "393c"
     },
     {
       "img": "../../../public/HomepageSection1/John.png",
@@ -1718,7 +1813,8 @@
       "rating": 5,
       "comment": "I can use my free time perfectly to get additional jobs .",
       "jobTitle": "Tischler",
-      "location": "Berlin"
+      "location": "Berlin",
+      "id": "3423"
     },
     {
       "img": "../../../public/HomepageSection1/Peter.png",
@@ -1726,7 +1822,8 @@
       "rating": 5,
       "comment": "Super easy handling and direct contact with customers!",
       "jobTitle": "Painter",
-      "location": "Munich"
+      "location": "Munich",
+      "id": "9eab"
     }
   ]
 }

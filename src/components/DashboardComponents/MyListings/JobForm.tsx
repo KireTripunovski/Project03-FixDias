@@ -183,6 +183,7 @@ const JobForm: React.FC<JobFormProps> = ({ onSuccess }) => {
   const handleInputChange = (
     e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>
   ) => {
+    e.preventDefault();
     const { name, value } = e.target;
     setFormData((prev) => ({ ...prev, [name]: value }));
   };
@@ -281,7 +282,7 @@ const JobForm: React.FC<JobFormProps> = ({ onSuccess }) => {
                         key={state.id}
                         className={styles.stateOption}
                         onClick={(e) => {
-                          e.stopPropagation();
+                          e.preventDefault();
                           handleStateSelect(state);
                         }}
                       >
